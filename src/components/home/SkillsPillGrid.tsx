@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Box, Settings, Code, MessageCircle, Search, Pen } from "lucide-react";
-import ScrollReveal from "@/components/shared/ScrollReveal";
 
 const skills = [
   { label: "Product Building", icon: Box, color: "text-brand-orange", side: "left" as const },
@@ -28,15 +27,6 @@ const SkillsPillGrid = () => {
   return (
     <section className="py-24 bg-background">
       <div className="max-w-5xl mx-auto px-6" ref={ref}>
-        {/* Label */}
-        <ScrollReveal>
-          <div className="flex items-center justify-center gap-4 mb-12">
-            <div className="h-[1px] w-12 bg-border" />
-            <span className="font-serif italic text-sm text-muted-foreground">Hello!</span>
-            <div className="h-[1px] w-12 bg-border" />
-          </div>
-        </ScrollReveal>
-
         {/* Content with flanking pills */}
         <div className="relative flex items-center justify-center gap-8">
           {/* Left pills - desktop only */}
@@ -47,7 +37,7 @@ const SkillsPillGrid = () => {
                 initial={{ opacity: 0, x: -60 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: 0.4 + i * 0.15, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-                className="glassmorphism rounded-full px-4 py-2.5 flex items-center gap-2 shadow-md"
+                className="bg-white/50 backdrop-blur-md border border-gray-300/50 shadow-sm rounded-full px-4 py-2.5 flex items-center gap-2"
                 style={{ transform: `rotate(${[-3, 2, -1][i]}deg)` }}
               >
                 <skill.icon className={`w-4 h-4 ${skill.color}`} />
@@ -82,7 +72,7 @@ const SkillsPillGrid = () => {
                 initial={{ opacity: 0, x: 60 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: 0.4 + i * 0.15, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-                className="glassmorphism rounded-full px-4 py-2.5 flex items-center gap-2 shadow-md"
+                className="bg-white/50 backdrop-blur-md border border-gray-300/50 shadow-sm rounded-full px-4 py-2.5 flex items-center gap-2"
                 style={{ transform: `rotate(${[2, -2, 1][i]}deg)` }}
               >
                 <skill.icon className={`w-4 h-4 ${skill.color}`} />
@@ -102,7 +92,7 @@ const SkillsPillGrid = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 1.6 + i * 0.1 }}
-              className="glassmorphism rounded-full px-3 py-2 flex items-center gap-2 shadow-md"
+              className="bg-white/50 backdrop-blur-md border border-gray-300/50 shadow-sm rounded-full px-3 py-2 flex items-center gap-2"
             >
               <skill.icon className={`w-3.5 h-3.5 ${skill.color}`} />
               <span className="font-sans text-[11px] font-medium text-foreground">

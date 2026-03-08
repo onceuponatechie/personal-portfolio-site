@@ -71,23 +71,23 @@ const SmileyGreeting = () => {
             <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
               <path
                 d="M18 4c1 0 2 .8 2 2v10h-4V6c0-1.2 1-2 2-2z"
-                fill="hsl(30 70% 65%)"
+                fill="hsl(0 0% 15%)"
               />
               <path
                 d="M13 8c1-.5 2.2 0 2.5 1l3 9-3.5 1.2-3-9c-.3-1 .2-1.8 1-2.2z"
-                fill="hsl(30 70% 65%)"
+                fill="hsl(0 0% 15%)"
               />
               <path
                 d="M23 8c-1-.5-2.2 0-2.5 1l-3 9 3.5 1.2 3-9c.3-1-.2-1.8-1-2.2z"
-                fill="hsl(30 70% 65%)"
+                fill="hsl(0 0% 15%)"
               />
               <path
                 d="M10 16c.8-.8 2-.6 2.5.2l4 7-3 2-4-7c-.5-.8-.3-1.5.5-2.2z"
-                fill="hsl(30 70% 65%)"
+                fill="hsl(0 0% 15%)"
               />
               <path
                 d="M12 24c0 0 2 8 6 8s6-8 6-8l-2-1c0 0-1.5 5-4 5s-4-5-4-5l-2 1z"
-                fill="hsl(30 70% 65%)"
+                fill="hsl(0 0% 15%)"
               />
             </svg>
           </motion.div>

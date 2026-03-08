@@ -36,7 +36,7 @@ const books = [
 
 const ReadersCornerPreview = () => {
   return (
-    <section className="py-24 bg-card">
+    <section className="py-24 bg-background">
       <div className="max-w-5xl mx-auto px-6">
         <ScrollReveal>
           <div className="text-center mb-12">

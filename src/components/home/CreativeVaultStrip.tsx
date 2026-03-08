@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
 const mockCards = [
-  { title: "Brand Identity Kit", color: "from-brand-orange/30 to-brand-yellow/20", h: "h-[250px]" },
-  { title: "Dashboard Redesign", color: "from-brand-blue/30 to-brand-lavender/20", h: "h-[320px]" },
-  { title: "Mobile App Concept", color: "from-brand-green/30 to-brand-blue/20", h: "h-[280px]" },
-  { title: "E-commerce Template", color: "from-brand-lavender/30 to-brand-orange/20", h: "h-[350px]" },
-  { title: "Portfolio Redesign", color: "from-brand-yellow/30 to-brand-green/20", h: "h-[260px]" },
-  { title: "SaaS Landing Page", color: "from-brand-blue/20 to-brand-yellow/20", h: "h-[300px]" },
-  { title: "Newsletter Template", color: "from-brand-orange/20 to-brand-green/20", h: "h-[270px]" },
-  { title: "Icon Pack", color: "from-brand-lavender/20 to-brand-blue/20", h: "h-[310px]" },
+  { title: "Brand Identity Kit", image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=300&h=400&fit=crop", h: "h-[250px]" },
+  { title: "Dashboard Redesign", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=400&fit=crop", h: "h-[320px]" },
+  { title: "Mobile App Concept", image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=300&h=400&fit=crop", h: "h-[280px]" },
+  { title: "E-commerce Template", image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=300&h=400&fit=crop", h: "h-[350px]" },
+  { title: "Portfolio Redesign", image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=300&h=400&fit=crop", h: "h-[260px]" },
+  { title: "SaaS Landing Page", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300&h=400&fit=crop", h: "h-[300px]" },
+  { title: "Newsletter Template", image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=300&h=400&fit=crop", h: "h-[270px]" },
+  { title: "Icon Pack", image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=300&h=400&fit=crop", h: "h-[310px]" },
 ];
 
 const categories = [
@@ -30,24 +30,32 @@ const CreativeVaultStrip = () => {
     <section className="py-0 bg-background">
       <div ref={ref} className="max-w-6xl mx-auto px-4">
         {/* Main Container */}
-        <div className="relative gradient-border rounded-3xl overflow-hidden">
-          <div className="bg-background rounded-3xl overflow-hidden relative" style={{ height: "clamp(500px, 80vh, 1100px)" }}>
+        <div className="bg-dark-bg rounded-3xl p-[2px] overflow-hidden">
+          <div className="bg-dark-bg rounded-3xl overflow-hidden relative" style={{ height: "clamp(500px, 80vh, 1100px)" }}>
             {/* Scrolling Grid */}
             <div className="absolute inset-0 overflow-hidden">
-              <div className="animate-scroll-up flex flex-wrap gap-4 p-6 justify-center" style={{
+              <div className="flex flex-wrap gap-3 p-6 justify-center" style={{
                 animation: "scroll-up 40s linear infinite",
               }}>
-                {/* Duplicate cards for seamless loop */}
                 {[...mockCards, ...mockCards].map((card, i) => (
                   <div
                     key={i}
-                    className={`bg-gradient-to-br ${card.color} rounded-2xl shadow-sm ${card.h} flex-shrink-0`}
+                    className={`rounded-2xl overflow-hidden shadow-sm ${card.h} flex-shrink-0`}
                     style={{ width: i % 3 === 0 ? 280 : i % 3 === 1 ? 200 : 320 }}
                   >
-                    <div className="p-4 h-full flex flex-col justify-end">
-                      <p className="font-sans text-xs font-medium text-foreground/60">
-                        {card.title}
-                      </p>
+                    <div className="relative w-full h-full">
+                      <img
+                        src={card.image}
+                        alt={card.title}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 p-4">
+                        <p className="font-sans text-xs font-medium text-white/80">
+                          {card.title}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 ))}

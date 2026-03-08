@@ -111,14 +111,14 @@ const FeaturedBuildsShowcase = () => {
                 </motion.div>
               </AnimatePresence>
 
-              {/* Thumbnails */}
-              <div className="hidden md:flex flex-col gap-3">
+              {/* Thumbnails - horizontal */}
+              <div className="hidden md:flex flex-row gap-3 items-end">
                 {projects.map((p, i) => (
                   <button
                     key={i}
                     onClick={() => setActive(i)}
                     data-cursor="pointer"
-                    className={`w-[100px] h-[140px] rounded-xl overflow-hidden border-2 transition-all ${
+                    className={`w-[120px] h-[80px] rounded-xl overflow-hidden border-2 transition-all ${
                       i === active ? "border-white/60 scale-105" : "border-white/20 opacity-60 hover:opacity-80"
                     }`}
                   >
