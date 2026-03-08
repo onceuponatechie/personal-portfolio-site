@@ -1,0 +1,160 @@
+import { useRef, useState, useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import SmileyGreeting from "@/components/shared/SmileyGreeting";
+
+const thumbnails = [
+  "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=260&h=400&fit=crop",
+  "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=260&h=400&fit=crop",
+  "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=260&h=400&fit=crop",
+  "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=260&h=400&fit=crop",
+];
+
+const trustLogos = [
+  { name: "Notion", color: "hsl(0 0% 20%)" },
+  { name: "Figma", color: "hsl(255 35% 74%)" },
+  { name: "Webflow", color: "hsl(213 60% 57%)" },
+  { name: "Canva", color: "hsl(213 60% 57%)" },
+];
+
+const MediaBox = ({ offset = 0 }: { offset?: number }) => {
+  const [idx, setIdx] = useState(offset);
+  useEffect(() => {
+    const timer = setInterval(() => setIdx((i) => (i + 1) % thumbnails.length), 3000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <span className="inline-flex align-middle mx-1.5 relative" style={{ width: 72, height: 44 }}>
+      <span className="absolute inset-0 rounded-2xl overflow-hidden border border-white/20 shadow-lg" 
+        style={{ background: "hsl(0 0% 12%)" }}>
+        {thumbnails.map((src, i) => (
+          <motion.img
+            key={src}
+            src={src}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+            initial={false}
+            animate={{ opacity: i === idx ? 1 : 0 }}
+            transition={{ duration: 0.8 }}
+          />
+        ))}
+      </span>
+    </span>
+  );
+};
+
+const HeroSection = () => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], [0, 150]);
+
+  return (
+    <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background to-surface-warm" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-white/60 rounded-full blur-[120px]" />
+
+      <motion.div style={{ y }} className="relative z-10 max-w-3xl mx-auto px-6 text-center py-32">
+        {/* Smiley */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex justify-center mb-8"
+        >
+          <SmileyGreeting />
+        </motion.div>
+
+        {/* Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="flex justify-center mb-8"
+        >
+          <div className="glassmorphism rounded-full px-4 py-2 flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-brand-green animate-pulse" />
+            <span className="font-sans text-xs font-medium text-text-custom-secondary">
+              Open to Collaborations
+            </span>
+          </div>
+        </motion.div>
+
+        {/* Headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="font-serif text-[clamp(2.5rem,5vw,3.75rem)] leading-[1.15] text-foreground mb-6"
+        >
+          <span className="italic">Products,</span>{" "}
+          <span className="italic">people,</span> and the
+          <br className="hidden sm:block" />
+          <MediaBox offset={0} />{" "}
+          <span className="italic">stories</span> that connect
+          <br className="hidden sm:block" />
+          <MediaBox offset={2} />{" "}
+          them.
+        </motion.h1>
+
+        {/* Subheadline */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 1 }}
+          className="font-sans text-base md:text-lg font-medium text-text-custom-secondary tracking-wide mb-10"
+        >
+          Creator · Builder · Storyteller
+        </motion.p>
+
+        {/* CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.2 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+        >
+          <a
+            href="/builds"
+            className="bg-primary text-primary-foreground rounded-full px-8 py-4 font-sans text-sm font-medium hover:opacity-90 transition-opacity"
+            data-cursor="pointer"
+          >
+            Explore My Work →
+          </a>
+          <a
+            href="/resources"
+            className="font-sans text-sm text-text-custom-secondary hover:text-primary transition-colors underline underline-offset-4"
+            data-cursor="pointer"
+          >
+            Or grab a freebie →
+          </a>
+        </motion.div>
+
+        {/* Trust Row */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 1.5 }}
+          className="flex items-center justify-center gap-1 mt-16"
+        >
+          <div className="flex -space-x-2">
+            {trustLogos.map((logo, i) => (
+              <div
+                key={i}
+                className="w-8 h-8 rounded-full border-2 border-background flex items-center justify-center text-[8px] font-sans font-bold text-white"
+                style={{ backgroundColor: logo.color, zIndex: 4 - i }}
+              >
+                {logo.name[0]}
+              </div>
+            ))}
+          </div>
+          <span className="font-sans text-xs text-text-custom-tertiary ml-3">
+            Built with tools I love
+          </span>
+        </motion.div>
+      </motion.div>
+    </section>
+  );
+};
+
+export default HeroSection;
