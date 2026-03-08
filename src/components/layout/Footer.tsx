@@ -51,16 +51,16 @@ const Footer = () => {
 
             {/* Newsletter */}
             <div id="newsletter" className="mt-12 max-w-md mx-auto">
-              <div className="glassmorphism-dark rounded-2xl p-1 flex items-center">
+              <div className="glassmorphism-dark rounded-full p-1 flex items-center">
                 <input
                   type="email"
                   placeholder="Your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 bg-transparent text-white placeholder:text-white/40 px-4 py-3 text-sm focus:outline-none font-sans"
+                  className="flex-1 bg-transparent text-white placeholder:text-white/40 px-5 py-3 text-sm focus:outline-none font-sans"
                 />
                 <button
-                  className="bg-primary text-primary-foreground rounded-xl px-6 py-3 text-sm font-sans font-medium hover:opacity-90 transition-opacity shrink-0"
+                  className="bg-primary text-primary-foreground rounded-full px-6 py-3 text-sm font-sans font-medium hover:opacity-90 transition-opacity shrink-0"
                   data-cursor="pointer"
                 >
                   Subscribe

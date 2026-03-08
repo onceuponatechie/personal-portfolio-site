@@ -69,7 +69,7 @@ const BlogCard = ({ post, index }: { post: typeof posts[0]; index: number }) => 
           initial={{ x: 80, y: -60, opacity: 0, rotate: 6 }}
           animate={hovered ? { x: 0, y: 0, opacity: 1, rotate: 3 } : { x: 80, y: -60, opacity: 0, rotate: 6 }}
           transition={{ type: "spring", stiffness: 180, damping: 18 }}
-          className="absolute top-4 right-4 w-28 h-28 rounded-xl overflow-hidden shadow-lg z-10"
+          className="absolute top-4 right-4 w-48 h-40 rounded-xl overflow-hidden shadow-lg z-10"
         >
           <img src={post.image} alt="" className="w-full h-full object-cover" />
         </motion.div>

@@ -1,6 +1,4 @@
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import StickyWidget from "@/components/layout/StickyWidget";
+import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/home/HeroSection";
 import CreativeVaultStrip from "@/components/home/CreativeVaultStrip";
 import SkillsPillGrid from "@/components/home/SkillsPillGrid";
@@ -12,21 +10,16 @@ import FAQAccordion from "@/components/home/FAQAccordion";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-      <main>
-        <HeroSection />
-        <CreativeVaultStrip />
-        <SkillsPillGrid />
-        <ProcessSteps />
-        <FeaturedBuildsShowcase />
-        <BlogPreview />
-        <ReadersCornerPreview />
-        <FAQAccordion />
-      </main>
-      <Footer />
-      <StickyWidget />
-    </div>
+    <PageLayout>
+      <HeroSection />
+      <CreativeVaultStrip />
+      <SkillsPillGrid />
+      <ProcessSteps />
+      <FeaturedBuildsShowcase />
+      <BlogPreview />
+      <ReadersCornerPreview />
+      <FAQAccordion />
+    </PageLayout>
   );
 };
 
