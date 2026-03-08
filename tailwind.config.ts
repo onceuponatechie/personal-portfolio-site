@@ -13,12 +13,39 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        serif: ['"Playfair Display"', 'serif'],
+        sans: ['"Inter"', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        brand: {
+          orange: "hsl(var(--brand-orange))",
+          lavender: "hsl(var(--brand-lavender))",
+          green: "hsl(var(--brand-green))",
+          blue: "hsl(var(--brand-blue))",
+          yellow: "hsl(var(--brand-yellow))",
+        },
+        surface: {
+          warm: "hsl(var(--surface-warm))",
+          light: "hsl(var(--surface-light))",
+          muted: "hsl(var(--surface-muted))",
+        },
+        "text-custom": {
+          primary: "hsl(var(--text-primary))",
+          secondary: "hsl(var(--text-secondary))",
+          tertiary: "hsl(var(--text-tertiary))",
+          inverse: "hsl(var(--text-inverse))",
+        },
+        dark: {
+          bg: "hsl(var(--dark-bg))",
+          card: "hsl(var(--dark-card))",
+          muted: "hsl(var(--dark-muted))",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -65,25 +92,22 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "scroll-up": {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(-50%)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "scroll-up": "scroll-up 30s linear infinite",
       },
     },
   },
