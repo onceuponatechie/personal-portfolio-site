@@ -1,34 +1,16 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, X } from "lucide-react";
+import { Plus } from "lucide-react";
 import { Link } from "react-router-dom";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
 const faqs = [
-  {
-    q: "What kind of work do you do?",
-    a: "I build digital products, design brand experiences, create automation workflows, and write about the intersection of creativity and technology.",
-  },
-  {
-    q: "Are you available for freelance work?",
-    a: "Yes! I take on select projects that align with my skills and interests. The best way to start is through the contact page.",
-  },
-  {
-    q: "What tools do you use?",
-    a: "My core stack includes React, Tailwind CSS, Figma, Python, and various automation tools like Make and Zapier. I also use AI tools extensively.",
-  },
-  {
-    q: "Do you offer free resources?",
-    a: "Absolutely. Check out the Creative Vault for templates, guides, and tools — many of them free.",
-  },
-  {
-    q: "Can I collaborate with you on content?",
-    a: "I love collaborating! Whether it's a guest post, a joint project, or a creative experiment — reach out and let's talk.",
-  },
-  {
-    q: "How can I stay updated?",
-    a: "Subscribe to my newsletter for weekly insights, or follow me on social media for daily behind-the-scenes updates.",
-  },
+  { q: "What kind of work do you do?", a: "I build digital products, design brand experiences, create automation workflows, and write about the intersection of creativity and technology." },
+  { q: "Are you available for freelance work?", a: "Yes! I take on select projects that align with my skills and interests. The best way to start is through the contact page." },
+  { q: "What tools do you use?", a: "My core stack includes React, Tailwind CSS, Figma, Python, and various automation tools like Make and Zapier. I also use AI tools extensively." },
+  { q: "Do you offer free resources?", a: "Absolutely. Check out the Creative Vault for templates, guides, and tools — many of them free." },
+  { q: "Can I collaborate with you on content?", a: "I love collaborating! Whether it's a guest post, a joint project, or a creative experiment — reach out and let's talk." },
+  { q: "How can I stay updated?", a: "Subscribe to my newsletter for weekly insights, or follow me on social media for daily behind-the-scenes updates." },
 ];
 
 const FAQAccordion = () => {
@@ -39,7 +21,7 @@ const FAQAccordion = () => {
       <div className="max-w-2xl mx-auto px-6">
         <ScrollReveal>
           <div className="text-center mb-12">
-            <p className="font-sans text-xs uppercase tracking-widest text-muted-foreground mb-3">
+            <p className="font-serif italic text-sm text-muted-foreground mb-3">
               FAQ
             </p>
             <h2 className="font-serif text-3xl md:text-4xl text-foreground">
@@ -89,13 +71,13 @@ const FAQAccordion = () => {
           ))}
         </div>
 
-        {/* CTA Card */}
+        {/* CTA Card — dark theme */}
         <ScrollReveal delay={0.3}>
-          <div className="mt-12 glassmorphism rounded-2xl p-8 text-center">
-            <p className="font-serif text-lg text-foreground mb-2">
+          <div className="mt-12 bg-dark-bg rounded-2xl p-8 text-center">
+            <p className="font-serif text-lg text-white mb-2">
               Still have questions?
             </p>
-            <p className="font-sans text-sm text-muted-foreground mb-6">
+            <p className="font-sans text-sm text-white/60 mb-6">
               I'd love to hear from you. Let's chat!
             </p>
             <Link
