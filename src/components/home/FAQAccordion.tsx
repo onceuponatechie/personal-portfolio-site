@@ -17,7 +17,7 @@ const FAQAccordion = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 bg-surface-light">
       <div className="max-w-2xl mx-auto px-6">
         <ScrollReveal>
           <div className="text-center mb-12">
@@ -33,10 +33,16 @@ const FAQAccordion = () => {
         <div className="space-y-3">
           {faqs.map((faq, i) => (
             <ScrollReveal key={i} delay={i * 0.05}>
-              <div className="border border-border rounded-xl overflow-hidden">
+              <motion.div
+                layout
+                className={`border border-white/40 bg-white/60 backdrop-blur-xl overflow-hidden transition-all ${
+                  openIndex === i ? "rounded-2xl" : "rounded-full"
+                }`}
+                style={{ boxShadow: "0 4px 16px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.03)" }}
+              >
                 <button
                   onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                  className="w-full flex items-center justify-between p-5 text-left"
+                  className="w-full flex items-center justify-between px-6 py-4 text-left"
                   data-cursor="pointer"
                 >
                   <span className="font-sans text-sm font-medium text-foreground pr-4">
@@ -45,9 +51,14 @@ const FAQAccordion = () => {
                   <motion.div
                     animate={{ rotate: openIndex === i ? 45 : 0 }}
                     transition={{ duration: 0.2 }}
-                    className="shrink-0"
+                    className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center"
+                    style={{
+                      background: "rgba(0,0,0,0.8)",
+                      backdropFilter: "blur(12px)",
+                      border: "1px solid rgba(255,255,255,0.15)",
+                    }}
                   >
-                    <Plus className="w-4 h-4 text-muted-foreground" />
+                    <Plus className="w-3.5 h-3.5 text-white" />
                   </motion.div>
                 </button>
 
@@ -60,13 +71,13 @@ const FAQAccordion = () => {
                       transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
                       className="overflow-hidden"
                     >
-                      <p className="px-5 pb-5 font-sans text-sm text-muted-foreground leading-relaxed">
+                      <p className="px-6 pb-5 font-sans text-sm text-muted-foreground leading-relaxed">
                         {faq.a}
                       </p>
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              </motion.div>
             </ScrollReveal>
           ))}
         </div>

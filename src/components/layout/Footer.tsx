@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Instagram, Twitter, Linkedin, Github, Mail } from "lucide-react";
+import { Instagram, Twitter, Linkedin, Github } from "lucide-react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
 const footerLinks = {
@@ -42,11 +42,13 @@ const Footer = () => {
             <p className="font-serif italic text-white/40 text-sm mb-4">
               Don't be a stranger
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl text-white mb-2">
-              Let's build something
+            <h2 className="font-serif text-foreground">
+              <span className="text-white/40 text-2xl md:text-3xl">Let's</span>{" "}
+              <span className="text-white text-2xl md:text-3xl">build</span>{" "}
+              <span className="text-white/40 text-2xl md:text-3xl">an</span>
             </h2>
-            <h2 className="font-serif text-4xl md:text-5xl text-white font-bold italic">
-              real.
+            <h2 className="font-serif text-6xl md:text-8xl text-white font-bold italic mt-1">
+              Experience.
             </h2>
 
             {/* Newsletter */}

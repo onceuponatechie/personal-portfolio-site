@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
 const mockCards = [
-  { title: "Brand Identity Kit", image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=300&h=400&fit=crop", h: "h-[250px]" },
-  { title: "Dashboard Redesign", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=400&fit=crop", h: "h-[320px]" },
-  { title: "Mobile App Concept", image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=300&h=400&fit=crop", h: "h-[280px]" },
-  { title: "E-commerce Template", image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=300&h=400&fit=crop", h: "h-[350px]" },
-  { title: "Portfolio Redesign", image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=300&h=400&fit=crop", h: "h-[260px]" },
-  { title: "SaaS Landing Page", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300&h=400&fit=crop", h: "h-[300px]" },
-  { title: "Newsletter Template", image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=300&h=400&fit=crop", h: "h-[270px]" },
-  { title: "Icon Pack", image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=300&h=400&fit=crop", h: "h-[310px]" },
+  { title: "Brand Identity Kit", image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=500&fit=crop" },
+  { title: "Dashboard Redesign", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=500&fit=crop" },
+  { title: "Mobile App Concept", image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=500&fit=crop" },
+  { title: "E-commerce Template", image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=500&fit=crop" },
+  { title: "Portfolio Redesign", image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&h=500&fit=crop" },
+  { title: "SaaS Landing Page", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=500&fit=crop" },
+  { title: "Newsletter Template", image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=400&h=500&fit=crop" },
+  { title: "Icon Pack", image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=500&fit=crop" },
 ];
 
 const categories = [
@@ -31,23 +31,23 @@ const CreativeVaultStrip = () => {
       <div ref={ref} className="max-w-6xl mx-auto px-4">
         {/* Main Container */}
         <div className="bg-dark-bg rounded-3xl p-[2px] overflow-hidden">
-          <div className="bg-dark-bg rounded-3xl overflow-hidden relative" style={{ height: "clamp(500px, 80vh, 1100px)" }}>
+          <div className="bg-dark-bg rounded-3xl overflow-hidden relative" style={{ height: "1200px" }}>
             {/* Scrolling Grid */}
             <div className="absolute inset-0 overflow-hidden">
-              <div className="flex flex-wrap gap-3 p-6 justify-center" style={{
-                animation: "scroll-up 40s linear infinite",
-              }}>
-                {[...mockCards, ...mockCards].map((card, i) => (
+              <div
+                className="columns-3 md:columns-4 gap-2 p-2"
+                style={{ animation: "scroll-up 40s linear infinite" }}
+              >
+                {[...mockCards, ...mockCards, ...mockCards, ...mockCards].map((card, i) => (
                   <div
                     key={i}
-                    className={`rounded-2xl overflow-hidden shadow-sm ${card.h} flex-shrink-0`}
-                    style={{ width: i % 3 === 0 ? 280 : i % 3 === 1 ? 200 : 320 }}
+                    className="rounded-2xl overflow-hidden shadow-sm mb-2 break-inside-avoid"
                   >
-                    <div className="relative w-full h-full">
+                    <div className="relative w-full">
                       <img
                         src={card.image}
                         alt={card.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-auto object-cover"
                         loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
