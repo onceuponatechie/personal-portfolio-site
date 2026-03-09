@@ -39,11 +39,32 @@ const posts = [
   },
 ];
 
-const categoryColors: Record<string, string> = {
-  Design: "text-brand-lavender",
-  Building: "text-brand-orange",
-  Automation: "text-brand-green",
-  Product: "text-brand-blue",
+const categoryIcons: Record<string, JSX.Element> = {
+  Design: (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <defs><linearGradient id="bi-design" x1="0" y1="0" x2="1" y2="1"><stop stopColor="hsl(255 35% 64%)" /><stop offset="1" stopColor="hsl(255 35% 84%)" /></linearGradient></defs>
+      <path d="M12 19l7-7 3 3-7 7H12v-3z" fill="url(#bi-design)" />
+      <path d="M2 21l3.5-1L18 7.5 16.5 6 4 18.5 2 21z" fill="url(#bi-design)" opacity="0.7" />
+    </svg>
+  ),
+  Building: (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <defs><linearGradient id="bi-build" x1="0" y1="0" x2="1" y2="1"><stop stopColor="hsl(18 78% 50%)" /><stop offset="1" stopColor="hsl(18 78% 72%)" /></linearGradient></defs>
+      <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" fill="url(#bi-build)" />
+    </svg>
+  ),
+  Automation: (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <defs><linearGradient id="bi-auto" x1="0" y1="0" x2="1" y2="1"><stop stopColor="hsl(155 40% 25%)" /><stop offset="1" stopColor="hsl(155 40% 50%)" /></linearGradient></defs>
+      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="url(#bi-auto)" />
+    </svg>
+  ),
+  Product: (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <defs><linearGradient id="bi-product" x1="0" y1="0" x2="1" y2="1"><stop stopColor="hsl(213 60% 50%)" /><stop offset="1" stopColor="hsl(213 60% 72%)" /></linearGradient></defs>
+      <path d="M9 18h6M12 2a7 7 0 015 11.9V17a1 1 0 01-1 1H8a1 1 0 01-1-1v-3.1A7 7 0 0112 2z" fill="url(#bi-product)" />
+    </svg>
+  ),
 };
 
 const BlogCard = ({ post, index }: { post: typeof posts[0]; index: number }) => {
@@ -64,7 +85,6 @@ const BlogCard = ({ post, index }: { post: typeof posts[0]; index: number }) => 
         data-cursor="pointer"
         style={{ minHeight: 280 }}
       >
-        {/* Hover image */}
         <motion.div
           initial={{ x: 80, y: -60, opacity: 0, rotate: 6 }}
           animate={hovered ? { x: 0, y: 0, opacity: 1, rotate: 3 } : { x: 80, y: -60, opacity: 0, rotate: 6 }}
@@ -74,17 +94,14 @@ const BlogCard = ({ post, index }: { post: typeof posts[0]; index: number }) => 
           <img src={post.image} alt="" className="w-full h-full object-cover" />
         </motion.div>
 
-        {/* Default circle icon */}
         <motion.div
           animate={hovered ? { scale: 0.8, opacity: 0 } : { scale: 1, opacity: 1 }}
           className="w-12 h-12 rounded-full bg-card flex items-center justify-center mb-5"
         >
-          <span className={`font-serif text-lg italic ${categoryColors[post.category] || "text-primary"}`}>
-            {post.category[0]}
-          </span>
+          {categoryIcons[post.category]}
         </motion.div>
 
-        <span className={`font-sans text-[11px] uppercase tracking-wider ${categoryColors[post.category] || "text-primary"}`}>
+        <span className="font-sans text-[11px] uppercase tracking-wider text-muted-foreground">
           {post.category}
         </span>
         <div className="flex items-center gap-2 mt-1 mb-3">
@@ -113,7 +130,7 @@ const BlogPreview = () => {
       <div className="max-w-5xl mx-auto px-6">
         <ScrollReveal>
           <div className="text-center mb-12">
-            <p className="font-sans text-xs uppercase tracking-widest text-muted-foreground mb-3">
+            <p className="font-serif italic text-sm text-muted-foreground mb-3">
               From the Blog
             </p>
             <h2 className="font-serif text-3xl md:text-4xl text-foreground">

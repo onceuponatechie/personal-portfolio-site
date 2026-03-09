@@ -36,7 +36,7 @@ const ProcessSteps = () => {
       <div className="max-w-5xl mx-auto px-6" ref={ref}>
         <ScrollReveal>
           <div className="text-center mb-16">
-            <p className="font-sans text-xs uppercase tracking-widest text-muted-foreground mb-3">
+            <p className="font-serif italic text-sm text-muted-foreground mb-3">
               My Process, Explained
             </p>
             <h2 className="font-serif text-3xl md:text-4xl text-foreground">

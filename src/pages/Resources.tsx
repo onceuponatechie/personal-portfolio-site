@@ -83,13 +83,26 @@ const Resources = () => {
                   </div>
                   <h3 className="font-serif text-base text-foreground mb-2">{resource.title}</h3>
                   <p className="font-sans text-xs text-muted-foreground leading-relaxed mb-4">{resource.description}</p>
-                  <button
-                    data-cursor="pointer"
-                    className="inline-flex items-center gap-2 bg-primary text-primary-foreground rounded-full px-4 py-2 text-xs font-sans font-medium hover:opacity-90 transition-opacity"
-                  >
-                    {resource.price === "Free" ? <Download className="w-3 h-3" /> : <ExternalLink className="w-3 h-3" />}
-                    {resource.price === "Free" ? "Download" : "Get it"}
-                  </button>
+                  {resource.price === "Free" ? (
+                    <button
+                      data-cursor="pointer"
+                      className="inline-flex items-center gap-2 bg-primary text-primary-foreground rounded-full px-4 py-2 text-xs font-sans font-medium hover:opacity-90 transition-opacity"
+                    >
+                      <Download className="w-3 h-3" />
+                      Download Free
+                    </button>
+                  ) : (
+                    <a
+                      href="https://gumroad.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-cursor="pointer"
+                      className="inline-flex items-center gap-2 bg-primary text-primary-foreground rounded-full px-4 py-2 text-xs font-sans font-medium hover:opacity-90 transition-opacity"
+                    >
+                      <ExternalLink className="w-3 h-3" />
+                      Get on Gumroad
+                    </a>
+                  )}
                 </div>
               </motion.div>
             ))}

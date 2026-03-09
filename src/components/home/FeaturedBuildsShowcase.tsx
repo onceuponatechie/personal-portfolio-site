@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { Maximize2 } from "lucide-react";
+import { Maximize2, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
@@ -10,6 +10,7 @@ const projects = [
     title: "Streamline Dashboard",
     description: "A real-time analytics dashboard with AI-powered insights for growing startups.",
     tools: ["React", "Tailwind", "Supabase"],
+    liveUrl: "https://streamline-demo.example.com",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=700&fit=crop",
     thumb: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=240&h=340&fit=crop",
   },
@@ -18,6 +19,7 @@ const projects = [
     title: "Artisan Marketplace",
     description: "A curated marketplace for independent creators to sell handmade goods.",
     tools: ["Next.js", "Stripe", "Sanity"],
+    liveUrl: "https://artisan-demo.example.com",
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=700&fit=crop",
     thumb: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=240&h=340&fit=crop",
   },
@@ -26,6 +28,7 @@ const projects = [
     title: "Wellness Tracker",
     description: "A mindful daily tracker for habits, moods, and gratitude journaling.",
     tools: ["React Native", "Firebase", "Figma"],
+    liveUrl: "https://wellness-demo.example.com",
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=700&fit=crop",
     thumb: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=240&h=340&fit=crop",
   },
@@ -48,7 +51,7 @@ const FeaturedBuildsShowcase = () => {
       <div className="max-w-6xl mx-auto px-4">
         <ScrollReveal>
           <div className="text-center mb-12">
-            <p className="font-sans text-xs uppercase tracking-widest text-muted-foreground mb-3">
+            <p className="font-serif italic text-sm text-muted-foreground mb-3">
               Featured Work
             </p>
             <h2 className="font-serif text-3xl md:text-4xl text-foreground">
@@ -57,10 +60,8 @@ const FeaturedBuildsShowcase = () => {
           </div>
         </ScrollReveal>
 
-        {/* Cinematic Frame */}
         <div className="gradient-border rounded-3xl overflow-hidden">
           <div className="bg-dark-bg rounded-3xl overflow-hidden relative" style={{ height: "clamp(400px, 60vh, 600px)" }}>
-            {/* Background Image */}
             <AnimatePresence mode="wait">
               <motion.img
                 key={active}
@@ -74,12 +75,9 @@ const FeaturedBuildsShowcase = () => {
               />
             </AnimatePresence>
 
-            {/* Gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
-            {/* Content */}
             <div className="absolute bottom-0 left-0 right-0 p-8 flex items-end justify-between">
-              {/* Info */}
               <AnimatePresence mode="wait">
                 <motion.div
                   key={active}
@@ -98,7 +96,7 @@ const FeaturedBuildsShowcase = () => {
                   <p className="font-sans text-sm text-white/70 mb-4">
                     {project.description}
                   </p>
-                  <div className="flex gap-2">
+                  <div className="flex flex-wrap gap-2 items-center">
                     {project.tools.map((tool) => (
                       <span
                         key={tool}
@@ -107,11 +105,20 @@ const FeaturedBuildsShowcase = () => {
                         {tool}
                       </span>
                     ))}
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-cursor="pointer"
+                      className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur rounded-full px-4 py-1.5 text-[11px] font-sans font-medium text-white hover:bg-white/30 transition-colors"
+                    >
+                      <ExternalLink className="w-3 h-3" />
+                      Live Demo
+                    </a>
                   </div>
                 </motion.div>
               </AnimatePresence>
 
-              {/* Thumbnails - horizontal */}
               <div className="hidden md:flex flex-row gap-3 items-end">
                 {projects.map((p, i) => (
                   <button
@@ -128,7 +135,6 @@ const FeaturedBuildsShowcase = () => {
               </div>
             </div>
 
-            {/* Expand Icon */}
             <Link
               to="/builds"
               className="absolute top-6 right-6 glassmorphism-dark rounded-full w-10 h-10 flex items-center justify-center text-white/70 hover:text-white transition-colors"
@@ -137,7 +143,6 @@ const FeaturedBuildsShowcase = () => {
               <Maximize2 className="w-4 h-4" />
             </Link>
 
-            {/* Counter */}
             <div className="absolute bottom-8 right-8 md:hidden">
               <span className="font-sans text-xs text-white/60">
                 {active + 1} / {projects.length}
