@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Clock, ArrowRight } from "lucide-react";
+import { Clock } from "lucide-react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
 const posts = [
@@ -76,14 +76,15 @@ const BlogCard = ({ post, index }: { post: typeof posts[0]; index: number }) => 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
+      whileHover={{ y: -4 }}
     >
       <Link
         to={`/blog/${post.slug}`}
-        className="block bg-surface-light rounded-2xl p-6 relative overflow-hidden group"
+        className="block bg-white rounded-2xl p-6 relative overflow-hidden group border border-gray-100"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         data-cursor="pointer"
-        style={{ minHeight: 280 }}
+        style={{ minHeight: 280, boxShadow: "0 8px 30px rgba(0,0,0,0.08)" }}
       >
         <motion.div
           initial={{ x: 80, y: -60, opacity: 0, rotate: 6 }}
@@ -116,8 +117,8 @@ const BlogCard = ({ post, index }: { post: typeof posts[0]; index: number }) => 
           {post.excerpt}
         </p>
 
-        <span className="inline-flex items-center gap-1 font-sans text-xs font-medium text-primary">
-          Read more <ArrowRight className="w-3 h-3" />
+        <span className="inline-flex items-center gap-1 bg-foreground text-white rounded-full px-4 py-2 text-xs font-sans font-medium hover:bg-brand-blue transition-colors">
+          Read more
         </span>
       </Link>
     </motion.div>
@@ -146,20 +147,13 @@ const BlogPreview = () => {
         </div>
 
         <ScrollReveal delay={0.3}>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12">
+          <div className="flex justify-center mt-12">
             <Link
               to="/blog"
-              className="font-sans text-sm font-medium text-foreground hover:text-primary transition-colors"
+              className="border-2 border-foreground text-foreground rounded-full px-6 py-2.5 text-sm font-sans font-medium hover:bg-foreground hover:text-white transition-all"
               data-cursor="pointer"
             >
-              Read all posts →
-            </Link>
-            <Link
-              to="/resources/readers-corner"
-              className="font-sans text-sm text-muted-foreground hover:text-primary transition-colors"
-              data-cursor="pointer"
-            >
-              Reader's Corner →
+              Read all posts
             </Link>
           </div>
         </ScrollReveal>

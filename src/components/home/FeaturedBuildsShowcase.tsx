@@ -11,6 +11,7 @@ const projects = [
     description: "A real-time analytics dashboard with AI-powered insights for growing startups.",
     tools: ["React", "Tailwind", "Supabase"],
     liveUrl: "https://streamline-demo.example.com",
+    slug: "streamline-dashboard",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=700&fit=crop",
     thumb: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=240&h=340&fit=crop",
   },
@@ -20,6 +21,7 @@ const projects = [
     description: "A curated marketplace for independent creators to sell handmade goods.",
     tools: ["Next.js", "Stripe", "Sanity"],
     liveUrl: "https://artisan-demo.example.com",
+    slug: "artisan-marketplace",
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=700&fit=crop",
     thumb: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=240&h=340&fit=crop",
   },
@@ -29,6 +31,7 @@ const projects = [
     description: "A mindful daily tracker for habits, moods, and gratitude journaling.",
     tools: ["React Native", "Firebase", "Figma"],
     liveUrl: "https://wellness-demo.example.com",
+    slug: "wellness-tracker",
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=700&fit=crop",
     thumb: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=240&h=340&fit=crop",
   },
@@ -115,6 +118,13 @@ const FeaturedBuildsShowcase = () => {
                       <ExternalLink className="w-3 h-3" />
                       Live Demo
                     </a>
+                    <Link
+                      to={`/builds/${project.slug}`}
+                      data-cursor="pointer"
+                      className="inline-flex items-center gap-1.5 bg-foreground text-white rounded-full px-4 py-1.5 text-[11px] font-sans font-medium hover:bg-brand-blue transition-colors"
+                    >
+                      View Case Study
+                    </Link>
                   </div>
                 </motion.div>
               </AnimatePresence>

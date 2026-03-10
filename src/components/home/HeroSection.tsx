@@ -102,7 +102,7 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 1 }}
-          className="font-sans text-base md:text-lg font-medium text-text-custom-secondary tracking-wide mb-10"
+          className="font-sans text-base md:text-lg font-light text-text-custom-secondary tracking-wide mb-10"
         >
           Creator · Builder · Storyteller
         </motion.p>
