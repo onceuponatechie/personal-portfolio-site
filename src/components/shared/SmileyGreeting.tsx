@@ -39,7 +39,7 @@ const SmileyGreeting = () => {
           </svg>
         </div>
 
-        {/* Waving Hand — open palm with 5 fingers */}
+        {/* Waving Hand — soft, emoji-style */}
         <div className="flex items-center justify-center" style={{ width: 56, height: 56 }}>
           <motion.div
             animate={{ rotate: [0, 14, -8, 14, -4, 10, 0] }}
@@ -47,20 +47,20 @@ const SmileyGreeting = () => {
             style={{ originX: 0.5, originY: 0.85 }}
           >
             <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-              {/* Palm */}
-              <path d="M12 28 C12 28 10 22 11 18 C12 14 14 14 15 14 L21 14 C22 14 24 14 25 18 C26 22 24 28 24 28 Z" fill="hsl(0 0% 15%)" />
-              {/* Thumb */}
-              <path d="M11 18 C10 17 8.5 15.5 9 13.5 C9.5 11.5 11 12 11.5 13 C12 14 12 16 12 17" fill="hsl(0 0% 15%)" />
-              {/* Index finger */}
-              <path d="M14 14 C14 14 13.5 9 14 7 C14.5 5 16 5 16.5 7 C17 9 16.5 14 16.5 14" fill="hsl(0 0% 15%)" />
-              {/* Middle finger */}
-              <path d="M16.5 14 C16.5 14 16.5 8 17 5.5 C17.5 3 19 3 19.5 5.5 C20 8 19.5 14 19.5 14" fill="hsl(0 0% 15%)" />
-              {/* Ring finger */}
-              <path d="M19.5 14 C19.5 14 19.5 9 20 7 C20.5 5 22 5 22.5 7 C23 9 22.5 14 22.5 14" fill="hsl(0 0% 15%)" />
-              {/* Pinky finger */}
-              <path d="M22.5 15 C22.5 15 23 11 23.5 9.5 C24 8 25.5 8.5 25.5 10 C25.5 11.5 25 15 25 15" fill="hsl(0 0% 15%)" />
+              {/* Palm — soft rounded shape */}
+              <ellipse cx="18" cy="22" rx="7" ry="8" fill="hsl(0 0% 15%)" />
+              {/* Thumb — soft curve */}
+              <path d="M11 22 Q9 20 9.5 17 Q10 14.5 11.5 15.5 Q13 16.5 12 19" fill="hsl(0 0% 15%)" stroke="hsl(0 0% 15%)" strokeWidth="0.5" strokeLinejoin="round" />
+              {/* Index */}
+              <path d="M13.5 16 Q13 12 14 9.5 Q15 7.5 16.5 9.5 Q17.5 11.5 16.5 15.5" fill="hsl(0 0% 15%)" stroke="hsl(0 0% 15%)" strokeWidth="0.3" strokeLinejoin="round" />
+              {/* Middle */}
+              <path d="M16.5 15 Q16.5 10 17.5 7.5 Q18.5 5.5 19.5 7.5 Q20.5 10 19.5 15" fill="hsl(0 0% 15%)" stroke="hsl(0 0% 15%)" strokeWidth="0.3" strokeLinejoin="round" />
+              {/* Ring */}
+              <path d="M19.5 15.5 Q19.5 11 20.5 9 Q21.5 7 22.5 9 Q23.5 11 22.5 15.5" fill="hsl(0 0% 15%)" stroke="hsl(0 0% 15%)" strokeWidth="0.3" strokeLinejoin="round" />
+              {/* Pinky */}
+              <path d="M22.5 16.5 Q23 13 23.5 11.5 Q24 10 25 11.5 Q25.5 13 24.5 16.5" fill="hsl(0 0% 15%)" stroke="hsl(0 0% 15%)" strokeWidth="0.3" strokeLinejoin="round" />
               {/* Wrist */}
-              <rect x="14" y="27" width="8" height="5" rx="2" fill="hsl(0 0% 15%)" />
+              <ellipse cx="18" cy="29" rx="4.5" ry="3" fill="hsl(0 0% 15%)" />
             </svg>
           </motion.div>
         </div>

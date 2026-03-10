@@ -3,21 +3,12 @@ import { Link } from "react-router-dom";
 import { Instagram, Twitter, Linkedin, Github } from "lucide-react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
-const footerLinks = {
-  Explore: [
-    { label: "Resources", href: "/resources" },
-    { label: "Builds", href: "/builds" },
-    { label: "Reader's Corner", href: "/resources/readers-corner" },
-  ],
-  Learn: [
-    { label: "Blog", href: "/blog" },
-    { label: "About", href: "/about" },
-  ],
-  Connect: [
-    { label: "Contact", href: "/contact" },
-    { label: "Newsletter", href: "#newsletter" },
-  ],
-};
+const footerLinks = [
+  { label: "FREEBIES", href: "/resources" },
+  { label: "BLOG", href: "/blog" },
+  { label: "READER'S CORNER", href: "/resources/readers-corner" },
+  { label: "APPS", href: "/builds" },
+];
 
 const socials = [
   { icon: Twitter, href: "#", label: "Twitter" },
@@ -47,8 +38,8 @@ const Footer = () => {
               <span className="text-white text-2xl md:text-3xl">build</span>{" "}
               <span className="text-white/40 text-2xl md:text-3xl">an</span>
             </h2>
-            <h2 className="font-serif text-6xl md:text-8xl text-white font-bold italic mt-1">
-              Experience.
+            <h2 className="font-serif text-6xl md:text-8xl text-white font-bold mt-1">
+              Experience
             </h2>
 
             {/* Newsletter */}
@@ -72,9 +63,9 @@ const Footer = () => {
           </div>
         </ScrollReveal>
 
-        {/* Social + Links */}
+        {/* Social + Links — single row */}
         <ScrollReveal delay={0.2}>
-          <div className="flex flex-col md:flex-row justify-between gap-12 mb-16">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-8">
             {/* Socials */}
             <div className="flex gap-3">
               {socials.map((s) => (
@@ -90,27 +81,17 @@ const Footer = () => {
               ))}
             </div>
 
-            {/* Link Columns */}
-            <div className="flex gap-16">
-              {Object.entries(footerLinks).map(([title, links]) => (
-                <div key={title}>
-                  <p className="text-white/40 text-xs font-sans uppercase tracking-wider mb-4">
-                    {title}
-                  </p>
-                  <ul className="space-y-2">
-                    {links.map((link) => (
-                      <li key={link.href}>
-                        <Link
-                          to={link.href}
-                          className="text-white/70 hover:text-white text-sm font-sans transition-colors"
-                          data-cursor="pointer"
-                        >
-                          {link.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+            {/* Links */}
+            <div className="flex items-center gap-6 md:gap-8">
+              {footerLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="text-white/40 hover:text-white text-[11px] font-sans tracking-wider transition-colors"
+                  data-cursor="pointer"
+                >
+                  {link.label}
+                </Link>
               ))}
             </div>
           </div>
@@ -119,7 +100,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="border-t border-white/10 pt-8 text-center">
           <p className="text-white/30 text-xs font-sans">
-            © Once Upon a Techie, 2026 | Built with love, AI, and way too much Canva.
+            © Once Upon a Techie, 2026
           </p>
         </div>
       </div>

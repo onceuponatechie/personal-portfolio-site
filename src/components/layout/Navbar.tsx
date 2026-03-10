@@ -28,11 +28,16 @@ const Navbar = () => {
           scrolled ? "top-3" : "top-4"
         }`}
       >
-        <div className="glassmorphism rounded-full px-6 py-3 flex items-center justify-between">
+        <div
+          className="rounded-full px-6 py-3 flex items-center justify-between bg-white/80 backdrop-blur-2xl border border-white/50"
+          style={{
+            boxShadow: "0 4px 24px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04)",
+          }}
+        >
           {/* Brand */}
           <Link
             to="/"
-            className="font-serif text-base font-medium text-foreground hover:opacity-80 transition-opacity whitespace-nowrap"
+            className="font-serif text-base font-semibold text-foreground hover:opacity-80 transition-opacity whitespace-nowrap"
           >
             Once Upon a Techie
           </Link>
@@ -44,7 +49,7 @@ const Navbar = () => {
                 <Link
                   key={link.href}
                   to={link.href}
-                  className="relative font-sans text-[13px] text-text-custom-secondary hover:text-foreground transition-colors"
+                  className="relative font-sans text-[13px] text-text-custom-secondary hover:text-brand-lavender transition-colors"
                   data-cursor="pointer"
                 >
                   {link.label}
@@ -61,7 +66,7 @@ const Navbar = () => {
 
             <Link
               to="/contact"
-              className="bg-primary text-primary-foreground rounded-full px-5 py-2 font-sans text-[13px] font-medium hover:opacity-90 transition-opacity"
+              className="bg-primary text-primary-foreground rounded-full px-5 py-2 font-sans text-[13px] font-medium hover:bg-brand-green transition-colors"
               data-cursor="pointer"
             >
               Build With Me
@@ -70,7 +75,7 @@ const Navbar = () => {
 
           {/* Mobile Hamburger */}
           <button
-            className="md:hidden glassmorphism rounded-full w-10 h-10 flex items-center justify-center"
+            className="md:hidden rounded-full w-10 h-10 flex items-center justify-center bg-white/60 backdrop-blur-xl border border-white/40"
             onClick={() => setMobileOpen(true)}
             data-cursor="pointer"
           >
@@ -90,7 +95,7 @@ const Navbar = () => {
           >
             <button
               onClick={() => setMobileOpen(false)}
-              className="absolute top-6 right-6 glassmorphism rounded-full w-10 h-10 flex items-center justify-center"
+              className="absolute top-6 right-6 rounded-full w-10 h-10 flex items-center justify-center bg-white/60 backdrop-blur-xl border border-white/40"
             >
               <X className="w-5 h-5" />
             </button>
@@ -99,7 +104,7 @@ const Navbar = () => {
                 key={link.href}
                 to={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="font-serif text-3xl text-foreground hover:text-primary transition-colors"
+                className="font-serif text-3xl text-foreground hover:text-brand-lavender transition-colors"
               >
                 {link.label}
               </Link>
@@ -107,7 +112,7 @@ const Navbar = () => {
             <Link
               to="/contact"
               onClick={() => setMobileOpen(false)}
-              className="bg-primary text-primary-foreground rounded-full px-8 py-3 font-sans text-base font-medium mt-4"
+              className="bg-primary text-primary-foreground rounded-full px-8 py-3 font-sans text-base font-medium mt-4 hover:bg-brand-green transition-colors"
             >
               Build With Me
             </Link>

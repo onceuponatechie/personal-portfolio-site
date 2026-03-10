@@ -85,7 +85,7 @@ const ProcessSteps = () => {
 
         {/* Cards + SVG Lines */}
         <div className="relative">
-          {/* SVG squiggly connector line */}
+          {/* Bespoke orange curvy knot connector */}
           <svg
             className="absolute inset-0 w-full h-full pointer-events-none hidden md:block"
             viewBox="0 0 1000 320"
@@ -93,22 +93,24 @@ const ProcessSteps = () => {
             preserveAspectRatio="none"
             style={{ zIndex: 0 }}
           >
+            {/* Main flowing knot ribbon */}
             <motion.path
-              d="M 80 160 C 130 60, 180 260, 250 160 C 320 60, 370 200, 420 140 C 470 80, 520 240, 580 160 C 640 80, 680 220, 740 160 C 800 100, 850 240, 920 160"
+              d="M 60 160 C 100 80, 140 240, 180 160 C 220 80, 240 200, 280 140 Q 310 100, 340 160 C 370 220, 390 80, 430 160 C 470 240, 500 60, 540 160 Q 570 220, 600 160 C 630 100, 660 260, 700 160 C 740 60, 770 220, 810 160 C 850 100, 880 240, 920 160 C 940 120, 950 180, 960 160"
               stroke="hsl(18 78% 57%)"
-              strokeWidth="2.5"
+              strokeWidth="3"
               strokeLinecap="round"
               fill="none"
-              opacity="0.3"
+              opacity="0.45"
               style={{ pathLength }}
             />
+            {/* Secondary intertwining strand */}
             <motion.path
-              d="M 80 170 C 140 280, 200 40, 270 170 C 340 300, 400 80, 460 170 C 520 260, 570 60, 640 170 C 710 280, 770 80, 840 170 C 880 230, 900 100, 920 170"
-              stroke="hsl(255 35% 74%)"
+              d="M 60 170 C 110 260, 160 60, 210 170 C 260 280, 310 80, 360 170 C 410 260, 440 100, 490 170 Q 520 220, 550 170 C 580 120, 620 260, 660 170 C 700 80, 740 260, 780 170 C 820 80, 850 240, 890 170 C 920 130, 940 200, 960 170"
+              stroke="hsl(18 78% 67%)"
               strokeWidth="2"
               strokeLinecap="round"
               fill="none"
-              opacity="0.2"
+              opacity="0.25"
               style={{ pathLength }}
             />
           </svg>
@@ -121,15 +123,18 @@ const ProcessSteps = () => {
                 animate={inView ? { opacity: 1, y: 0, rotate: step.rotate } : {}}
                 transition={{ delay: 0.3 + i * 0.2, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
                 whileHover={{ rotate: 0, y: -4, transition: { duration: 0.3 } }}
-                className="bg-white/60 backdrop-blur-xl border border-white/40 rounded-2xl p-8 relative overflow-hidden"
-                style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.04)" }}
+                className="bg-white border border-gray-200/60 rounded-2xl p-8 relative overflow-hidden"
+                style={{
+                  boxShadow: "0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)",
+                }}
               >
                 {/* Watermark Number */}
                 <span className="absolute top-4 right-4 font-serif text-[64px] text-foreground/[0.06] leading-none">
                   {step.num}
                 </span>
 
-                <div className="w-14 h-14 rounded-xl bg-card border border-border/50 flex items-center justify-center mb-6"
+                <div
+                  className="w-14 h-14 rounded-xl bg-card border border-border/50 flex items-center justify-center mb-6"
                   style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}
                 >
                   {step.icon}
