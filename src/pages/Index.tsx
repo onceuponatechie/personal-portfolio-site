@@ -2,7 +2,7 @@ import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/home/HeroSection";
 import CreativeVaultStrip from "@/components/home/CreativeVaultStrip";
 import SkillsPillGrid from "@/components/home/SkillsPillGrid";
-import ProcessSteps from "@/components/home/ProcessSteps";
+import ChooseYourAdventure from "@/components/home/ChooseYourAdventure";
 import FeaturedBuildsShowcase from "@/components/home/FeaturedBuildsShowcase";
 import BlogPreview from "@/components/home/BlogPreview";
 import ReadersCornerPreview from "@/components/home/ReadersCornerPreview";
@@ -14,7 +14,7 @@ const Index = () => {
       <HeroSection />
       <CreativeVaultStrip />
       <SkillsPillGrid />
-      <ProcessSteps />
+      <ChooseYourAdventure />
       <FeaturedBuildsShowcase />
       <BlogPreview />
       <ReadersCornerPreview />

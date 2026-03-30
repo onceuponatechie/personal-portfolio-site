@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 
 const skills = [
   {
@@ -80,11 +80,38 @@ const skills = [
   },
 ];
 
+/* Split the sentence into words, tagging which ones are sage green */
+const words = [
+  { text: "Writing", green: false },
+  { text: "the", green: false },
+  { text: "unofficial", green: false },
+  { text: "diary", green: false },
+  { text: "of", green: false },
+  { text: "a", green: false },
+  { text: "techie", green: false },
+  { text: "building", green: true },
+  { text: "towards", green: false },
+  { text: "products", green: true },
+  { text: "that", green: false },
+  { text: "don\u2019t", green: false },
+  { text: "need", green: false },
+  { text: "explaining.", green: false },
+];
+
+const SAGE_GREEN = "#7C9A72";
+
 const SkillsPillGrid = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const leftSkills = skills.filter((s) => s.side === "left");
   const rightSkills = skills.filter((s) => s.side === "right");
+
+  /* Scroll-driven text reveal: map scroll progress to how many words are "filled" */
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 0.85", "center center"],
+  });
+  const revealProgress = useTransform(scrollYProgress, [0, 1], [0, words.length]);
 
   return (
     <section className="py-24 bg-background">
@@ -96,7 +123,7 @@ const SkillsPillGrid = () => {
           transition={{ delay: 0.1, duration: 0.4 }}
           className="font-serif italic text-sm text-muted-foreground mb-6 text-center"
         >
-          Who I Am
+          What I Do
         </motion.p>
 
         <div className="relative flex items-center justify-center gap-12 lg:gap-16">
@@ -122,31 +149,21 @@ const SkillsPillGrid = () => {
             ))}
           </div>
 
-          {/* Paragraph — 3 lines */}
+          {/* Scroll-reveal sentence — text goes from grey to black as you scroll */}
           <div className="text-center max-w-lg">
             <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              className="font-sans text-xl md:text-[28px] leading-relaxed text-foreground font-light"
+              className="font-sans text-xl md:text-[28px] leading-relaxed font-light"
+              style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "0 0.35em" }}
             >
-              A product <em className="font-serif not-italic italic">storyteller</em> and
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.7, duration: 0.5 }}
-              className="font-sans text-xl md:text-[28px] leading-relaxed text-foreground font-light"
-            >
-              <em className="font-serif not-italic italic">creative builder</em> who turns
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 1.2, duration: 0.5 }}
-              className="font-sans text-xl md:text-[28px] leading-relaxed text-foreground font-light"
-            >
-              ideas into <em className="font-serif not-italic italic">experiences</em>.
+              {words.map((word, i) => (
+                <ScrollRevealWord
+                  key={i}
+                  word={word.text}
+                  index={i}
+                  green={word.green}
+                  progress={revealProgress}
+                />
+              ))}
             </motion.p>
           </div>
 
@@ -195,5 +212,50 @@ const SkillsPillGrid = () => {
     </section>
   );
 };
+
+/* Individual word that transitions from grey → black (or sage green) based on scroll progress */
+function ScrollRevealWord({
+  word,
+  index,
+  green,
+  progress,
+}: {
+  word: string;
+  index: number;
+  green: boolean;
+  progress: ReturnType<typeof useTransform>;
+}) {
+  const color = useTransform(progress, (latest: number) => {
+    if (latest >= index + 1) {
+      return green ? SAGE_GREEN : "#1A1A1A";
+    }
+    if (latest > index) {
+      // Partially revealed — interpolate
+      const t = latest - index;
+      if (green) {
+        // grey → sage green
+        const r = Math.round(180 + t * (124 - 180));
+        const g = Math.round(180 + t * (154 - 180));
+        const b = Math.round(180 + t * (114 - 180));
+        return `rgb(${r},${g},${b})`;
+      }
+      // grey → black
+      const v = Math.round(180 - t * 154);
+      return `rgb(${v},${v},${v})`;
+    }
+    return "rgb(180,180,180)";
+  });
+
+  return (
+    <motion.span
+      style={{
+        color,
+        fontWeight: green ? 500 : undefined,
+      }}
+    >
+      {word}
+    </motion.span>
+  );
+}
 
 export default SkillsPillGrid;
