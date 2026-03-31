@@ -2,57 +2,164 @@ import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
 
-/* ── SVG Icons ─────────────────────────────────────────────── */
+/* ── 3D-style SVG Icons (colorful, dimensional, matching hero style) ── */
 
 const BookQuillIcon = () => (
   <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Open book */}
-    <path d="M8 16C8 14.9 8.9 14 10 14H28C30.2 14 32 15.8 32 18V50C32 48.3 30.7 47 29 47H10C8.9 47 8 46.1 8 45V16Z" fill="#F5E6D3" stroke="#1A1A1A" strokeWidth="1.8" strokeLinejoin="round" />
-    <path d="M56 16C56 14.9 55.1 14 54 14H36C33.8 14 32 15.8 32 18V50C32 48.3 33.3 47 35 47H54C55.1 47 56 46.1 56 45V16Z" fill="#F5E6D3" stroke="#1A1A1A" strokeWidth="1.8" strokeLinejoin="round" />
-    <path d="M32 18V50" stroke="#1A1A1A" strokeWidth="1.8" />
-    {/* Faint ruled lines on left page */}
-    <line x1="13" y1="22" x2="27" y2="22" stroke="#1A1A1A" strokeWidth="0.5" opacity="0.15" />
-    <line x1="13" y1="27" x2="27" y2="27" stroke="#1A1A1A" strokeWidth="0.5" opacity="0.15" />
-    <line x1="13" y1="32" x2="27" y2="32" stroke="#1A1A1A" strokeWidth="0.5" opacity="0.15" />
-    <line x1="13" y1="37" x2="27" y2="37" stroke="#1A1A1A" strokeWidth="0.5" opacity="0.15" />
-    {/* Faint ruled lines on right page */}
-    <line x1="37" y1="22" x2="51" y2="22" stroke="#1A1A1A" strokeWidth="0.5" opacity="0.15" />
-    <line x1="37" y1="27" x2="51" y2="27" stroke="#1A1A1A" strokeWidth="0.5" opacity="0.15" />
-    <line x1="37" y1="32" x2="51" y2="32" stroke="#1A1A1A" strokeWidth="0.5" opacity="0.15" />
-    {/* Quill pen resting on right page */}
-    <path d="M46 40L52 12C52 12 54 10 55 11C56 12 54.5 13.5 54.5 13.5L48 42L46 40Z" fill="#D4A574" stroke="#1A1A1A" strokeWidth="1.5" strokeLinejoin="round" />
-    <path d="M46 40L44 44L48 42" fill="#1A1A1A" stroke="#1A1A1A" strokeWidth="1" strokeLinejoin="round" />
-    {/* Ink drop at quill tip */}
-    <circle cx="44.5" cy="45" r="1.5" fill="#1A1A1A" opacity="0.7" />
+    <defs>
+      <linearGradient id="book-face" x1="8" y1="14" x2="56" y2="50" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#FF9F5A" />
+        <stop offset="1" stopColor="#E8784A" />
+      </linearGradient>
+      <linearGradient id="book-side" x1="8" y1="44" x2="8" y2="50" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#D4613A" />
+        <stop offset="1" stopColor="#B8512E" />
+      </linearGradient>
+      <linearGradient id="page-grad" x1="14" y1="18" x2="50" y2="44" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#FFFDF7" />
+        <stop offset="1" stopColor="#F5EDE3" />
+      </linearGradient>
+      <filter id="book-shadow" x="-4" y="-2" width="72" height="72">
+        <feDropShadow dx="0" dy="3" stdDeviation="3" floodColor="#000" floodOpacity="0.15" />
+      </filter>
+    </defs>
+    <g filter="url(#book-shadow)">
+      {/* Book spine/bottom for 3D depth */}
+      <path d="M10 48L32 52L54 48L54 45L32 49L10 45Z" fill="url(#book-side)" />
+      {/* Left cover */}
+      <path d="M8 15C8 13.3 9.3 12 11 12H29C30.7 12 32 13.3 32 15V49L10 45C8.9 44.8 8 43.8 8 42.7V15Z" fill="url(#book-face)" rx="3" />
+      {/* Right cover */}
+      <path d="M56 15C56 13.3 54.7 12 53 12H35C33.3 12 32 13.3 32 15V49L54 45C55.1 44.8 56 43.8 56 42.7V15Z" fill="url(#book-face)" rx="3" />
+      {/* Left page */}
+      <rect x="12" y="16" width="18" height="28" rx="2" fill="url(#page-grad)" />
+      {/* Right page */}
+      <rect x="34" y="16" width="18" height="28" rx="2" fill="url(#page-grad)" />
+      {/* Page lines */}
+      <line x1="15" y1="21" x2="27" y2="21" stroke="#D4C5B5" strokeWidth="1" opacity="0.5" />
+      <line x1="15" y1="25" x2="27" y2="25" stroke="#D4C5B5" strokeWidth="1" opacity="0.5" />
+      <line x1="15" y1="29" x2="27" y2="29" stroke="#D4C5B5" strokeWidth="1" opacity="0.5" />
+      <line x1="37" y1="21" x2="49" y2="21" stroke="#D4C5B5" strokeWidth="1" opacity="0.5" />
+      <line x1="37" y1="25" x2="49" y2="25" stroke="#D4C5B5" strokeWidth="1" opacity="0.5" />
+      <line x1="37" y1="29" x2="49" y2="29" stroke="#D4C5B5" strokeWidth="1" opacity="0.5" />
+      {/* Spine center */}
+      <path d="M32 12V49" stroke="#C85A30" strokeWidth="1.5" opacity="0.4" />
+      {/* Quill pen */}
+      <path d="M44 36L50 10C50 10 52 8 53 9.5C53.5 10.5 52 12 52 12L46 38L44 36Z" fill="#FDE68A" />
+      <path d="M44 36L42 40L46 38" fill="#1A1A1A" />
+      {/* Highlight on cover */}
+      <path d="M12 14C12 14 14 12 20 12" stroke="white" strokeWidth="1.2" strokeLinecap="round" opacity="0.35" />
+    </g>
   </svg>
 );
 
 const WrenchBoltIcon = () => (
   <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Lightning bolt behind */}
-    <path d="M36 8L26 30H36L28 56L48 28H36L42 8H36Z" fill="#FDE68A" stroke="#1A1A1A" strokeWidth="1.5" strokeLinejoin="round" opacity="0.7" />
-    {/* Wrench at ~30 degree angle */}
-    <g transform="rotate(-30, 32, 32)">
-      <path d="M18 24C18 18.5 22.5 14 28 14C29.5 14 31 14.4 32.3 15L27 20.3V26H32.7L38 20.7C38.6 22 39 23.5 39 25C39 30.5 34.5 35 29 35C27.5 35 26 34.6 24.7 34L14 44.7C12.8 45.9 10.9 45.9 9.7 44.7L8.3 43.3C7.1 42.1 7.1 40.2 8.3 39L19 28.3C18.4 27 18 25.5 18 24Z" fill="#B0B0B0" stroke="#1A1A1A" strokeWidth="1.8" strokeLinejoin="round" />
-      {/* Wrench jaw detail */}
-      <path d="M27 20.3V26H32.7" stroke="#1A1A1A" strokeWidth="1.2" strokeLinecap="round" />
+    <defs>
+      <linearGradient id="wrench-grad" x1="10" y1="10" x2="50" y2="54" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#C4B5FD" />
+        <stop offset="1" stopColor="#8B5CF6" />
+      </linearGradient>
+      <linearGradient id="bolt-grad" x1="30" y1="6" x2="42" y2="56" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#FDE68A" />
+        <stop offset="1" stopColor="#F59E0B" />
+      </linearGradient>
+      <filter id="wrench-shadow" x="-4" y="-2" width="72" height="72">
+        <feDropShadow dx="0" dy="3" stdDeviation="3" floodColor="#000" floodOpacity="0.15" />
+      </filter>
+    </defs>
+    <g filter="url(#wrench-shadow)">
+      {/* Lightning bolt behind */}
+      <path d="M38 6L27 28H37L28 58L50 26H38L44 6H38Z" fill="url(#bolt-grad)" />
+      <path d="M38 6L27 28H37L28 58L50 26H38L44 6H38Z" fill="white" opacity="0.25" />
+      {/* Wrench body */}
+      <g transform="rotate(-25, 32, 32)">
+        <path d="M20 24C20 18.5 24 14 29 14C30.5 14 32 14.6 33.3 15.5L28 21V27H34L39.3 21.5C40.2 23 40.5 24.5 40.5 26C40.5 31.5 36 36 31 36C29.5 36 28 35.5 26.7 34.8L16 45.5C14.8 46.7 12.9 46.7 11.7 45.5L10.3 44.1C9.1 42.9 9.1 41 10.3 39.8L21 29.1C20.4 27.8 20 26 20 24Z" fill="url(#wrench-grad)" />
+        {/* 3D edge on wrench */}
+        <path d="M10.3 39.8L16 45.5C14.8 46.7 12.9 46.7 11.7 45.5L10.3 44.1C9.1 42.9 9.1 41 10.3 39.8Z" fill="#7C3AED" opacity="0.5" />
+        {/* Highlight */}
+        <path d="M24 18C24 18 26 15 30 15" stroke="white" strokeWidth="1.2" strokeLinecap="round" opacity="0.45" />
+      </g>
     </g>
   </svg>
 );
 
 const LightbulbPlayIcon = () => (
   <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Subtle radial glow */}
-    <circle cx="32" cy="28" r="22" fill="#FDE68A" opacity="0.15" />
-    {/* Lightbulb body */}
-    <path d="M32 8C23.2 8 16 15.2 16 24C16 29.5 18.8 34.3 23 37.2V42C23 43.1 23.9 44 25 44H39C40.1 44 41 43.1 41 42V37.2C45.2 34.3 48 29.5 48 24C48 15.2 40.8 8 32 8Z" fill="#FFD166" stroke="#1A1A1A" strokeWidth="1.8" strokeLinejoin="round" />
-    {/* Bulb base rings */}
-    <path d="M25 48H39" stroke="#1A1A1A" strokeWidth="1.8" strokeLinecap="round" />
-    <path d="M27 52H37" stroke="#1A1A1A" strokeWidth="1.8" strokeLinecap="round" />
-    {/* Play button triangle inside bulb */}
-    <path d="M28 20L40 28L28 36V20Z" fill="#1A1A1A" opacity="0.6" />
-    {/* Glass highlight */}
-    <path d="M24 18C24 18 26 14 32 14" stroke="white" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
+    <defs>
+      <linearGradient id="bulb-grad" x1="18" y1="6" x2="46" y2="48" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#86EFAC" />
+        <stop offset="1" stopColor="#22C55E" />
+      </linearGradient>
+      <linearGradient id="bulb-base" x1="24" y1="42" x2="40" y2="54" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#D1D5DB" />
+        <stop offset="1" stopColor="#9CA3AF" />
+      </linearGradient>
+      <radialGradient id="bulb-glow" cx="32" cy="24" r="20" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#FDE68A" stopOpacity="0.35" />
+        <stop offset="1" stopColor="#FDE68A" stopOpacity="0" />
+      </radialGradient>
+      <filter id="bulb-shadow" x="-4" y="-2" width="72" height="72">
+        <feDropShadow dx="0" dy="3" stdDeviation="3" floodColor="#000" floodOpacity="0.15" />
+      </filter>
+    </defs>
+    <g filter="url(#bulb-shadow)">
+      {/* Warm glow */}
+      <circle cx="32" cy="24" r="24" fill="url(#bulb-glow)" />
+      {/* Bulb body */}
+      <path d="M32 6C22.6 6 15 13.6 15 23C15 28.8 18 33.8 22.5 36.8V42C22.5 43.7 23.8 45 25.5 45H38.5C40.2 45 41.5 43.7 41.5 42V36.8C46 33.8 49 28.8 49 23C49 13.6 41.4 6 32 6Z" fill="url(#bulb-grad)" />
+      {/* 3D depth — bottom of bulb */}
+      <path d="M22.5 36.8V42C22.5 43.7 23.8 45 25.5 45H38.5C40.2 45 41.5 43.7 41.5 42V36.8C41.5 36.8 37 39 32 39C27 39 22.5 36.8 22.5 36.8Z" fill="#16A34A" opacity="0.35" />
+      {/* Metallic base */}
+      <rect x="24" y="45" width="16" height="4" rx="1" fill="url(#bulb-base)" />
+      <rect x="26" y="49" width="12" height="3" rx="1.5" fill="url(#bulb-base)" />
+      {/* Base rings */}
+      <line x1="24" y1="47" x2="40" y2="47" stroke="#6B7280" strokeWidth="0.8" opacity="0.5" />
+      {/* Play button */}
+      <path d="M28 18L41 25.5L28 33V18Z" fill="white" opacity="0.85" />
+      {/* Glass highlight */}
+      <path d="M22 16C22 16 25 10 33 10" stroke="white" strokeWidth="2" strokeLinecap="round" opacity="0.4" />
+    </g>
+  </svg>
+);
+
+const CompassIcon = () => (
+  <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="compass-ring" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#7DD3FC" />
+        <stop offset="1" stopColor="#0EA5E9" />
+      </linearGradient>
+      <linearGradient id="compass-face" x1="14" y1="14" x2="50" y2="50" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#FFFDF7" />
+        <stop offset="1" stopColor="#F0E6D6" />
+      </linearGradient>
+      <filter id="compass-shadow" x="-4" y="-2" width="72" height="72">
+        <feDropShadow dx="0" dy="2" stdDeviation="2.5" floodColor="#000" floodOpacity="0.15" />
+      </filter>
+    </defs>
+    <g filter="url(#compass-shadow)">
+      {/* Outer ring */}
+      <circle cx="32" cy="32" r="26" fill="url(#compass-ring)" />
+      {/* 3D rim depth */}
+      <circle cx="32" cy="33" r="26" fill="#0284C7" opacity="0.25" />
+      <circle cx="32" cy="32" r="26" fill="url(#compass-ring)" />
+      {/* Inner face */}
+      <circle cx="32" cy="32" r="21" fill="url(#compass-face)" />
+      {/* Cardinal directions */}
+      <text x="32" y="17" textAnchor="middle" fill="#0EA5E9" fontSize="7" fontWeight="bold">N</text>
+      <text x="32" y="53" textAnchor="middle" fill="#64748B" fontSize="6">S</text>
+      <text x="14" y="35" textAnchor="middle" fill="#64748B" fontSize="6">W</text>
+      <text x="50" y="35" textAnchor="middle" fill="#64748B" fontSize="6">E</text>
+      {/* Compass needle — north (red) */}
+      <path d="M32 18L28 32L32 30L36 32Z" fill="#EF4444" />
+      {/* Compass needle — south (gray) */}
+      <path d="M32 46L36 32L32 34L28 32Z" fill="#94A3B8" />
+      {/* Center pin */}
+      <circle cx="32" cy="32" r="3" fill="url(#compass-ring)" />
+      <circle cx="32" cy="32" r="1.5" fill="white" opacity="0.7" />
+      {/* Glass highlight */}
+      <path d="M22 20C22 20 25 15 32 14" stroke="white" strokeWidth="1.5" strokeLinecap="round" opacity="0.35" />
+    </g>
   </svg>
 );
 
@@ -80,30 +187,54 @@ const AdventureSwirl = ({ animate }: { animate: boolean }) => (
 
 /* ── Card Data ─────────────────────────────────────────────── */
 
-const cards = [
+interface CardData {
+  icon: React.ReactNode;
+  heading: string;
+  body: string;
+  link: string;
+  linkText: string;
+  hoverColor: string;
+  column: "left" | "right";
+  half?: boolean;
+}
+
+const cards: CardData[] = [
   {
     icon: <BookQuillIcon />,
     heading: "Tell Better Stories",
     body: "Frameworks, resources, and builds for writers, storytellers, and anyone with something worth saying.",
     link: "/storyteller",
+    linkText: "Explore →",
     hoverColor: "#FDE68A",
-    column: "left" as const,
+    column: "left",
   },
   {
     icon: <WrenchBoltIcon />,
     heading: "Build a Thing",
     body: "Building in public, frontend experiments, no-code tools, and resources for people who make things.",
     link: "/builder",
+    linkText: "Explore →",
     hoverColor: "#E9D5FF",
-    column: "left" as const,
+    column: "left",
   },
   {
     icon: <LightbulbPlayIcon />,
     heading: "Think Like a Creator",
     body: "Insights on the creator economy, tools that work, and builds made for people who make things online.",
     link: "/creator",
+    linkText: "Explore →",
     hoverColor: "#D5FDD8",
-    column: "right" as const,
+    column: "right",
+  },
+  {
+    icon: <CompassIcon />,
+    heading: "And more!",
+    body: "Stories, resources, builds, and graphics — all in one place for the curious and the creative.",
+    link: "/explore",
+    linkText: "Explore all →",
+    hoverColor: "#5DCDF1",
+    column: "right",
+    half: true,
   },
 ];
 
@@ -119,14 +250,17 @@ const ChooseYourAdventure = () => {
   return (
     <section className="py-24 bg-background">
       <div className="max-w-6xl mx-auto px-6" ref={ref}>
-        {/* ── Section Title (left-aligned, above left column) ── */}
+        {/* ── Section Title (left-aligned, one line) ── */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="mb-12 lg:mb-0 lg:max-w-[46%]"
+          className="mb-12 lg:mb-0 lg:max-w-[80%]"
         >
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-[56px] text-[#1A1A1A] leading-[1.1]">
+          <p className="font-serif italic text-sm text-muted-foreground mb-6">
+            Can I Help?
+          </p>
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-[56px] text-[#1A1A1A] leading-[1.1] whitespace-nowrap">
             Choose Your{" "}
             <span className="relative inline-block italic">
               Adventure
@@ -149,14 +283,14 @@ const ChooseYourAdventure = () => {
             ))}
           </div>
 
-          {/* Right column — offset down 300px */}
-          <div className="flex flex-col gap-5" style={{ marginTop: 300 }}>
-            {rightCards.map((card) => (
+          {/* Right column — offset down 150px */}
+          <div className="flex flex-col gap-5" style={{ marginTop: 150 }}>
+            {rightCards.map((card, i) => (
               <AdventureCard
                 key={card.heading}
                 card={card}
                 inView={inView}
-                delay={0.35}
+                delay={0.35 + i * 0.1}
               />
             ))}
           </div>
@@ -185,7 +319,7 @@ function AdventureCard({
   inView,
   delay,
 }: {
-  card: (typeof cards)[number];
+  card: CardData;
   inView: boolean;
   delay: number;
 }) {
@@ -198,13 +332,14 @@ function AdventureCard({
       transition={{ delay, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="rounded-[20px] p-9 min-h-[320px] flex flex-col"
+      className={`rounded-[20px] p-9 flex flex-col ${card.half ? "min-h-[160px]" : "min-h-[320px]"}`}
       style={{
-        backgroundColor: hovered ? card.hoverColor : "#f6f2ef",
+        backgroundColor: hovered ? card.hoverColor : "#ffffff",
         transform: hovered ? "translateY(-4px)" : "translateY(0px)",
         boxShadow: hovered
-          ? "0 12px 40px rgba(0,0,0,0.08)"
-          : "none",
+          ? "0 12px 40px rgba(0,0,0,0.1)"
+          : "0 2px 12px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04)",
+        border: "1px solid rgba(0,0,0,0.04)",
         transition: "background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease",
       }}
     >
@@ -218,18 +353,18 @@ function AdventureCard({
               }
             : { rotate: 0 }
         }
-        className="mb-6"
+        className={card.half ? "mb-3" : "mb-6"}
       >
         {card.icon}
       </motion.div>
 
       {/* Heading */}
-      <h3 className="font-serif text-[28px] md:text-[32px] text-[#1A1A1A] leading-[1.2] mb-4">
+      <h3 className={`font-serif text-[#1A1A1A] leading-[1.2] ${card.half ? "text-[22px] md:text-[24px] mb-2" : "text-[28px] md:text-[32px] mb-4"}`}>
         {card.heading}
       </h3>
 
       {/* Body */}
-      <p className="font-sans text-[15px] text-[#1A1A1A]/70 leading-[1.7] mb-6">
+      <p className={`font-sans text-[15px] text-[#1A1A1A]/70 leading-[1.7] ${card.half ? "mb-3" : "mb-6"}`}>
         {card.body}
       </p>
 
@@ -238,7 +373,7 @@ function AdventureCard({
         to={card.link}
         className="mt-auto font-sans text-[15px] text-[#1A1A1A] underline underline-offset-4 decoration-1 hover:decoration-2 transition-all"
       >
-        Explore &rarr;
+        {card.linkText}
       </Link>
     </motion.div>
   );

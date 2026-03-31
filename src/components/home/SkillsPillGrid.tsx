@@ -152,7 +152,7 @@ const SkillsPillGrid = () => {
           {/* Scroll-reveal sentence — text goes from grey to black as you scroll */}
           <div className="text-center max-w-lg">
             <motion.p
-              className="font-sans text-xl md:text-[28px] leading-relaxed font-light"
+              className="font-serif text-xl md:text-[28px] leading-relaxed font-light"
               style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "0 0.35em" }}
             >
               {words.map((word, i) => (
@@ -251,6 +251,7 @@ function ScrollRevealWord({
       style={{
         color,
         fontWeight: green ? 500 : undefined,
+        fontStyle: green ? "italic" : undefined,
       }}
     >
       {word}
