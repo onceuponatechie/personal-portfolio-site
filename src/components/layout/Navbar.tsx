@@ -29,7 +29,7 @@ const Navbar = () => {
         }`}
       >
         <div
-          className="rounded-full px-6 py-3 flex items-center justify-between bg-white/80 backdrop-blur-2xl border border-white/50"
+          className="rounded-full pl-6 pr-1.5 py-1.5 flex items-center justify-between bg-white/80 backdrop-blur-2xl border border-white/50"
           style={{
             boxShadow: "0 4px 24px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04)",
           }}
@@ -66,7 +66,7 @@ const Navbar = () => {
 
             <Link
               to="/contact"
-              className="bg-primary text-primary-foreground rounded-full px-5 py-2 font-sans text-[13px] font-medium hover:bg-brand-green transition-colors"
+              className="bg-primary text-primary-foreground rounded-full px-6 py-2.5 font-sans text-[13px] font-medium hover:bg-brand-green transition-colors"
               data-cursor="pointer"
             >
               Build With Me

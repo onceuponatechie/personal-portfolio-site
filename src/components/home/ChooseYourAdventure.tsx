@@ -248,14 +248,14 @@ const ChooseYourAdventure = () => {
   const rightCards = cards.filter((c) => c.column === "right");
 
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 bg-gradient-to-br from-background to-surface-warm">
       <div className="max-w-6xl mx-auto px-6" ref={ref}>
-        {/* ── Section Title (left-aligned, one line) ── */}
+        {/* ── Section Title (centered, one line) ── */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="mb-12 lg:mb-0 lg:max-w-[80%]"
+          className="mb-12 lg:mb-10 text-center"
         >
           <p className="font-serif italic text-sm text-muted-foreground mb-6">
             Can I Help?
@@ -283,8 +283,8 @@ const ChooseYourAdventure = () => {
             ))}
           </div>
 
-          {/* Right column — offset down 150px */}
-          <div className="flex flex-col gap-5" style={{ marginTop: 150 }}>
+          {/* Right column — offset down 60px */}
+          <div className="flex flex-col gap-5" style={{ marginTop: 60 }}>
             {rightCards.map((card, i) => (
               <AdventureCard
                 key={card.heading}
