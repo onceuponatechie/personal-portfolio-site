@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 /* ── 3D-style SVG Icons (colorful, dimensional, matching hero style) ── */
 
 const BookQuillIcon = () => (
-  <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"
+    style={{ filter: "drop-shadow(0px 3px 3px rgba(0,0,0,0.15))" }}>
     <defs>
       <linearGradient id="book-face" x1="8" y1="14" x2="56" y2="50" gradientUnits="userSpaceOnUse">
         <stop stopColor="#FF9F5A" />
@@ -19,41 +20,37 @@ const BookQuillIcon = () => (
         <stop stopColor="#FFFDF7" />
         <stop offset="1" stopColor="#F5EDE3" />
       </linearGradient>
-      <filter id="book-shadow" x="-4" y="-2" width="72" height="72">
-        <feDropShadow dx="0" dy="3" stdDeviation="3" floodColor="#000" floodOpacity="0.15" />
-      </filter>
     </defs>
-    <g filter="url(#book-shadow)">
-      {/* Book spine/bottom for 3D depth */}
-      <path d="M10 48L32 52L54 48L54 45L32 49L10 45Z" fill="url(#book-side)" />
-      {/* Left cover */}
-      <path d="M8 15C8 13.3 9.3 12 11 12H29C30.7 12 32 13.3 32 15V49L10 45C8.9 44.8 8 43.8 8 42.7V15Z" fill="url(#book-face)" rx="3" />
-      {/* Right cover */}
-      <path d="M56 15C56 13.3 54.7 12 53 12H35C33.3 12 32 13.3 32 15V49L54 45C55.1 44.8 56 43.8 56 42.7V15Z" fill="url(#book-face)" rx="3" />
-      {/* Left page */}
-      <rect x="12" y="16" width="18" height="28" rx="2" fill="url(#page-grad)" />
-      {/* Right page */}
-      <rect x="34" y="16" width="18" height="28" rx="2" fill="url(#page-grad)" />
-      {/* Page lines */}
-      <line x1="15" y1="21" x2="27" y2="21" stroke="#D4C5B5" strokeWidth="1" opacity="0.5" />
-      <line x1="15" y1="25" x2="27" y2="25" stroke="#D4C5B5" strokeWidth="1" opacity="0.5" />
-      <line x1="15" y1="29" x2="27" y2="29" stroke="#D4C5B5" strokeWidth="1" opacity="0.5" />
-      <line x1="37" y1="21" x2="49" y2="21" stroke="#D4C5B5" strokeWidth="1" opacity="0.5" />
-      <line x1="37" y1="25" x2="49" y2="25" stroke="#D4C5B5" strokeWidth="1" opacity="0.5" />
-      <line x1="37" y1="29" x2="49" y2="29" stroke="#D4C5B5" strokeWidth="1" opacity="0.5" />
-      {/* Spine center */}
-      <path d="M32 12V49" stroke="#C85A30" strokeWidth="1.5" opacity="0.4" />
-      {/* Quill pen */}
-      <path d="M44 36L50 10C50 10 52 8 53 9.5C53.5 10.5 52 12 52 12L46 38L44 36Z" fill="#FDE68A" />
-      <path d="M44 36L42 40L46 38" fill="#1A1A1A" />
-      {/* Highlight on cover */}
-      <path d="M12 14C12 14 14 12 20 12" stroke="white" strokeWidth="1.2" strokeLinecap="round" opacity="0.35" />
-    </g>
+    {/* Book spine/bottom for 3D depth */}
+    <path d="M10 48L32 52L54 48L54 45L32 49L10 45Z" fill="url(#book-side)" />
+    {/* Left cover */}
+    <path d="M8 15C8 13.3 9.3 12 11 12H29C30.7 12 32 13.3 32 15V49L10 45C8.9 44.8 8 43.8 8 42.7V15Z" fill="url(#book-face)" />
+    {/* Right cover */}
+    <path d="M56 15C56 13.3 54.7 12 53 12H35C33.3 12 32 13.3 32 15V49L54 45C55.1 44.8 56 43.8 56 42.7V15Z" fill="url(#book-face)" />
+    {/* Left page */}
+    <rect x="12" y="16" width="18" height="28" rx="2" fill="url(#page-grad)" />
+    {/* Right page */}
+    <rect x="34" y="16" width="18" height="28" rx="2" fill="url(#page-grad)" />
+    {/* Page lines */}
+    <line x1="15" y1="21" x2="27" y2="21" stroke="#D4C5B5" strokeWidth="1" opacity="0.5" />
+    <line x1="15" y1="25" x2="27" y2="25" stroke="#D4C5B5" strokeWidth="1" opacity="0.5" />
+    <line x1="15" y1="29" x2="27" y2="29" stroke="#D4C5B5" strokeWidth="1" opacity="0.5" />
+    <line x1="37" y1="21" x2="49" y2="21" stroke="#D4C5B5" strokeWidth="1" opacity="0.5" />
+    <line x1="37" y1="25" x2="49" y2="25" stroke="#D4C5B5" strokeWidth="1" opacity="0.5" />
+    <line x1="37" y1="29" x2="49" y2="29" stroke="#D4C5B5" strokeWidth="1" opacity="0.5" />
+    {/* Spine center */}
+    <path d="M32 12V49" stroke="#C85A30" strokeWidth="1.5" opacity="0.4" />
+    {/* Quill pen */}
+    <path d="M44 36L50 10C50 10 52 8 53 9.5C53.5 10.5 52 12 52 12L46 38L44 36Z" fill="#FDE68A" />
+    <path d="M44 36L42 40L46 38" fill="#1A1A1A" />
+    {/* Highlight on cover */}
+    <path d="M12 14C12 14 14 12 20 12" stroke="white" strokeWidth="1.2" strokeLinecap="round" opacity="0.35" />
   </svg>
 );
 
 const WrenchBoltIcon = () => (
-  <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"
+    style={{ filter: "drop-shadow(0px 3px 3px rgba(0,0,0,0.15))" }}>
     <defs>
       <linearGradient id="wrench-grad" x1="10" y1="10" x2="50" y2="54" gradientUnits="userSpaceOnUse">
         <stop stopColor="#C4B5FD" />
@@ -63,28 +60,24 @@ const WrenchBoltIcon = () => (
         <stop stopColor="#FDE68A" />
         <stop offset="1" stopColor="#F59E0B" />
       </linearGradient>
-      <filter id="wrench-shadow" x="-4" y="-2" width="72" height="72">
-        <feDropShadow dx="0" dy="3" stdDeviation="3" floodColor="#000" floodOpacity="0.15" />
-      </filter>
     </defs>
-    <g filter="url(#wrench-shadow)">
-      {/* Lightning bolt behind */}
-      <path d="M38 6L27 28H37L28 58L50 26H38L44 6H38Z" fill="url(#bolt-grad)" />
-      <path d="M38 6L27 28H37L28 58L50 26H38L44 6H38Z" fill="white" opacity="0.25" />
-      {/* Wrench body */}
-      <g transform="rotate(-25, 32, 32)">
-        <path d="M20 24C20 18.5 24 14 29 14C30.5 14 32 14.6 33.3 15.5L28 21V27H34L39.3 21.5C40.2 23 40.5 24.5 40.5 26C40.5 31.5 36 36 31 36C29.5 36 28 35.5 26.7 34.8L16 45.5C14.8 46.7 12.9 46.7 11.7 45.5L10.3 44.1C9.1 42.9 9.1 41 10.3 39.8L21 29.1C20.4 27.8 20 26 20 24Z" fill="url(#wrench-grad)" />
-        {/* 3D edge on wrench */}
-        <path d="M10.3 39.8L16 45.5C14.8 46.7 12.9 46.7 11.7 45.5L10.3 44.1C9.1 42.9 9.1 41 10.3 39.8Z" fill="#7C3AED" opacity="0.5" />
-        {/* Highlight */}
-        <path d="M24 18C24 18 26 15 30 15" stroke="white" strokeWidth="1.2" strokeLinecap="round" opacity="0.45" />
-      </g>
+    {/* Lightning bolt behind */}
+    <path d="M38 6L27 28H37L28 58L50 26H38L44 6H38Z" fill="url(#bolt-grad)" />
+    <path d="M38 6L27 28H37L28 58L50 26H38L44 6H38Z" fill="white" opacity="0.25" />
+    {/* Wrench body */}
+    <g transform="rotate(-25, 32, 32)">
+      <path d="M20 24C20 18.5 24 14 29 14C30.5 14 32 14.6 33.3 15.5L28 21V27H34L39.3 21.5C40.2 23 40.5 24.5 40.5 26C40.5 31.5 36 36 31 36C29.5 36 28 35.5 26.7 34.8L16 45.5C14.8 46.7 12.9 46.7 11.7 45.5L10.3 44.1C9.1 42.9 9.1 41 10.3 39.8L21 29.1C20.4 27.8 20 26 20 24Z" fill="url(#wrench-grad)" />
+      {/* 3D edge on wrench */}
+      <path d="M10.3 39.8L16 45.5C14.8 46.7 12.9 46.7 11.7 45.5L10.3 44.1C9.1 42.9 9.1 41 10.3 39.8Z" fill="#7C3AED" opacity="0.5" />
+      {/* Highlight */}
+      <path d="M24 18C24 18 26 15 30 15" stroke="white" strokeWidth="1.2" strokeLinecap="round" opacity="0.45" />
     </g>
   </svg>
 );
 
 const LightbulbPlayIcon = () => (
-  <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"
+    style={{ filter: "drop-shadow(0px 3px 3px rgba(0,0,0,0.15))" }}>
     <defs>
       <linearGradient id="bulb-grad" x1="18" y1="6" x2="46" y2="48" gradientUnits="userSpaceOnUse">
         <stop stopColor="#86EFAC" />
@@ -98,68 +91,22 @@ const LightbulbPlayIcon = () => (
         <stop stopColor="#FDE68A" stopOpacity="0.35" />
         <stop offset="1" stopColor="#FDE68A" stopOpacity="0" />
       </radialGradient>
-      <filter id="bulb-shadow" x="-4" y="-2" width="72" height="72">
-        <feDropShadow dx="0" dy="3" stdDeviation="3" floodColor="#000" floodOpacity="0.15" />
-      </filter>
     </defs>
-    <g filter="url(#bulb-shadow)">
-      {/* Warm glow */}
-      <circle cx="32" cy="24" r="24" fill="url(#bulb-glow)" />
-      {/* Bulb body */}
-      <path d="M32 6C22.6 6 15 13.6 15 23C15 28.8 18 33.8 22.5 36.8V42C22.5 43.7 23.8 45 25.5 45H38.5C40.2 45 41.5 43.7 41.5 42V36.8C46 33.8 49 28.8 49 23C49 13.6 41.4 6 32 6Z" fill="url(#bulb-grad)" />
-      {/* 3D depth — bottom of bulb */}
-      <path d="M22.5 36.8V42C22.5 43.7 23.8 45 25.5 45H38.5C40.2 45 41.5 43.7 41.5 42V36.8C41.5 36.8 37 39 32 39C27 39 22.5 36.8 22.5 36.8Z" fill="#16A34A" opacity="0.35" />
-      {/* Metallic base */}
-      <rect x="24" y="45" width="16" height="4" rx="1" fill="url(#bulb-base)" />
-      <rect x="26" y="49" width="12" height="3" rx="1.5" fill="url(#bulb-base)" />
-      {/* Base rings */}
-      <line x1="24" y1="47" x2="40" y2="47" stroke="#6B7280" strokeWidth="0.8" opacity="0.5" />
-      {/* Play button */}
-      <path d="M28 18L41 25.5L28 33V18Z" fill="white" opacity="0.85" />
-      {/* Glass highlight */}
-      <path d="M22 16C22 16 25 10 33 10" stroke="white" strokeWidth="2" strokeLinecap="round" opacity="0.4" />
-    </g>
-  </svg>
-);
-
-const CompassIcon = () => (
-  <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="compass-ring" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
-        <stop stopColor="#7DD3FC" />
-        <stop offset="1" stopColor="#0EA5E9" />
-      </linearGradient>
-      <linearGradient id="compass-face" x1="14" y1="14" x2="50" y2="50" gradientUnits="userSpaceOnUse">
-        <stop stopColor="#FFFDF7" />
-        <stop offset="1" stopColor="#F0E6D6" />
-      </linearGradient>
-      <filter id="compass-shadow" x="-4" y="-2" width="72" height="72">
-        <feDropShadow dx="0" dy="2" stdDeviation="2.5" floodColor="#000" floodOpacity="0.15" />
-      </filter>
-    </defs>
-    <g filter="url(#compass-shadow)">
-      {/* Outer ring */}
-      <circle cx="32" cy="32" r="26" fill="url(#compass-ring)" />
-      {/* 3D rim depth */}
-      <circle cx="32" cy="33" r="26" fill="#0284C7" opacity="0.25" />
-      <circle cx="32" cy="32" r="26" fill="url(#compass-ring)" />
-      {/* Inner face */}
-      <circle cx="32" cy="32" r="21" fill="url(#compass-face)" />
-      {/* Cardinal directions */}
-      <text x="32" y="17" textAnchor="middle" fill="#0EA5E9" fontSize="7" fontWeight="bold">N</text>
-      <text x="32" y="53" textAnchor="middle" fill="#64748B" fontSize="6">S</text>
-      <text x="14" y="35" textAnchor="middle" fill="#64748B" fontSize="6">W</text>
-      <text x="50" y="35" textAnchor="middle" fill="#64748B" fontSize="6">E</text>
-      {/* Compass needle — north (red) */}
-      <path d="M32 18L28 32L32 30L36 32Z" fill="#EF4444" />
-      {/* Compass needle — south (gray) */}
-      <path d="M32 46L36 32L32 34L28 32Z" fill="#94A3B8" />
-      {/* Center pin */}
-      <circle cx="32" cy="32" r="3" fill="url(#compass-ring)" />
-      <circle cx="32" cy="32" r="1.5" fill="white" opacity="0.7" />
-      {/* Glass highlight */}
-      <path d="M22 20C22 20 25 15 32 14" stroke="white" strokeWidth="1.5" strokeLinecap="round" opacity="0.35" />
-    </g>
+    {/* Warm glow */}
+    <circle cx="32" cy="24" r="24" fill="url(#bulb-glow)" />
+    {/* Bulb body */}
+    <path d="M32 6C22.6 6 15 13.6 15 23C15 28.8 18 33.8 22.5 36.8V42C22.5 43.7 23.8 45 25.5 45H38.5C40.2 45 41.5 43.7 41.5 42V36.8C46 33.8 49 28.8 49 23C49 13.6 41.4 6 32 6Z" fill="url(#bulb-grad)" />
+    {/* 3D depth — bottom of bulb */}
+    <path d="M22.5 36.8V42C22.5 43.7 23.8 45 25.5 45H38.5C40.2 45 41.5 43.7 41.5 42V36.8C41.5 36.8 37 39 32 39C27 39 22.5 36.8 22.5 36.8Z" fill="#16A34A" opacity="0.35" />
+    {/* Metallic base */}
+    <rect x="24" y="45" width="16" height="4" rx="1" fill="url(#bulb-base)" />
+    <rect x="26" y="49" width="12" height="3" rx="1.5" fill="url(#bulb-base)" />
+    {/* Base rings */}
+    <line x1="24" y1="47" x2="40" y2="47" stroke="#6B7280" strokeWidth="0.8" opacity="0.5" />
+    {/* Play button */}
+    <path d="M28 18L41 25.5L28 33V18Z" fill="white" opacity="0.85" />
+    {/* Glass highlight */}
+    <path d="M22 16C22 16 25 10 33 10" stroke="white" strokeWidth="2" strokeLinecap="round" opacity="0.4" />
   </svg>
 );
 
@@ -188,7 +135,7 @@ const AdventureSwirl = ({ animate }: { animate: boolean }) => (
 /* ── Card Data ─────────────────────────────────────────────── */
 
 interface CardData {
-  icon: React.ReactNode;
+  icon: React.ReactNode | null;
   heading: string;
   body: string;
   link: string;
@@ -227,7 +174,7 @@ const cards: CardData[] = [
     column: "right",
   },
   {
-    icon: <CompassIcon />,
+    icon: null,
     heading: "And more!",
     body: "Stories, resources, builds, and graphics — all in one place for the curious and the creative.",
     link: "/explore",
@@ -332,7 +279,7 @@ function AdventureCard({
       transition={{ delay, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className={`rounded-[20px] p-9 flex flex-col ${card.half ? "min-h-[160px]" : "min-h-[320px]"}`}
+      className={`rounded-[20px] p-9 flex flex-col ${card.half ? "" : "min-h-[320px]"}`}
       style={{
         backgroundColor: hovered ? card.hoverColor : "#ffffff",
         transform: hovered ? "translateY(-4px)" : "translateY(0px)",
@@ -343,20 +290,22 @@ function AdventureCard({
         transition: "background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease",
       }}
     >
-      {/* Icon with wiggle on hover */}
-      <motion.div
-        animate={
-          hovered
-            ? {
-                rotate: [0, -5, 5, 0],
-                transition: { duration: 0.4, ease: "easeInOut" },
-              }
-            : { rotate: 0 }
-        }
-        className={card.half ? "mb-3" : "mb-6"}
-      >
-        {card.icon}
-      </motion.div>
+      {/* Icon with wiggle on hover — only for non-half cards */}
+      {card.icon && (
+        <motion.div
+          animate={
+            hovered
+              ? {
+                  rotate: [0, -5, 5, 0],
+                  transition: { duration: 0.4, ease: "easeInOut" },
+                }
+              : { rotate: 0 }
+          }
+          className="mb-6 flex-shrink-0"
+        >
+          {card.icon}
+        </motion.div>
+      )}
 
       {/* Heading */}
       <h3 className={`font-serif text-[#1A1A1A] leading-[1.2] ${card.half ? "text-[22px] md:text-[24px] mb-2" : "text-[28px] md:text-[32px] mb-4"}`}>
