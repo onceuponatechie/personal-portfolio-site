@@ -50,7 +50,7 @@ const FeaturedBuildsShowcase = () => {
   const project = projects[active];
 
   return (
-    <section className="py-24 bg-background" ref={ref}>
+    <section className="py-24" ref={ref}>
       <div className="max-w-6xl mx-auto px-4">
         <ScrollReveal>
           <div className="text-center mb-12">

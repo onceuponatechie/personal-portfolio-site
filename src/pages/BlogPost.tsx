@@ -90,7 +90,7 @@ const BlogPost = () => {
             <h3 className="font-serif text-xl text-foreground mb-6">Related Posts</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {related.map((r) => (
-                <Link key={r.slug} to={`/blog/${r.slug}`} className="bg-surface-light rounded-2xl p-5 hover:shadow-md transition-all" data-cursor="pointer">
+                <Link key={r.slug} to={`/blog/${r.slug}`} className="rounded-2xl border border-gray-100 p-5 hover:shadow-md transition-all" style={{ backgroundColor: "#fdfcfa" }} data-cursor="pointer">
                   <span className="font-sans text-[10px] uppercase tracking-wider text-primary">{r.category}</span>
                   <h4 className="font-serif text-base text-foreground mt-1 leading-snug">{r.title}</h4>
                 </Link>

@@ -65,7 +65,7 @@ const CreativeVaultStrip = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-0 bg-background">
+    <section className="py-0">
       <div ref={ref} className="max-w-6xl mx-auto px-4">
         <div className="bg-dark-bg rounded-3xl p-[2px] overflow-hidden">
           <div className="bg-dark-bg rounded-3xl overflow-hidden relative" style={{ height: "1200px" }}>

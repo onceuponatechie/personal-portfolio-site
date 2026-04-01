@@ -4,7 +4,7 @@ import ScrollReveal from "@/components/shared/ScrollReveal";
 
 const ReadersCornerPreview = () => {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24">
       <div className="max-w-6xl mx-auto px-4">
         <ScrollReveal>
           <div

@@ -9,6 +9,7 @@ const posts = [
     title: "Why I Stopped Chasing Perfection in Design",
     category: "Design",
     readTime: "5 min",
+    date: "Mar 15, 2026",
     excerpt: "The moment I embraced imperfection, my work became more authentic, faster, and way more fun.",
     image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=400&h=300&fit=crop",
     slug: "perfection-design",
@@ -17,6 +18,7 @@ const posts = [
     title: "Building in Public: What I Learned in 30 Days",
     category: "Building",
     readTime: "7 min",
+    date: "Mar 8, 2026",
     excerpt: "A raw look at shipping daily, dealing with feedback, and finding your voice as a creator.",
     image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop",
     slug: "building-in-public",
@@ -25,6 +27,7 @@ const posts = [
     title: "The Automation Stack That Runs My Life",
     category: "Automation",
     readTime: "4 min",
+    date: "Feb 28, 2026",
     excerpt: "From email workflows to content scheduling — here's how I automate the boring stuff.",
     image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=400&h=300&fit=crop",
     slug: "automation-stack",
@@ -33,11 +36,19 @@ const posts = [
     title: "How Storytelling Makes Better Products",
     category: "Product",
     readTime: "6 min",
+    date: "Feb 20, 2026",
     excerpt: "Every great product has a narrative. Here's how to find yours and make it unforgettable.",
     image: "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?w=400&h=300&fit=crop",
     slug: "storytelling-products",
   },
 ];
+
+const categoryColors: Record<string, string> = {
+  Design: "text-[hsl(255,35%,64%)]",
+  Building: "text-[hsl(18,78%,57%)]",
+  Automation: "text-[hsl(155,40%,30%)]",
+  Product: "text-[hsl(213,60%,57%)]",
+};
 
 const categoryIcons: Record<string, JSX.Element> = {
   Design: (
@@ -80,11 +91,11 @@ const BlogCard = ({ post, index }: { post: typeof posts[0]; index: number }) => 
     >
       <Link
         to={`/blog/${post.slug}`}
-        className="block bg-white rounded-2xl p-6 relative overflow-hidden group border border-gray-100"
+        className="block rounded-2xl p-6 relative overflow-hidden group border border-gray-100"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         data-cursor="pointer"
-        style={{ minHeight: 280, boxShadow: "0 8px 30px rgba(0,0,0,0.08)" }}
+        style={{ minHeight: 280, boxShadow: "0 8px 30px rgba(0,0,0,0.08)", backgroundColor: "#fdfcfa" }}
       >
         <motion.div
           initial={{ x: 80, y: -60, opacity: 0, rotate: 6 }}
@@ -102,12 +113,16 @@ const BlogCard = ({ post, index }: { post: typeof posts[0]; index: number }) => 
           {categoryIcons[post.category]}
         </motion.div>
 
-        <span className="font-sans text-[11px] uppercase tracking-wider text-muted-foreground">
+        <span className={`font-sans text-[11px] uppercase tracking-wider font-semibold ${categoryColors[post.category] || "text-primary"}`}>
           {post.category}
         </span>
-        <div className="flex items-center gap-2 mt-1 mb-3">
-          <Clock className="w-3 h-3 text-muted-foreground" />
-          <span className="font-sans text-[11px] text-muted-foreground">{post.readTime}</span>
+        <div className="flex items-center gap-3 mt-1 mb-3">
+          <span className="font-sans text-[11px] text-muted-foreground">{post.date}</span>
+          <span className="text-muted-foreground/40">·</span>
+          <div className="flex items-center gap-1">
+            <Clock className="w-3 h-3 text-muted-foreground" />
+            <span className="font-sans text-[11px] text-muted-foreground">{post.readTime}</span>
+          </div>
         </div>
 
         <h3 className="font-serif text-lg text-foreground mb-2 leading-snug pr-20 group-hover:pr-32 transition-all">
@@ -127,7 +142,7 @@ const BlogCard = ({ post, index }: { post: typeof posts[0]; index: number }) => 
 
 const BlogPreview = () => {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24">
       <div className="max-w-5xl mx-auto px-6">
         <ScrollReveal>
           <div className="text-center mb-12">
@@ -140,7 +155,7 @@ const BlogPreview = () => {
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-2 gap-4 md:gap-6">
           {posts.map((post, i) => (
             <BlogCard key={post.slug} post={post} index={i} />
           ))}

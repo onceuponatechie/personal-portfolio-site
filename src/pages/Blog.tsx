@@ -81,8 +81,8 @@ const Blog = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {rest.map((post, i) => (
               <motion.div key={post.slug} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
-                <Link to={`/blog/${post.slug}`} className="block bg-surface-light rounded-2xl p-6 hover:shadow-md hover:-translate-y-1 transition-all group" data-cursor="pointer" style={{ minHeight: 220 }}>
-                  <span className={`font-sans text-[11px] uppercase tracking-wider ${categoryColors[post.category] || "text-primary"}`}>{post.category}</span>
+                <Link to={`/blog/${post.slug}`} className="block rounded-2xl p-6 border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all group" data-cursor="pointer" style={{ minHeight: 220, backgroundColor: "#fdfcfa" }}>
+                  <span className={`font-sans text-[11px] uppercase tracking-wider font-semibold ${categoryColors[post.category] || "text-primary"}`}>{post.category}</span>
                   <div className="flex items-center gap-2 mt-1 mb-3">
                     <Clock className="w-3 h-3 text-muted-foreground" />
                     <span className="font-sans text-[11px] text-muted-foreground">{post.readTime}</span>

@@ -67,7 +67,8 @@ const Resources = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.05 }}
-                className="break-inside-avoid bg-surface-light rounded-2xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
+                className="break-inside-avoid rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
+                style={{ backgroundColor: "#fdfcfa" }}
               >
                 <div className="aspect-[4/3] overflow-hidden">
                   <img src={resource.image} alt={resource.title} className="w-full h-full object-cover" loading="lazy" />

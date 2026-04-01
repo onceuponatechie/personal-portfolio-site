@@ -12,7 +12,7 @@ const PageLayout = ({ children }: { children: React.ReactNode }) => {
   }, [pathname]);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-background to-surface-warm">
       <Navbar />
       <main>{children}</main>
       <Footer />

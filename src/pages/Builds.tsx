@@ -60,7 +60,8 @@ const Builds = () => {
               >
                 <Link
                   to={`/builds/${build.slug}`}
-                  className="block bg-surface-light rounded-2xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 transition-all group"
+                  className="block rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 transition-all group"
+                  style={{ backgroundColor: "#fdfcfa" }}
                   data-cursor="pointer"
                 >
                   <div className="aspect-[3/2] overflow-hidden">

@@ -195,7 +195,7 @@ const ChooseYourAdventure = () => {
   const rightCards = cards.filter((c) => c.column === "right");
 
   return (
-    <section className="py-24 bg-gradient-to-br from-background to-surface-warm">
+    <section className="py-24">
       <div className="max-w-6xl mx-auto px-6" ref={ref}>
         {/* ── Section Title (centered, one line) ── */}
         <motion.div
@@ -281,7 +281,7 @@ function AdventureCard({
       onMouseLeave={() => setHovered(false)}
       className={`rounded-[20px] p-9 flex flex-col ${card.half ? "" : "min-h-[320px]"}`}
       style={{
-        backgroundColor: hovered ? card.hoverColor : "#ffffff",
+        backgroundColor: hovered ? card.hoverColor : "#fdfcfa",
         transform: hovered ? "translateY(-4px)" : "translateY(0px)",
         boxShadow: hovered
           ? "0 12px 40px rgba(0,0,0,0.1)"

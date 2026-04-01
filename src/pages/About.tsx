@@ -81,7 +81,7 @@ const About = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.05 }}
-                    className="bg-surface-light rounded-2xl p-4 text-center hover:shadow-md hover:-translate-y-1 transition-all"
+                    className="rounded-2xl border border-gray-100 p-4 text-center hover:shadow-md hover:-translate-y-1 transition-all" style={{ backgroundColor: "#fdfcfa" }}
                   >
                     <span className="text-2xl mb-2 block">{item.emoji}</span>
                     <span className="font-sans text-xs font-medium text-foreground">{item.label}</span>
@@ -103,7 +103,7 @@ const About = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1 }}
-                    className="bg-surface-light rounded-2xl p-5"
+                    className="rounded-2xl border border-gray-100 p-5" style={{ backgroundColor: "#fdfcfa" }}
                   >
                     <item.icon className="w-5 h-5 text-primary mb-3" />
                     <p className="font-sans text-[11px] uppercase tracking-wider text-muted-foreground mb-1">{item.label}</p>

@@ -114,7 +114,7 @@ const SkillsPillGrid = () => {
   const revealProgress = useTransform(scrollYProgress, [0, 1], [0, words.length]);
 
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24">
       <div className="max-w-6xl mx-auto px-6" ref={ref}>
         {/* Mini header */}
         <motion.p

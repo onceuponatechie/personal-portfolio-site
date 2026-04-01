@@ -70,7 +70,7 @@ const ReadersCorner = () => {
           {activeTab === "Books" && (
             <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
               {books.map((book, i) => (
-                <motion.div key={book.title} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }} whileHover={{ y: -12, rotate: -2, scale: 1.04 }} className="bg-surface-light rounded-2xl p-4 shadow-sm">
+                <motion.div key={book.title} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }} whileHover={{ y: -12, rotate: -2, scale: 1.04 }} className="rounded-2xl border border-gray-100 p-4 shadow-sm" style={{ backgroundColor: "#fdfcfa" }}>
                   <div className="aspect-[3/4] rounded-xl overflow-hidden mb-3 bg-surface-warm">
                     <img src={book.cover} alt={book.title} className="w-full h-full object-cover" loading="lazy" />
                   </div>
@@ -90,7 +90,7 @@ const ReadersCorner = () => {
           {activeTab === "Articles" && (
             <div className="space-y-4">
               {articles.map((article, i) => (
-                <motion.a key={article.title} href={article.url} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }} className="block bg-surface-light rounded-2xl p-6 hover:shadow-md hover:-translate-y-1 transition-all" data-cursor="pointer">
+                <motion.a key={article.title} href={article.url} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }} className="block rounded-2xl border border-gray-100 p-6 hover:shadow-md hover:-translate-y-1 transition-all" style={{ backgroundColor: "#fdfcfa" }} data-cursor="pointer">
                   <div className="flex items-start justify-between gap-4">
                     <div>
                       <h3 className="font-serif text-base text-foreground mb-1">{article.title}</h3>
@@ -108,7 +108,7 @@ const ReadersCorner = () => {
           {activeTab === "Book Notes" && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {bookNotes.map((note, i) => (
-                <motion.div key={note.book} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }} className="bg-surface-light rounded-2xl p-6">
+                <motion.div key={note.book} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }} className="rounded-2xl border border-gray-100 p-6" style={{ backgroundColor: "#fdfcfa" }}>
                   <div className="flex items-center gap-2 mb-3">
                     <BookOpen className="w-4 h-4 text-primary" />
                     <h3 className="font-serif text-base text-foreground">{note.book}</h3>
