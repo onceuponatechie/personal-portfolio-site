@@ -281,7 +281,7 @@ function AdventureCard({
       onMouseLeave={() => setHovered(false)}
       className={`rounded-[20px] p-9 flex flex-col ${card.half ? "" : "min-h-[320px]"}`}
       style={{
-        backgroundColor: hovered ? card.hoverColor : "#fdfcfa",
+        backgroundColor: hovered ? card.hoverColor : "#fefefd",
         transform: hovered ? "translateY(-4px)" : "translateY(0px)",
         boxShadow: hovered
           ? "0 12px 40px rgba(0,0,0,0.1)"
