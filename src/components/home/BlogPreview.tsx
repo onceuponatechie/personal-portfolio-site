@@ -62,7 +62,7 @@ const BlogCard = ({ post, index }: { post: (typeof posts)[0]; index: number }) =
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         data-cursor="pointer"
-        style={{ backgroundColor: "#fefefd" }}
+        style={{ backgroundColor: "#fbfaf7" }}
       >
         {/* Image */}
         <div className="relative aspect-[4/3] overflow-hidden rounded-2xl m-2.5 sm:m-3">
@@ -141,7 +141,7 @@ const BlogPreview = () => {
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
           {posts.map((post, i) => (
             <BlogCard key={post.slug} post={post} index={i} />
           ))}

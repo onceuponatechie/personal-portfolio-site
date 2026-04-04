@@ -7,7 +7,7 @@ const SmileyGreeting = () => {
       style={{
         width: 56,
         height: 56,
-        backgroundColor: "hsl(44 88% 67%)",
+        backgroundColor: "#fef08a",
       }}
     >
       <motion.div
@@ -23,7 +23,7 @@ const SmileyGreeting = () => {
         {/* Smiley Face */}
         <div className="flex items-center justify-center" style={{ width: 56, height: 56 }}>
           <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-            <circle cx="18" cy="18" r="16" fill="hsl(44 88% 67%)" />
+            <circle cx="18" cy="18" r="16" fill="#fef08a" />
             <circle cx="8" cy="20" r="3.5" fill="hsl(0 60% 80%)" opacity="0.5" />
             <circle cx="28" cy="20" r="3.5" fill="hsl(0 60% 80%)" opacity="0.5" />
             <motion.ellipse
@@ -39,32 +39,34 @@ const SmileyGreeting = () => {
           </svg>
         </div>
 
-        {/* "Hi!" speech bubble icon — completely different from a hand */}
+        {/* Waving hand — bold white silhouette like the reference image */}
         <div className="flex items-center justify-center" style={{ width: 56, height: 56 }}>
           <motion.div
-            animate={{ scale: [1, 1.1, 1, 1.1, 1] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            animate={{ rotate: [0, 16, -10, 16, -6, 12, 0] }}
+            transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
+            style={{ originX: 0.5, originY: 0.85 }}
           >
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-              {/* Speech bubble */}
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              {/* Bold raised/waving hand silhouette — white on colored circle */}
               <path
-                d="M6 8C6 5.8 7.8 4 10 4H26C28.2 4 30 5.8 30 8V20C30 22.2 28.2 24 26 24H16L10 30V24H10C7.8 24 6 22.2 6 20V8Z"
-                fill="hsl(0 0% 12%)"
+                d="M9.5 16.5C9 19 9.5 22.5 10.8 25C12 27 14.5 28.5 17.5 28C20.5 27.5 22 25.5 22 23V17C22 16.3 21.3 16 20.5 16H12C11.2 16 9.8 16 9.5 16.5Z"
+                fill="#1A1A1A"
               />
-              {/* "Hi!" text */}
-              <text
-                x="18"
-                y="17.5"
-                textAnchor="middle"
-                dominantBaseline="central"
-                fill="white"
-                fontFamily="'Playfair Display', serif"
-                fontSize="13"
-                fontWeight="700"
-                fontStyle="italic"
-              >
-                Hi!
-              </text>
+              {/* Wrist */}
+              <rect x="12.5" y="26" width="7" height="4" rx="2" fill="#1A1A1A" />
+              {/* Index finger */}
+              <rect x="9.5" y="4" width="4" height="13" rx="2" fill="#1A1A1A" />
+              {/* Middle finger */}
+              <rect x="14" y="2.5" width="4" height="14.5" rx="2" fill="#1A1A1A" />
+              {/* Ring finger */}
+              <rect x="18.5" y="4.5" width="4" height="12.5" rx="2" fill="#1A1A1A" />
+              {/* Pinky */}
+              <rect x="23" y="7.5" width="3.5" height="10" rx="1.75" fill="#1A1A1A" />
+              {/* Thumb */}
+              <path
+                d="M9.5 17.5C9 16.5 7.5 14 6.5 12C5.8 10.5 6 9.5 7 9.5C8 9.5 9 11 9.5 13C9.8 14.5 10 16.5 10 17"
+                fill="#1A1A1A"
+              />
             </svg>
           </motion.div>
         </div>

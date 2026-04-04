@@ -9,13 +9,6 @@ const thumbnails = [
   "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=260&h=400&fit=crop",
 ];
 
-const trustLogos = [
-  { name: "Notion", color: "hsl(0 0% 20%)" },
-  { name: "Figma", color: "hsl(255 35% 74%)" },
-  { name: "Webflow", color: "hsl(213 60% 57%)" },
-  { name: "Canva", color: "hsl(213 60% 57%)" },
-];
-
 const MediaBox = ({ offset = 0 }: { offset?: number }) => {
   const [idx, setIdx] = useState(offset);
   useEffect(() => {
@@ -25,7 +18,7 @@ const MediaBox = ({ offset = 0 }: { offset?: number }) => {
 
   return (
     <span className="inline-flex align-middle mx-1.5 relative" style={{ width: 72, height: 44 }}>
-      <span className="absolute inset-0 rounded-2xl overflow-hidden border border-white/20 shadow-lg" 
+      <span className="absolute inset-0 rounded-2xl overflow-hidden border border-white/20 shadow-lg"
         style={{ background: "hsl(0 0% 12%)" }}>
         {thumbnails.map((src, i) => (
           <motion.img
@@ -55,23 +48,14 @@ const HeroSection = () => {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-white/60 rounded-full blur-[120px]" />
 
       <motion.div style={{ y }} className="relative z-10 max-w-3xl mx-auto px-6 text-center py-16 pt-20">
-        {/* Smiley */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex justify-center mb-8"
-        >
-          <SmileyGreeting />
-        </motion.div>
-
-        {/* Badge */}
+        {/* Badge + Smiley side by side */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex justify-center mb-8"
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="flex items-center justify-center gap-3 mb-8"
         >
+          <SmileyGreeting />
           <div className="glassmorphism rounded-full px-4 py-2 flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-brand-green animate-pulse" />
             <span className="font-sans text-xs font-medium text-text-custom-secondary">
@@ -128,29 +112,6 @@ const HeroSection = () => {
           >
             Or grab a freebie →
           </a>
-        </motion.div>
-
-        {/* Trust Row */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1.5 }}
-          className="flex items-center justify-center gap-1 mt-16"
-        >
-          <div className="flex -space-x-2">
-            {trustLogos.map((logo, i) => (
-              <div
-                key={i}
-                className="w-8 h-8 rounded-full border-2 border-background flex items-center justify-center text-[8px] font-sans font-bold text-white"
-                style={{ backgroundColor: logo.color, zIndex: 4 - i }}
-              >
-                {logo.name[0]}
-              </div>
-            ))}
-          </div>
-          <span className="font-sans text-xs text-text-custom-tertiary ml-3">
-            Built with tools I love
-          </span>
         </motion.div>
       </motion.div>
     </section>

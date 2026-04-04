@@ -90,7 +90,7 @@ const CreativeVaultStrip = () => {
                   transition={{ delay: 0.3 }}
                   className="bg-dark-bg text-white rounded-full px-4 py-2 text-sm font-sans mb-4 whitespace-nowrap"
                 >
-                  See Recent Work
+                  The Creative Vault
                 </motion.div>
                 <Link to="/resources" data-cursor="pointer">
                   <motion.div
