@@ -39,34 +39,32 @@ const SmileyGreeting = () => {
           </svg>
         </div>
 
-        {/* Waving hand — bold white silhouette like the reference image */}
+        {/* Waving hand — organic curved silhouette */}
         <div className="flex items-center justify-center" style={{ width: 56, height: 56 }}>
           <motion.div
-            animate={{ rotate: [0, 16, -10, 16, -6, 12, 0] }}
+            animate={{ rotate: [0, 18, -10, 18, -6, 14, 0] }}
             transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
-            style={{ originX: 0.5, originY: 0.85 }}
+            style={{ originX: 0.55, originY: 0.9 }}
           >
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-              {/* Bold raised/waving hand silhouette — white on colored circle */}
-              <path
-                d="M9.5 16.5C9 19 9.5 22.5 10.8 25C12 27 14.5 28.5 17.5 28C20.5 27.5 22 25.5 22 23V17C22 16.3 21.3 16 20.5 16H12C11.2 16 9.8 16 9.5 16.5Z"
-                fill="#1A1A1A"
-              />
+            <svg width="34" height="34" viewBox="0 0 36 36" fill="none">
+              {/* Organic open palm with naturally curved fingers */}
+              {/* Palm */}
+              <path d="M11 19C10.5 21.5 11 25 12.5 27.5C14 30 16.5 31 20 30.5C23.5 30 25 28 25 25.5V19C25 18 24 17.5 23 17.5H13C12 17.5 11 18 11 19Z" fill="#1A1A1A" />
               {/* Wrist */}
-              <rect x="12.5" y="26" width="7" height="4" rx="2" fill="#1A1A1A" />
-              {/* Index finger */}
-              <rect x="9.5" y="4" width="4" height="13" rx="2" fill="#1A1A1A" />
-              {/* Middle finger */}
-              <rect x="14" y="2.5" width="4" height="14.5" rx="2" fill="#1A1A1A" />
-              {/* Ring finger */}
-              <rect x="18.5" y="4.5" width="4" height="12.5" rx="2" fill="#1A1A1A" />
-              {/* Pinky */}
-              <rect x="23" y="7.5" width="3.5" height="10" rx="1.75" fill="#1A1A1A" />
-              {/* Thumb */}
-              <path
-                d="M9.5 17.5C9 16.5 7.5 14 6.5 12C5.8 10.5 6 9.5 7 9.5C8 9.5 9 11 9.5 13C9.8 14.5 10 16.5 10 17"
-                fill="#1A1A1A"
-              />
+              <path d="M13.5 28C13.5 28 15 31.5 18.5 31.5C22 31.5 23.5 28 23.5 28" fill="#1A1A1A" />
+              {/* Index — slightly curved outward */}
+              <path d="M11.5 17.5C11 14.5 10.5 10 11.5 7C12.2 5 13.2 4.5 14.2 5.5C15 6.3 14.5 9 14 12C13.6 14.5 13 16.5 12.5 17.8" fill="#1A1A1A" />
+              {/* Middle — tallest, gentle curve */}
+              <path d="M14 17.5C14 14 13.8 9 14.8 5.5C15.5 3.5 16.5 3 17.5 4C18.3 4.8 17.8 8 17.3 11.5C16.9 14 16.8 16.5 17 17.8" fill="#1A1A1A" />
+              {/* Ring — natural arc */}
+              <path d="M17 17.8C17.5 15 18 10.5 19 7.5C19.8 5.5 20.8 5 21.7 6C22.4 6.8 21.8 9.5 21.2 12.5C20.7 15 20.3 17 20 17.8" fill="#1A1A1A" />
+              {/* Pinky — short, angled outward */}
+              <path d="M20 18C20.5 16 21.5 12.5 22.3 10.5C23 9 23.8 8.8 24.3 9.8C24.8 10.8 24.2 13 23.5 15.5C23 17 22.5 18 22 18.5" fill="#1A1A1A" />
+              {/* Thumb — curved out to the left */}
+              <path d="M11 19.5C10.5 18.5 9 16 8 14C7.2 12.5 7.5 11.5 8.5 11.5C9.3 11.5 10 13 10.5 15C10.8 16.5 11 18.5 11 19.5" fill="#1A1A1A" />
+              {/* Motion lines — subtle wave indicators */}
+              <path d="M6.5 8L4.5 6.5" stroke="#1A1A1A" strokeWidth="1.2" strokeLinecap="round" opacity="0.3" />
+              <path d="M5.5 12L3.5 11.5" stroke="#1A1A1A" strokeWidth="1.2" strokeLinecap="round" opacity="0.2" />
             </svg>
           </motion.div>
         </div>

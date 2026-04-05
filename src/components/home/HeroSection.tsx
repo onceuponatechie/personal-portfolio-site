@@ -48,14 +48,23 @@ const HeroSection = () => {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-white/60 rounded-full blur-[120px]" />
 
       <motion.div style={{ y }} className="relative z-10 max-w-3xl mx-auto px-6 text-center py-16 pt-20">
-        {/* Badge + Smiley side by side */}
+        {/* Smiley */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex justify-center mb-8"
+        >
+          <SmileyGreeting />
+        </motion.div>
+
+        {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex items-center justify-center gap-3 mb-8"
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="flex justify-center mb-8"
         >
-          <SmileyGreeting />
           <div className="glassmorphism rounded-full px-4 py-2 flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-brand-green animate-pulse" />
             <span className="font-sans text-xs font-medium text-text-custom-secondary">
