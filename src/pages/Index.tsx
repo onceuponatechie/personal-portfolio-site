@@ -6,6 +6,7 @@ import ChooseYourAdventure from "@/components/home/ChooseYourAdventure";
 import FeaturedBuildsShowcase from "@/components/home/FeaturedBuildsShowcase";
 import BlogPreview from "@/components/home/BlogPreview";
 import ReadersCornerPreview from "@/components/home/ReadersCornerPreview";
+import NewsletterSection from "@/components/home/NewsletterSection";
 import FAQAccordion from "@/components/home/FAQAccordion";
 
 const Index = () => {
@@ -18,6 +19,7 @@ const Index = () => {
       <FeaturedBuildsShowcase />
       <BlogPreview />
       <ReadersCornerPreview />
+      <NewsletterSection />
       <FAQAccordion />
     </PageLayout>
   );

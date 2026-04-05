@@ -114,13 +114,13 @@ const LightbulbPlayIcon = () => (
 
 const AdventureSwirl = ({ animate }: { animate: boolean }) => (
   <motion.svg
-    viewBox="0 0 280 30"
+    viewBox="0 0 280 60"
     fill="none"
-    className="absolute -bottom-2 left-0 w-full"
-    style={{ overflow: "visible" }}
+    className="absolute top-1/2 left-0 w-full pointer-events-none"
+    style={{ overflow: "visible", transform: "translateY(-50%)", height: "100%" }}
   >
     <motion.path
-      d="M5 18 C40 4, 80 28, 120 14 C160 0, 200 26, 240 12 C255 8, 268 16, 275 14"
+      d="M0 48 C30 48, 40 8, 70 8 C100 8, 100 52, 135 52 C165 52, 170 6, 200 6 C230 6, 235 50, 260 48 C272 47, 278 30, 280 28"
       stroke="#5DCDF1"
       strokeWidth="3"
       strokeLinecap="round"
