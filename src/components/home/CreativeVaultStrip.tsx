@@ -47,8 +47,8 @@ const ScrollColumn = ({ cards, speed, reverse = false }: { cards: typeof column1
     >
       {[...cards, ...cards].map((card, i) => (
         <div key={i} className="rounded-2xl overflow-hidden shadow-sm">
-          <div className="relative w-full">
-            <img src={card.image} alt={card.title} className="w-full h-auto object-cover" />
+          <div className="relative w-full" style={{ aspectRatio: "3/4" }}>
+            <img src={card.image} alt={card.title} className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-3">
               <p className="font-sans text-[10px] font-medium text-white/80">{card.title}</p>
