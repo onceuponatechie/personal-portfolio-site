@@ -10,7 +10,6 @@ import Builds from "./pages/Builds";
 import BuildDetail from "./pages/BuildDetail";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
-import ReadersCorner from "./pages/ReadersCorner";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
@@ -27,7 +26,6 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/resources" element={<Resources />} />
-          <Route path="/resources/readers-corner" element={<ReadersCorner />} />
           <Route path="/builds" element={<Builds />} />
           <Route path="/builds/:slug" element={<BuildDetail />} />
           <Route path="/blog" element={<Blog />} />
