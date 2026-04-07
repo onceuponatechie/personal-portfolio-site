@@ -6,7 +6,6 @@ import ScrollReveal from "@/components/shared/ScrollReveal";
 const footerLinks = [
   { label: "FREEBIES", href: "/resources" },
   { label: "BLOG", href: "/blog" },
-  { label: "READER'S CORNER", href: "/resources/readers-corner" },
   { label: "APPS", href: "/builds" },
 ];
 
