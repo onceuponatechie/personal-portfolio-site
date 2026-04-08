@@ -1,6 +1,7 @@
 import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/home/HeroSection";
 import CreativeVaultStrip from "@/components/home/CreativeVaultStrip";
+import AboutParagraph from "@/components/home/AboutParagraph";
 import SkillsPillGrid from "@/components/home/SkillsPillGrid";
 import ChooseYourAdventure from "@/components/home/ChooseYourAdventure";
 import FeaturedBuildsShowcase from "@/components/home/FeaturedBuildsShowcase";
@@ -13,9 +14,10 @@ const Index = () => {
     <PageLayout>
       <HeroSection />
       <CreativeVaultStrip />
-      <SkillsPillGrid />
+      <AboutParagraph />
       <ChooseYourAdventure />
       <FeaturedBuildsShowcase />
+      <SkillsPillGrid />
       <BlogPreview />
       <NewsletterSection />
       <FAQAccordion />
