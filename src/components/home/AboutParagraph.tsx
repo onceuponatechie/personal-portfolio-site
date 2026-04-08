@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -29,7 +29,18 @@ const SAGE_GREEN = "#7C9A72";
 
 const AboutParagraph = () => {
   const ref = useRef(null);
+  const textRef = useRef<HTMLDivElement>(null);
+  const [textHeight, setTextHeight] = useState(0);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+
+  useEffect(() => {
+    if (!textRef.current) return;
+    const observer = new ResizeObserver(([entry]) => {
+      setTextHeight(entry.contentRect.height);
+    });
+    observer.observe(textRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -52,7 +63,7 @@ const AboutParagraph = () => {
 
         <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
           {/* Left — Scroll-reveal paragraph */}
-          <div className="flex-1">
+          <div className="flex-1" ref={textRef}>
             <motion.p
               className="font-serif text-xl md:text-[28px] leading-relaxed font-light"
               style={{
@@ -93,14 +104,14 @@ const AboutParagraph = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
-            className="hidden lg:flex items-start shrink-0 self-stretch"
+            className="hidden lg:block shrink-0"
+            style={{ height: textHeight || "auto" }}
           >
             <svg
               viewBox="0 0 280 400"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="h-full w-auto max-h-full"
-              style={{ maxWidth: 260 }}
+              style={{ height: "100%", width: "auto" }}
             >
               {/* Hair — long flowing */}
               <motion.path
