@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 
 /* ── 3D-style SVG Icons (colorful, dimensional, matching hero style) ── */
 
@@ -110,27 +111,6 @@ const LightbulbPlayIcon = () => (
   </svg>
 );
 
-/* ── Adventure Swirl SVG (hand-drawn line through "Adventure") ── */
-
-const AdventureSwirl = ({ animate }: { animate: boolean }) => (
-  <motion.svg
-    viewBox="0 0 280 30"
-    fill="none"
-    className="absolute -bottom-2 left-0 w-full"
-    style={{ overflow: "visible" }}
-  >
-    <motion.path
-      d="M5 18 C40 4, 80 28, 120 14 C160 0, 200 26, 240 12 C255 8, 268 16, 275 14"
-      stroke="#5DCDF1"
-      strokeWidth="3"
-      strokeLinecap="round"
-      fill="none"
-      initial={{ pathLength: 0, opacity: 0 }}
-      animate={animate ? { pathLength: 1, opacity: 1 } : {}}
-      transition={{ delay: 0.8, duration: 0.8, ease: "easeInOut" }}
-    />
-  </motion.svg>
-);
 
 /* ── Card Data ─────────────────────────────────────────────── */
 
@@ -195,7 +175,7 @@ const ChooseYourAdventure = () => {
   const rightCards = cards.filter((c) => c.column === "right");
 
   return (
-    <section className="py-24">
+    <section className="py-24" style={{ backgroundColor: "#fefefd" }}>
       <div className="max-w-6xl mx-auto px-6" ref={ref}>
         {/* ── Section Title (centered, one line) ── */}
         <motion.div
@@ -209,9 +189,8 @@ const ChooseYourAdventure = () => {
           </p>
           <h2 className="font-serif text-4xl md:text-5xl lg:text-[56px] text-[#1A1A1A] leading-[1.1] whitespace-nowrap">
             Choose Your{" "}
-            <span className="relative inline-block italic">
+            <span className="italic" style={{ color: "#5dcdf1" }}>
               Adventure
-              <AdventureSwirl animate={inView} />
             </span>
           </h2>
         </motion.div>
@@ -281,7 +260,7 @@ function AdventureCard({
       onMouseLeave={() => setHovered(false)}
       className={`rounded-[20px] p-9 flex flex-col ${card.half ? "" : "min-h-[320px]"}`}
       style={{
-        backgroundColor: hovered ? card.hoverColor : "#fbfaf7",
+        backgroundColor: hovered ? card.hoverColor : "#f5f0e8",
         transform: hovered ? "translateY(-4px)" : "translateY(0px)",
         boxShadow: hovered
           ? "0 12px 40px rgba(0,0,0,0.1)"
@@ -317,12 +296,21 @@ function AdventureCard({
         {card.body}
       </p>
 
-      {/* Link */}
+      {/* Arrow button */}
       <Link
         to={card.link}
-        className="mt-auto font-sans text-[15px] text-[#1A1A1A] underline underline-offset-4 decoration-1 hover:decoration-2 transition-all"
+        className="mt-auto self-end"
+        data-cursor="pointer"
       >
-        {card.linkText}
+        <div
+          className="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center transition-colors"
+          style={{ backgroundColor: hovered ? "#1A1A1A" : "transparent" }}
+        >
+          <ArrowUpRight
+            className="w-3.5 h-3.5 transition-colors"
+            style={{ color: hovered ? "#fff" : "#1A1A1A" }}
+          />
+        </div>
       </Link>
     </motion.div>
   );
