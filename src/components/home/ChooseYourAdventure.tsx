@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 
 /* ── 3D-style SVG Icons (colorful, dimensional, matching hero style) ── */
 
@@ -281,7 +282,7 @@ function AdventureCard({
       onMouseLeave={() => setHovered(false)}
       className={`rounded-[20px] p-9 flex flex-col ${card.half ? "" : "min-h-[320px]"}`}
       style={{
-        backgroundColor: hovered ? card.hoverColor : "#fbfaf7",
+        backgroundColor: hovered ? card.hoverColor : "#fefefd",
         transform: hovered ? "translateY(-4px)" : "translateY(0px)",
         boxShadow: hovered
           ? "0 12px 40px rgba(0,0,0,0.1)"
@@ -317,12 +318,20 @@ function AdventureCard({
         {card.body}
       </p>
 
-      {/* Link */}
+      {/* Link — circle arrow button */}
       <Link
         to={card.link}
-        className="mt-auto font-sans text-[15px] text-[#1A1A1A] underline underline-offset-4 decoration-1 hover:decoration-2 transition-all"
+        className="mt-auto self-end"
       >
-        {card.linkText}
+        <div
+          className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-gray-200 flex items-center justify-center transition-colors"
+          style={{ backgroundColor: hovered ? "#1A1A1A" : "transparent" }}
+        >
+          <ArrowUpRight
+            className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-colors"
+            style={{ color: hovered ? "#fff" : "#1A1A1A" }}
+          />
+        </div>
       </Link>
     </motion.div>
   );
