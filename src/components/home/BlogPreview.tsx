@@ -62,7 +62,7 @@ const BlogCard = ({ post, index }: { post: (typeof posts)[0]; index: number }) =
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         data-cursor="pointer"
-        style={{ backgroundColor: "#fbfaf7" }}
+        style={{ backgroundColor: "#fefefd" }}
       >
         {/* Image */}
         <div className="relative aspect-[4/3] overflow-hidden rounded-2xl m-2.5 sm:m-3">
@@ -151,7 +151,7 @@ const BlogPreview = () => {
           <div className="flex justify-center mt-12">
             <Link
               to="/blog"
-              className="border-2 border-foreground text-foreground rounded-full px-6 py-2.5 text-sm font-sans font-medium hover:bg-foreground hover:text-white transition-all"
+              className="font-sans text-sm font-medium text-foreground underline underline-offset-4 decoration-1 hover:decoration-2 transition-all"
               data-cursor="pointer"
             >
               Read all posts
