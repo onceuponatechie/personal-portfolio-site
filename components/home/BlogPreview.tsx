@@ -101,12 +101,11 @@ const BlogCard = ({ post, index }: { post: (typeof posts)[0]; index: number }) =
               {post.title}
             </h3>
             <div
-              className="shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-gray-200 flex items-center justify-center mt-0.5 transition-colors"
-              style={{ backgroundColor: hovered ? "#1A1A1A" : "transparent" }}
+              className="shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center mt-0.5 transition-colors"
+              style={{ backgroundColor: hovered ? "#1A1A1A" : "hsl(18,78%,57%)" }}
             >
               <ArrowUpRight
-                className="w-3 h-3 sm:w-3.5 sm:h-3.5 transition-colors"
-                style={{ color: hovered ? "#fff" : "#1A1A1A" }}
+                className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white"
               />
             </div>
           </div>
