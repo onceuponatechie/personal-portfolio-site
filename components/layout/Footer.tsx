@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import { Instagram, Twitter, Linkedin, Github } from "lucide-react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
@@ -19,8 +18,6 @@ const socials = [
 ];
 
 const Footer = () => {
-  const [email, setEmail] = useState("");
-
   return (
     <footer className="relative bg-dark-bg rounded-t-[40px] overflow-hidden">
       {/* Gradient border glow at top */}
@@ -43,23 +40,15 @@ const Footer = () => {
               Experience
             </h2>
 
-            {/* Newsletter */}
-            <div id="newsletter" className="mt-12 max-w-md mx-auto">
-              <div className="glassmorphism-dark rounded-full p-1 flex items-center">
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 bg-transparent text-white placeholder:text-white/40 px-5 py-3 text-sm focus:outline-none font-sans"
-                />
-                <button
-                  className="bg-primary text-primary-foreground rounded-full px-6 py-3 text-sm font-sans font-medium hover:opacity-90 transition-opacity shrink-0"
-                  data-cursor="pointer"
-                >
-                  Subscribe
-                </button>
-              </div>
+            {/* CTA */}
+            <div className="mt-12">
+              <Link
+                href="/contact"
+                className="glassmorphism-dark rounded-full px-8 py-4 text-sm font-sans font-medium text-white hover:bg-white/15 transition-colors inline-block"
+                data-cursor="pointer"
+              >
+                Build With Me &rarr;
+              </Link>
             </div>
           </div>
         </ScrollReveal>

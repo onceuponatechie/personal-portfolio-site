@@ -1,6 +1,6 @@
 import HeroSection from "@/components/home/HeroSection";
 import CreativeVaultStrip from "@/components/home/CreativeVaultStrip";
-import AboutParagraph from "@/components/home/AboutParagraph";
+
 import SkillsPillGrid from "@/components/home/SkillsPillGrid";
 import ChooseYourAdventure from "@/components/home/ChooseYourAdventure";
 import FeaturedProjectsShowcase from "@/components/home/FeaturedProjectsShowcase";
@@ -13,7 +13,6 @@ export default function HomePage() {
     <>
       <HeroSection />
       <CreativeVaultStrip />
-      <AboutParagraph />
       <ChooseYourAdventure />
       <FeaturedProjectsShowcase />
       <SkillsPillGrid />
