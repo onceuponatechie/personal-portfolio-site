@@ -148,10 +148,10 @@ function AdventureCard({ card, inView, delay }: { card: CardData; inView: boolea
       </p>
       <Link href={card.link} className="mt-auto self-end">
         <div
-          className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-gray-200 flex items-center justify-center transition-colors"
-          style={{ backgroundColor: hovered ? "#1A1A1A" : "transparent" }}
+          className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center transition-colors"
+          style={{ backgroundColor: hovered ? "#1A1A1A" : "hsl(18,78%,57%)" }}
         >
-          <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-colors" style={{ color: hovered ? "#fff" : "#1A1A1A" }} />
+          <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
         </div>
       </Link>
     </motion.div>
