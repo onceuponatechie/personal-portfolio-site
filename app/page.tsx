@@ -13,8 +13,8 @@ export default function HomePage() {
     <>
       <HeroSection />
       <CreativeVaultStrip />
-      <FeaturedProjectsShowcase />
       <SkillsPillGrid />
+      <FeaturedProjectsShowcase />
       <BlogPreview />
       <NewsletterSection />
       <FAQAccordion />
