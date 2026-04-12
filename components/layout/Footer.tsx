@@ -28,9 +28,6 @@ const Footer = () => {
         {/* Main CTA */}
         <ScrollReveal>
           <div className="text-center mb-20">
-            <p className="font-serif italic text-white/40 text-sm mb-4">
-              Don&apos;t be a stranger
-            </p>
             <h2 className="font-serif text-foreground">
               <span className="text-white/40 text-2xl md:text-3xl">Let&apos;s</span>{" "}
               <span className="text-white text-2xl md:text-3xl">build</span>{" "}
@@ -42,7 +39,7 @@ const Footer = () => {
 
             {/* CTA */}
             <div className="mt-12">
-              <div className="inline-block rounded-full p-1.5" style={{ background: "rgba(255,255,255,0.80)", backdropFilter: "blur(40px)", WebkitBackdropFilter: "blur(40px)", border: "1px solid rgba(255,255,255,0.50)", boxShadow: "0 4px 24px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04)" }}>
+              <div className="inline-block rounded-full p-1.5" style={{ background: "rgba(255,255,255,0.10)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.16)" }}>
                 <Link
                   href="/contact"
                   className="bg-primary text-primary-foreground rounded-full px-8 py-3.5 text-sm font-sans font-medium hover:bg-[#e9d5ff] hover:text-foreground transition-colors inline-block"
