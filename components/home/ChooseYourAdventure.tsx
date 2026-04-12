@@ -174,7 +174,7 @@ const ChooseYourAdventure = () => {
           className="mb-12 lg:mb-10 text-center"
         >
           <p className="font-serif italic text-sm text-muted-foreground mb-6">Can I Help?</p>
-          <h2 className="font-serif text-3xl md:text-4xl text-[#1A1A1A] leading-[1.1]">
+          <h2 className="font-serif text-[34px] md:text-[44px] text-[#1A1A1A] leading-[1.1]">
             Choose Your{" "}
             <span className="relative inline-block italic">
               Adventure

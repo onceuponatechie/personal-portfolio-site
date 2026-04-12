@@ -59,7 +59,7 @@ const FeaturedProjectsShowcase = () => {
             <p className="font-serif italic text-sm text-muted-foreground mb-3">
               Featured Work
             </p>
-            <h2 className="font-serif text-3xl md:text-4xl text-foreground">
+            <h2 className="font-serif text-[34px] md:text-[44px] text-foreground">
               The <span className="italic">Projects</span>
             </h2>
           </div>

@@ -134,7 +134,7 @@ const BlogPreview = () => {
             <p className="font-serif italic text-sm text-muted-foreground mb-3">
               From the Stories
             </p>
-            <h2 className="font-serif text-3xl md:text-4xl text-foreground">
+            <h2 className="font-serif text-[34px] md:text-[44px] text-foreground">
               The Storyteller&apos;s <span className="italic">Log</span>
             </h2>
           </div>
