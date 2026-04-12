@@ -60,7 +60,7 @@ const FeaturedProjectsShowcase = () => {
               Featured Work
             </p>
             <h2 className="font-serif text-3xl md:text-4xl text-foreground">
-              Things I&apos;ve <span className="italic">shipped</span>
+              The <span className="italic">Projects</span>
             </h2>
           </div>
         </ScrollReveal>

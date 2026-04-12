@@ -9,7 +9,7 @@ import { Menu, X } from "lucide-react";
 const navLinks = [
   { label: "Resources", href: "/resources" },
   { label: "Projects", href: "/projects" },
-  { label: "Blog", href: "/blog" },
+  { label: "Stories", href: "/blog" },
   { label: "About", href: "/about" },
 ];
 
@@ -69,7 +69,7 @@ const Navbar = () => {
 
             <Link
               href="/contact"
-              className="bg-primary text-primary-foreground rounded-full px-6 py-2.5 font-sans text-[13px] font-medium hover:bg-brand-green transition-colors"
+              className="bg-primary text-primary-foreground rounded-full px-6 py-2.5 font-sans text-[13px] font-medium hover:bg-[#e9d5ff] hover:text-foreground transition-colors"
               data-cursor="pointer"
             >
               Build With Me
@@ -115,7 +115,7 @@ const Navbar = () => {
             <Link
               href="/contact"
               onClick={() => setMobileOpen(false)}
-              className="bg-primary text-primary-foreground rounded-full px-8 py-3 font-sans text-base font-medium mt-4 hover:bg-brand-green transition-colors"
+              className="bg-primary text-primary-foreground rounded-full px-8 py-3 font-sans text-base font-medium mt-4 hover:bg-[#e9d5ff] hover:text-foreground transition-colors"
             >
               Build With Me
             </Link>

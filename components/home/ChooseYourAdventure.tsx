@@ -125,7 +125,7 @@ function AdventureCard({ card, inView, delay }: { card: CardData; inView: boolea
       onMouseLeave={() => setHovered(false)}
       className={`rounded-[20px] p-9 flex flex-col ${card.half ? "" : "min-h-[320px]"}`}
       style={{
-        backgroundColor: hovered ? card.hoverColor : "#fefefd",
+        backgroundColor: hovered ? card.hoverColor : "#fdfcfa",
         transform: hovered ? "translateY(-4px)" : "translateY(0px)",
         boxShadow: hovered ? "0 12px 40px rgba(0,0,0,0.1)" : "0 2px 12px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04)",
         border: "1px solid rgba(0,0,0,0.04)",
