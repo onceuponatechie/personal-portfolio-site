@@ -83,11 +83,11 @@ const LightbulbPlayIcon = () => (
   </svg>
 );
 
-const AdventureSwirl = ({ animate }: { animate: boolean }) => (
-  <motion.svg viewBox="0 0 280 30" fill="none" className="absolute -bottom-2 left-0 w-full" style={{ overflow: "visible" }}>
+const AdventureCurve = ({ animate }: { animate: boolean }) => (
+  <motion.svg viewBox="0 0 200 12" fill="none" className="absolute -bottom-2 left-0 w-full" style={{ overflow: "visible" }} preserveAspectRatio="none">
     <motion.path
-      d="M5 18 C40 4, 80 28, 120 14 C160 0, 200 26, 240 12 C255 8, 268 16, 275 14"
-      stroke="#5DCDF1" strokeWidth="3" strokeLinecap="round" fill="none"
+      d="M0 8 C30 2, 50 10, 80 5 C110 0, 130 10, 160 5 C175 2, 190 8, 200 6"
+      stroke="#5DCDF1" strokeWidth="2.5" strokeLinecap="round" fill="none"
       initial={{ pathLength: 0, opacity: 0 }}
       animate={animate ? { pathLength: 1, opacity: 1 } : {}}
       transition={{ delay: 0.8, duration: 0.8, ease: "easeInOut" }}
@@ -174,11 +174,11 @@ const ChooseYourAdventure = () => {
           className="mb-12 lg:mb-10 text-center"
         >
           <p className="font-serif italic text-sm text-muted-foreground mb-6">Can I Help?</p>
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-[56px] text-[#1A1A1A] leading-[1.1] whitespace-nowrap">
+          <h2 className="font-serif text-3xl md:text-4xl text-[#1A1A1A] leading-[1.1]">
             Choose Your{" "}
             <span className="relative inline-block italic">
               Adventure
-              <AdventureSwirl animate={inView} />
+              <AdventureCurve animate={inView} />
             </span>
           </h2>
         </motion.div>

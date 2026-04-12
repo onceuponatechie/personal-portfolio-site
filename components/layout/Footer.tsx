@@ -42,7 +42,7 @@ const Footer = () => {
 
             {/* CTA */}
             <div className="mt-12">
-              <div className="inline-block glassmorphism-dark rounded-full p-1.5">
+              <div className="inline-block rounded-full p-1.5" style={{ background: "rgba(255,255,255,0.80)", backdropFilter: "blur(40px)", WebkitBackdropFilter: "blur(40px)", border: "1px solid rgba(255,255,255,0.50)", boxShadow: "0 4px 24px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04)" }}>
                 <Link
                   href="/contact"
                   className="bg-primary text-primary-foreground rounded-full px-8 py-3.5 text-sm font-sans font-medium hover:bg-[#e9d5ff] hover:text-foreground transition-colors inline-block"
