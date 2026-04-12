@@ -72,7 +72,7 @@ const CustomCursor = () => {
         style={{
           width: isHovering ? 25 : 20,
           height: isHovering ? 25 : 20,
-          backgroundColor: isHovering ? "hsl(255 35% 74%)" : "hsl(213 60% 57%)",
+          backgroundColor: isHovering ? "#e9d5ff" : "#2596be",
           marginLeft: isHovering ? -12.5 : -10,
           marginTop: isHovering ? -12.5 : -10,
         }}

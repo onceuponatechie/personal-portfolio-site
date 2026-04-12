@@ -64,7 +64,7 @@ const BlogCard = ({ post, index }: { post: (typeof posts)[0]; index: number }) =
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         data-cursor="pointer"
-        style={{ backgroundColor: "#fefefd" }}
+        style={{ backgroundColor: "#fdfcfa" }}
       >
         {/* Image */}
         <div className="relative aspect-[4/3] overflow-hidden rounded-2xl m-2.5 sm:m-3">
@@ -132,7 +132,7 @@ const BlogPreview = () => {
         <ScrollReveal>
           <div className="text-center mb-12">
             <p className="font-serif italic text-sm text-muted-foreground mb-3">
-              From the Blog
+              From the Stories
             </p>
             <h2 className="font-serif text-3xl md:text-4xl text-foreground">
               The Storyteller&apos;s <span className="italic">Log</span>
@@ -150,10 +150,10 @@ const BlogPreview = () => {
           <div className="flex justify-center mt-12">
             <Link
               href="/blog"
-              className="font-sans text-sm font-medium text-foreground underline underline-offset-4 decoration-1 hover:decoration-2 transition-all"
+              className="font-serif text-sm font-medium text-primary underline underline-offset-4 decoration-1 hover:decoration-2 transition-all"
               data-cursor="pointer"
             >
-              Read all posts
+              Read All Stories &rarr;
             </Link>
           </div>
         </ScrollReveal>

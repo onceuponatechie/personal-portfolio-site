@@ -6,7 +6,7 @@ import ScrollReveal from "@/components/shared/ScrollReveal";
 
 const footerLinks = [
   { label: "FREEBIES", href: "/resources" },
-  { label: "BLOG", href: "/blog" },
+  { label: "STORIES", href: "/blog" },
   { label: "PROJECTS", href: "/projects" },
 ];
 
@@ -42,13 +42,15 @@ const Footer = () => {
 
             {/* CTA */}
             <div className="mt-12">
-              <Link
-                href="/contact"
-                className="glassmorphism-dark rounded-full px-8 py-4 text-sm font-sans font-medium text-white hover:bg-white/15 transition-colors inline-block"
-                data-cursor="pointer"
-              >
-                Build With Me &rarr;
-              </Link>
+              <div className="inline-block glassmorphism-dark rounded-full p-1.5">
+                <Link
+                  href="/contact"
+                  className="bg-primary text-primary-foreground rounded-full px-8 py-3.5 text-sm font-sans font-medium hover:bg-[#e9d5ff] hover:text-foreground transition-colors inline-block"
+                  data-cursor="pointer"
+                >
+                  Build With Me
+                </Link>
+              </div>
             </div>
           </div>
         </ScrollReveal>
