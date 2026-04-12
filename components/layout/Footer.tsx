@@ -28,12 +28,10 @@ const Footer = () => {
         {/* Main CTA */}
         <ScrollReveal>
           <div className="text-center mb-20">
-            <h2 className="font-serif text-foreground">
-              <span className="text-white/40 text-2xl md:text-3xl">Let&apos;s</span>{" "}
-              <span className="text-white text-2xl md:text-3xl">build</span>{" "}
-              <span className="text-white/40 text-2xl md:text-3xl">an</span>
+            <h2 className="font-serif text-2xl md:text-3xl text-white">
+              Let&apos;s Build An
             </h2>
-            <h2 className="font-serif text-6xl md:text-8xl text-white font-bold mt-1">
+            <h2 className="font-serif text-6xl md:text-8xl text-white font-semibold mt-1">
               Experience
             </h2>
 

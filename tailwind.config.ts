@@ -19,7 +19,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ['"Segoe UI"', 'system-ui', 'sans-serif'],
+        serif: ['"Playfair Display"', 'serif'],
         display: ['"Playfair Display"', 'serif'],
         sans: ['"Inter"', 'sans-serif'],
       },
