@@ -38,7 +38,7 @@ export default function ContactPageClient() {
           <div className="text-center mb-12">
             <p className="font-sans text-xs uppercase tracking-widest text-muted-foreground mb-3">Contact</p>
             <h1 className="font-serif text-4xl md:text-5xl text-foreground">
-              Let&apos;s make something <span className="italic">together</span>
+              Let&apos;s make something <span className="font-display italic">together</span>
             </h1>
             <p className="font-sans text-base text-muted-foreground mt-4">
               Got an idea, a question, or just want to say hi? I&apos;d love to hear from you.

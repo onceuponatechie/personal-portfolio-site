@@ -131,11 +131,11 @@ const BlogPreview = () => {
       <div className="max-w-5xl mx-auto px-6">
         <ScrollReveal>
           <div className="text-center mb-12">
-            <p className="font-serif italic text-sm text-muted-foreground mb-3">
-              From the Stories
+            <p className="font-display italic text-sm text-muted-foreground mb-3">
+              The Stories
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl text-foreground">
-              The Storyteller&apos;s <span className="italic">Log</span>
+            <h2 className="font-serif text-[34px] md:text-[44px] text-foreground">
+              From The <span className="font-display italic">Desk</span>
             </h2>
           </div>
         </ScrollReveal>

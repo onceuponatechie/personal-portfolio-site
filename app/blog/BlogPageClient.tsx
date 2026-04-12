@@ -30,7 +30,7 @@ export default function BlogPageClient({ posts }: { posts: PostFrontmatter[] }) 
           <div className="text-center mb-12">
             <p className="font-sans text-xs uppercase tracking-widest text-muted-foreground mb-3">Blog</p>
             <h1 className="font-serif text-4xl md:text-5xl text-foreground">
-              The Storyteller&apos;s <span className="italic">Log</span>
+              The Storyteller&apos;s <span className="font-display italic">Log</span>
             </h1>
           </div>
         </ScrollReveal>

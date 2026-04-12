@@ -56,11 +56,11 @@ const FeaturedProjectsShowcase = () => {
       <div className="max-w-6xl mx-auto px-4">
         <ScrollReveal>
           <div className="text-center mb-12">
-            <p className="font-serif italic text-sm text-muted-foreground mb-3">
+            <p className="font-display italic text-sm text-muted-foreground mb-3">
               Featured Work
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl text-foreground">
-              The <span className="italic">Projects</span>
+            <h2 className="font-serif text-[34px] md:text-[44px] text-foreground">
+              The <span className="font-display italic">Projects</span>
             </h2>
           </div>
         </ScrollReveal>

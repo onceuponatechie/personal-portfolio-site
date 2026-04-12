@@ -23,9 +23,9 @@ const FAQAccordion = () => {
       <div className="max-w-2xl mx-auto px-6">
         <ScrollReveal>
           <div className="text-center mb-12">
-            <p className="font-serif italic text-sm text-muted-foreground mb-3">FAQ</p>
+            <p className="font-display italic text-sm text-muted-foreground mb-3">FAQ</p>
             <h2 className="font-serif text-3xl md:text-4xl text-foreground">
-              Your questions, <span className="italic">answered</span>
+              Your questions, <span className="font-display italic">answered</span>
             </h2>
           </div>
         </ScrollReveal>
