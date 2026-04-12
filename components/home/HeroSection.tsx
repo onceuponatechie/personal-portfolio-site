@@ -49,7 +49,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-background to-surface-warm" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-white/60 rounded-full blur-[120px]" />
 
-      <motion.div style={{ y }} className="relative z-10 max-w-3xl mx-auto px-6 text-center py-16 pt-20">
+      <motion.div style={{ y }} className="relative z-10 max-w-3xl mx-auto px-6 text-center pt-6 pb-16">
         {/* Smiley */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
