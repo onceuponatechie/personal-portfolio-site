@@ -26,7 +26,7 @@ export default function ResourcesPageClient({ resources }: { resources: Resource
           <div className="text-center mb-12">
             <p className="font-sans text-xs uppercase tracking-widest text-muted-foreground mb-3">Resources</p>
             <h1 className="font-serif text-4xl md:text-5xl text-foreground">
-              The Creative <span className="italic">Vault</span>
+              The Creative <span className="font-display italic">Vault</span>
             </h1>
             <p className="font-sans text-base text-muted-foreground mt-4 max-w-lg mx-auto">
               Templates, tools, and freebies to help you build faster and better.

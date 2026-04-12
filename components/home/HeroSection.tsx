@@ -82,11 +82,11 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="font-serif text-[clamp(2.5rem,5vw,3.75rem)] leading-[1.15] text-foreground mb-6"
         >
-          <span className="italic">Products,</span>{" "}
-          <span className="italic">people,</span> and the
+          <span className="font-display italic">Products,</span>{" "}
+          <span className="font-display italic">people,</span> and the
           <br className="hidden sm:block" />
           <MediaBox offset={0} />{" "}
-          <span className="italic">stories</span> that connect
+          <span className="font-display italic">stories</span> that connect
           <br className="hidden sm:block" />
           <MediaBox offset={2} />{" "}
           them.

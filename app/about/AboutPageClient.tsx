@@ -42,7 +42,7 @@ export default function AboutPageClient() {
             <div>
               <p className="font-sans text-xs uppercase tracking-widest text-muted-foreground mb-3">About</p>
               <h1 className="font-serif text-4xl md:text-5xl text-foreground mb-4">
-                Hey, I&apos;m <span className="italic">the Techie</span>
+                Hey, I&apos;m <span className="font-display italic">the Techie</span>
               </h1>
               <p className="font-sans text-base text-muted-foreground leading-relaxed">
                 I&apos;m a product storyteller and creative builder who turns ideas into experiences people love — through design, automation, and a whole lot of curiosity.
@@ -68,7 +68,7 @@ export default function AboutPageClient() {
           <div className="mb-20">
             <div className="flex items-center gap-2 mb-6">
               <Heart className="w-4 h-4 text-primary" />
-              <h2 className="font-serif text-2xl text-foreground">Obsessed <span className="italic">With</span></h2>
+              <h2 className="font-serif text-2xl text-foreground">Obsessed <span className="font-display italic">With</span></h2>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {obsessions.map((item, i) => (

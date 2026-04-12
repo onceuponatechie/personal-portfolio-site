@@ -173,10 +173,10 @@ const ChooseYourAdventure = () => {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="mb-12 lg:mb-10 text-center"
         >
-          <p className="font-serif italic text-sm text-muted-foreground mb-6">Can I Help?</p>
+          <p className="font-display italic text-sm text-muted-foreground mb-6">Can I Help?</p>
           <h2 className="font-serif text-[34px] md:text-[44px] text-[#1A1A1A] leading-[1.1]">
             Choose Your{" "}
-            <span className="relative inline-block italic">
+            <span className="relative inline-block font-display italic">
               Adventure
               <AdventureCurve animate={inView} />
             </span>

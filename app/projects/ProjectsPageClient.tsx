@@ -20,7 +20,7 @@ export default function ProjectsPageClient({ projects }: { projects: ProjectFron
           <div className="text-center mb-12">
             <p className="font-sans text-xs uppercase tracking-widest text-muted-foreground mb-3">Portfolio</p>
             <h1 className="font-serif text-4xl md:text-5xl text-foreground">
-              Ship <span className="italic">Log</span>
+              Ship <span className="font-display italic">Log</span>
             </h1>
           </div>
         </ScrollReveal>

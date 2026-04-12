@@ -23,7 +23,7 @@ const NewsletterSection = () => {
                 <h2 className="font-serif text-4xl md:text-5xl lg:text-[3.4rem] text-foreground leading-[1.15] mb-6">
                   Subscribe to
                   <br />
-                  <span className="italic text-muted-foreground">QuietNotes</span>
+                  <span className="font-display italic text-muted-foreground">QuietNotes</span>
                 </h2>
                 <p className="font-sans text-base text-muted-foreground leading-relaxed max-w-lg">
                   Each week, I share actionable productivity tips, practical life

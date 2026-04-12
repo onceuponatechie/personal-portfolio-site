@@ -40,7 +40,7 @@ function ScrollRevealWord({ word, index, green, progress }: { word: string; inde
   });
 
   return (
-    <motion.span style={{ color, fontWeight: green ? 500 : undefined, fontStyle: green ? "italic" : undefined }}>
+    <motion.span className={green ? "font-display" : undefined} style={{ color, fontWeight: green ? 500 : undefined, fontStyle: green ? "italic" : undefined }}>
       {word}
     </motion.span>
   );
@@ -62,7 +62,7 @@ const SkillsPillGrid = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.1, duration: 0.4 }}
-          className="font-serif italic text-sm text-muted-foreground mb-6 text-center"
+          className="font-display italic text-sm text-muted-foreground mb-6 text-center"
         >
           What I Do
         </motion.p>
