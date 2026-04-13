@@ -60,7 +60,7 @@ const FeaturedProjectsShowcase = () => {
               Featured Work
             </p>
             <h2 className="font-serif text-[34px] md:text-[44px] text-foreground">
-              The <span className="font-display italic">Projects</span>
+              The <span className="relative inline-block font-display italic">Projects<svg viewBox="0 0 200 14" fill="none" className="absolute -bottom-1 left-0 w-full" style={{ overflow: "visible" }} preserveAspectRatio="none"><path d="M0 10 C50 0, 100 0, 100 7 C100 14, 150 14, 200 4" stroke="hsl(44,88%,67%)" strokeWidth="5.5" strokeLinecap="round" fill="none" /></svg></span>
             </h2>
           </div>
         </ScrollReveal>
