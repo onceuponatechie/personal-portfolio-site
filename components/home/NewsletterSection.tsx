@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Star } from "lucide-react";
+import { Send, Star } from "lucide-react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
 const NewsletterSection = () => {
@@ -26,7 +26,7 @@ const NewsletterSection = () => {
                   <span className="font-display italic text-muted-foreground">QuietNotes</span>
                 </h2>
                 <p className="font-sans text-base text-muted-foreground leading-relaxed max-w-lg">
-                  Just a quiet corner of the internet for builders. Weekly notes on products, tech, ambition, and the invisible systems that run them.
+                  Just a quiet corner of the internet for builders. Biweekly notes on products, tech, ambition, and the invisible systems that run them. It&apos;s free forever.
                 </p>
 
                 <div className="mt-10 flex items-center gap-4">
@@ -41,7 +41,7 @@ const NewsletterSection = () => {
                         <Star key={i} className="w-3.5 h-3.5 text-brand-orange fill-brand-orange" />
                       ))}
                     </div>
-                    <p className="font-sans text-sm font-medium text-foreground">The tool obsessions</p>
+                    <p className="font-sans text-sm font-medium text-foreground">My fave brands</p>
                   </div>
                 </div>
               </div>
@@ -55,7 +55,7 @@ const NewsletterSection = () => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className="w-full rounded-full border-0 px-6 py-4 text-sm font-sans text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/30"
-                      style={{ backgroundColor: "#f7f5f0" }}
+                      style={{ backgroundColor: "#fefefd" }}
                     />
                   </div>
                   <button
@@ -63,6 +63,7 @@ const NewsletterSection = () => {
                     data-cursor="pointer"
                   >
                     Subscribe
+                    <Send className="w-4 h-4" />
                   </button>
                   <p className="text-center text-xs text-muted-foreground/60 font-sans mt-5 leading-relaxed">
                     By submitting this form, you&apos;ll be signed up to my free newsletter. No spam, just value.
