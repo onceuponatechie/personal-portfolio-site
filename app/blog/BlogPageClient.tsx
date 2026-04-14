@@ -70,7 +70,7 @@ export default function BlogPageClient({ posts }: { posts: PostFrontmatter[] }) 
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {rest.map((post, i) => (
-            <motion.div key={post.slug} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
+            <motion.div key={post.slug} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-60px" }} transition={{ delay: i * 0.05 }}>
               <Link href={`/blog/${post.slug}`} className="block rounded-2xl p-6 border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all group" data-cursor="pointer" style={{ minHeight: 220, backgroundColor: "#fdfcfa" }}>
                 <span className={`font-sans text-[11px] uppercase tracking-wider font-semibold ${categoryColors[post.category] || "text-primary"}`}>{post.category}</span>
                 <div className="flex items-center gap-2 mt-1 mb-3">

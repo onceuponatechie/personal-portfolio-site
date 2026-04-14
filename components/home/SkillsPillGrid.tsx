@@ -48,7 +48,7 @@ function ScrollRevealWord({ word, index, green, progress }: { word: string; inde
 
 const SkillsPillGrid = () => {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const inView = useInView(ref, { once: false, margin: "-100px" });
   const leftSkills = skills.filter((s) => s.side === "left");
   const rightSkills = skills.filter((s) => s.side === "right");
 
