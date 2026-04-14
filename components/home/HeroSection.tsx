@@ -38,6 +38,21 @@ const MediaBox = ({ offset = 0 }: { offset?: number }) => {
   );
 };
 
+// Reveal helpers — tight staggered timings for a "felt" cascade
+const EASE = [0.25, 0.1, 0.25, 1] as const;
+
+const mediaReveal = (delay: number) => ({
+  initial: { opacity: 0, scale: 0.6 },
+  animate: { opacity: 1, scale: 1 },
+  transition: { duration: 0.45, delay, ease: EASE },
+});
+
+const textReveal = (delay: number) => ({
+  initial: { opacity: 0, filter: "blur(6px)" },
+  animate: { opacity: 1, filter: "blur(0px)" },
+  transition: { duration: 0.5, delay, ease: EASE },
+});
+
 const HeroSection = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
@@ -50,21 +65,21 @@ const HeroSection = () => {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-white/60 rounded-full blur-[120px]" />
 
       <motion.div style={{ y }} className="relative z-10 max-w-3xl mx-auto px-6 text-center pt-6 pb-16">
-        {/* Smiley */}
+        {/* Smiley — icons appear first */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.7 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.45, delay: 0, ease: EASE }}
           className="flex justify-center mb-8"
         >
           <SmileyGreeting />
         </motion.div>
 
-        {/* Badge */}
+        {/* Badge — icons appear first */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.45, delay: 0.06, ease: EASE }}
           className="flex justify-center mb-8"
         >
           <div className="glassmorphism rounded-full px-4 py-2 flex items-center gap-2">
@@ -75,28 +90,38 @@ const HeroSection = () => {
           </div>
         </motion.div>
 
-        {/* Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="font-serif text-[clamp(2.5rem,5vw,3.75rem)] leading-[1.15] text-foreground mb-6"
-        >
-          <span className="font-display italic">Products,</span>{" "}
-          <span className="font-display italic">people,</span> and the
+        {/* Headline — media appears with icons, then each line cascades */}
+        <h1 className="font-serif text-[clamp(2.5rem,5vw,3.75rem)] leading-[1.15] text-foreground mb-6">
+          {/* Line 1 */}
+          <motion.span {...textReveal(0.14)}>
+            <span className="font-display italic">Products,</span>{" "}
+            <span className="font-display italic">people,</span> and the
+          </motion.span>
           <br className="hidden sm:block" />
-          <MediaBox offset={0} />{" "}
-          <span className="font-display italic">stories</span> that connect
+
+          {/* Line 2 — media first (t=0), then text */}
+          <motion.span {...mediaReveal(0)} style={{ display: "inline-flex" }}>
+            <MediaBox offset={0} />
+          </motion.span>
+          <motion.span {...textReveal(0.2)}>
+            {" "}<span className="font-display italic">stories</span> that connect
+          </motion.span>
           <br className="hidden sm:block" />
-          <MediaBox offset={2} />{" "}
-          them.
-        </motion.h1>
+
+          {/* Line 3 — media first (t=0), then text */}
+          <motion.span {...mediaReveal(0.03)} style={{ display: "inline-flex" }}>
+            <MediaBox offset={2} />
+          </motion.span>
+          <motion.span {...textReveal(0.26)}>
+            {" "}them.
+          </motion.span>
+        </h1>
 
         {/* Subheadline */}
         <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1 }}
+          initial={{ opacity: 0, filter: "blur(6px)" }}
+          animate={{ opacity: 1, filter: "blur(0px)" }}
+          transition={{ duration: 0.5, delay: 0.32, ease: EASE }}
           className="font-sans text-base md:text-lg font-light text-text-custom-secondary tracking-wide mb-10"
         >
           Creator &middot; Builder &middot; Storyteller
@@ -104,9 +129,9 @@ const HeroSection = () => {
 
         {/* CTAs */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.2 }}
+          transition={{ duration: 0.5, delay: 0.38, ease: EASE }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <a
