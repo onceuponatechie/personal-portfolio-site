@@ -42,7 +42,7 @@ const projects = [
 const FeaturedProjectsShowcase = () => {
   const [active, setActive] = useState(0);
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const inView = useInView(ref, { once: false, margin: "-100px" });
 
   useEffect(() => {
     const timer = setInterval(() => setActive((i) => (i + 1) % projects.length), 5000);

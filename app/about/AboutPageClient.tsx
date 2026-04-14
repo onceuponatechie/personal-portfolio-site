@@ -76,7 +76,7 @@ export default function AboutPageClient() {
                   key={item.label}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false, margin: "-60px" }}
                   transition={{ delay: i * 0.05 }}
                   className="rounded-2xl border border-gray-100 p-4 text-center hover:shadow-md hover:-translate-y-1 transition-all"
                   style={{ backgroundColor: "#fdfcfa" }}
@@ -98,7 +98,7 @@ export default function AboutPageClient() {
                   key={item.label}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false, margin: "-60px" }}
                   transition={{ delay: i * 0.1 }}
                   className="rounded-2xl border border-gray-100 p-5"
                   style={{ backgroundColor: "#fdfcfa" }}

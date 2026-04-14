@@ -59,7 +59,7 @@ export default function ProjectDetailClient({ frontmatter, content, prev, next }
                   key={i}
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false, margin: "-60px" }}
                   transition={{ delay: i * 0.1 }}
                   className="flex-shrink-0 w-[70vw] md:w-[500px] rounded-2xl overflow-hidden"
                 >
