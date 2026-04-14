@@ -49,8 +49,12 @@ const FAQAccordion = () => {
                   <motion.div
                     animate={{ rotate: openIndex === i ? 45 : 0 }}
                     transition={{ duration: 0.2 }}
-                    className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center"
-                    style={{ background: "rgba(0,0,0,0.8)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.15)" }}
+                    className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200"
+                    style={{
+                      background: openIndex === i ? "hsl(18,78%,57%)" : "rgba(0,0,0,0.8)",
+                      backdropFilter: "blur(12px)",
+                      border: openIndex === i ? "1px solid hsl(18,78%,57%)" : "1px solid rgba(255,255,255,0.15)",
+                    }}
                   >
                     <Plus className="w-3.5 h-3.5 text-white" />
                   </motion.div>

@@ -94,31 +94,65 @@ const Navbar = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-background flex flex-col items-center justify-center gap-8"
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[100] bg-background"
           >
-            <button
-              onClick={() => setMobileOpen(false)}
-              className="absolute top-6 right-6 rounded-full w-10 h-10 flex items-center justify-center bg-white/60 backdrop-blur-xl border border-white/40"
-            >
-              <X className="w-5 h-5" />
-            </button>
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
+            {/* Top bar — brand + close */}
+            <div className="flex items-center justify-between px-6 pt-6">
+              <span className="font-serif text-base font-semibold text-foreground">
+                Once Upon a Techie
+              </span>
+              <button
                 onClick={() => setMobileOpen(false)}
-                className="font-serif text-3xl text-foreground hover:text-brand-lavender transition-colors"
+                className="rounded-full w-10 h-10 flex items-center justify-center bg-white/60 backdrop-blur-xl border border-white/40"
               >
-                {link.label}
-              </Link>
-            ))}
-            <Link
-              href="/contact"
-              onClick={() => setMobileOpen(false)}
-              className="bg-primary text-primary-foreground rounded-full px-8 py-3 font-sans text-base font-medium mt-4 hover:bg-[#5dcbf1] transition-colors"
+                <X className="w-4 h-4 text-foreground" />
+              </button>
+            </div>
+
+            {/* Navigation links */}
+            <nav className="flex flex-col px-6 mt-16">
+              {navLinks.map((link, i) => (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 + i * 0.06, duration: 0.4 }}
+                >
+                  <Link
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="group flex items-center justify-between py-4 border-b border-foreground/8"
+                  >
+                    <span className="font-serif text-2xl text-foreground group-hover:text-brand-lavender transition-colors">
+                      {link.label}
+                    </span>
+                    <span className="font-sans text-xs text-muted-foreground/50 uppercase tracking-wider">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                  </Link>
+                </motion.div>
+              ))}
+            </nav>
+
+            {/* Bottom section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.4 }}
+              className="absolute bottom-0 left-0 right-0 px-6 pb-10"
             >
-              Build With Me
-            </Link>
+              <Link
+                href="/contact"
+                onClick={() => setMobileOpen(false)}
+                className="block w-full bg-primary text-primary-foreground rounded-full px-8 py-4 font-sans text-sm font-semibold text-center hover:bg-[#5dcbf1] transition-colors"
+              >
+                Build With Me
+              </Link>
+              <p className="text-center text-xs text-muted-foreground/40 font-sans mt-4">
+                &copy; Essy Udeme, 2026
+              </p>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

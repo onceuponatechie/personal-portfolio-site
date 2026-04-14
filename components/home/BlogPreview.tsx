@@ -10,6 +10,7 @@ const posts = [
   {
     title: "Why I Stopped Chasing Perfection in Design",
     category: "Design",
+    date: "Mar 12, 2026",
     readTime: "5 min",
     excerpt: "The moment I embraced imperfection, my work became more authentic, faster, and way more fun.",
     image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=600&h=450&fit=crop",
@@ -18,6 +19,7 @@ const posts = [
   {
     title: "Building in Public: What I Learned in 30 Days",
     category: "Building",
+    date: "Feb 28, 2026",
     readTime: "7 min",
     excerpt: "A raw look at shipping daily, dealing with feedback, and finding your voice as a creator.",
     image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=450&fit=crop",
@@ -26,6 +28,7 @@ const posts = [
   {
     title: "The Automation Stack That Runs My Life",
     category: "Automation",
+    date: "Feb 10, 2026",
     readTime: "4 min",
     excerpt: "From email workflows to content scheduling — here's how I automate the boring stuff.",
     image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=600&h=450&fit=crop",
@@ -34,6 +37,7 @@ const posts = [
   {
     title: "How Storytelling Makes Better Products",
     category: "Product",
+    date: "Jan 22, 2026",
     readTime: "6 min",
     excerpt: "Every great product has a narrative. Here's how to find yours and make it unforgettable.",
     image: "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?w=600&h=450&fit=crop",
@@ -116,6 +120,10 @@ const BlogCard = ({ post, index }: { post: (typeof posts)[0]; index: number }) =
             </span>
             <span className="text-muted-foreground/40 text-[10px]">&bull;</span>
             <span className="font-sans text-[10px] sm:text-[11px] text-muted-foreground">
+              {post.date}
+            </span>
+            <span className="text-muted-foreground/40 text-[10px]">&bull;</span>
+            <span className="font-sans text-[10px] sm:text-[11px] text-muted-foreground">
               {post.readTime}
             </span>
           </div>
@@ -132,7 +140,7 @@ const BlogPreview = () => {
         <ScrollReveal>
           <div className="text-center mb-12">
             <p className="font-display italic text-sm text-muted-foreground mb-3">
-              From the Desk
+              Stories
             </p>
             <h2 className="font-serif text-[34px] md:text-[44px] text-foreground">
               The Build <span className="relative inline-block font-display italic">Chapters<svg viewBox="0 0 200 22" fill="none" className="absolute -bottom-3 left-0 w-full" style={{ overflow: "visible" }}><path d="M0 6 C50 -4, 100 -4, 100 3 C100 10, 150 10, 200 0" stroke="#5dcbf1" strokeWidth="5.5" strokeLinecap="round" fill="none" /><path d="M0 16 C50 6, 100 6, 100 13 C100 20, 150 20, 200 10" stroke="#5dcbf1" strokeWidth="5.5" strokeLinecap="round" fill="none" /></svg></span>
