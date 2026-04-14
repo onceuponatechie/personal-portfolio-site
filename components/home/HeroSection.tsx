@@ -69,7 +69,7 @@ const HeroSection = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0.7 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.45, delay: 0, ease: EASE }}
+          transition={{ duration: 0.5, delay: 0, ease: EASE }}
           className="flex justify-center mb-8"
         >
           <SmileyGreeting />
@@ -79,7 +79,7 @@ const HeroSection = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.45, delay: 0.06, ease: EASE }}
+          transition={{ duration: 0.5, delay: 0.08, ease: EASE }}
           className="flex justify-center mb-8"
         >
           <div className="glassmorphism rounded-full px-4 py-2 flex items-center gap-2">
@@ -93,26 +93,26 @@ const HeroSection = () => {
         {/* Headline — media appears with icons, then each line cascades */}
         <h1 className="font-serif text-[clamp(2.5rem,5vw,3.75rem)] leading-[1.15] text-foreground mb-6">
           {/* Line 1 */}
-          <motion.span {...textReveal(0.14)}>
+          <motion.span {...textReveal(0.4)}>
             <span className="font-display italic">Products,</span>{" "}
             <span className="font-display italic">people,</span> and the
           </motion.span>
           <br className="hidden sm:block" />
 
-          {/* Line 2 — media first (t=0), then text */}
-          <motion.span {...mediaReveal(0)} style={{ display: "inline-flex" }}>
+          {/* Line 2 — media in with icons, then text */}
+          <motion.span {...mediaReveal(0.14)} style={{ display: "inline-flex" }}>
             <MediaBox offset={0} />
           </motion.span>
-          <motion.span {...textReveal(0.2)}>
+          <motion.span {...textReveal(0.62)}>
             {" "}<span className="font-display italic">stories</span> that connect
           </motion.span>
           <br className="hidden sm:block" />
 
-          {/* Line 3 — media first (t=0), then text */}
-          <motion.span {...mediaReveal(0.03)} style={{ display: "inline-flex" }}>
+          {/* Line 3 — media in with icons, then text */}
+          <motion.span {...mediaReveal(0.18)} style={{ display: "inline-flex" }}>
             <MediaBox offset={2} />
           </motion.span>
-          <motion.span {...textReveal(0.26)}>
+          <motion.span {...textReveal(0.84)}>
             {" "}them.
           </motion.span>
         </h1>
@@ -121,7 +121,7 @@ const HeroSection = () => {
         <motion.p
           initial={{ opacity: 0, filter: "blur(6px)" }}
           animate={{ opacity: 1, filter: "blur(0px)" }}
-          transition={{ duration: 0.5, delay: 0.32, ease: EASE }}
+          transition={{ duration: 0.55, delay: 1.06, ease: EASE }}
           className="font-sans text-base md:text-lg font-light text-text-custom-secondary tracking-wide mb-10"
         >
           Creator &middot; Builder &middot; Storyteller
@@ -131,7 +131,7 @@ const HeroSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.38, ease: EASE }}
+          transition={{ duration: 0.55, delay: 1.24, ease: EASE }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <a
