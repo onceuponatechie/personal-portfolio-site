@@ -55,7 +55,7 @@ const NewsletterSection = () => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className="w-full rounded-full border-0 px-6 py-4 text-sm font-sans text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/30"
-                      style={{ backgroundColor: "#fefefd" }}
+                      style={{ backgroundColor: "#fbf9f5" }}
                     />
                   </div>
                   <button
