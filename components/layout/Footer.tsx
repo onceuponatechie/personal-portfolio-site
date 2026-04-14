@@ -1,7 +1,9 @@
 "use client";
 
+import { useRef } from "react";
 import Link from "next/link";
 import { Instagram, Twitter, Linkedin, Github } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
 const footerLinks = [
@@ -17,38 +19,83 @@ const socials = [
   { icon: Github, href: "#", label: "GitHub" },
 ];
 
+const footerWords = [
+  { text: "Let's" }, { text: "build" }, { text: "an" },
+];
+
+function FooterRevealWord({ word, index, progress }: { word: string; index: number; progress: ReturnType<typeof useTransform> }) {
+  const color = useTransform(progress, (latest: number) => {
+    if (latest >= index + 1) return "rgb(255,255,255)";
+    if (latest > index) {
+      const t = latest - index;
+      const v = Math.round(100 + t * 155);
+      return `rgb(${v},${v},${v})`;
+    }
+    return "rgb(100,100,100)";
+  });
+
+  return (
+    <motion.span style={{ color }}>
+      {word}
+    </motion.span>
+  );
+}
+
+function ExperienceReveal({ progress }: { progress: ReturnType<typeof useTransform> }) {
+  const color = useTransform(progress, (latest: number) => {
+    const wordCount = 3;
+    if (latest >= wordCount + 1) return "rgb(255,255,255)";
+    if (latest > wordCount) {
+      const t = latest - wordCount;
+      const v = Math.round(100 + t * 155);
+      return `rgb(${v},${v},${v})`;
+    }
+    return "rgb(100,100,100)";
+  });
+
+  return (
+    <motion.span style={{ color }}>
+      Experience
+    </motion.span>
+  );
+}
+
 const Footer = () => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 0.9", "start 0.5"] });
+  const revealProgress = useTransform(scrollYProgress, [0, 1], [0, 4]);
+
   return (
     <footer className="relative bg-dark-bg rounded-t-[40px] overflow-hidden">
       {/* Gradient border glow at top */}
       <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-20 bg-white/5 blur-3xl rounded-full" />
 
-      <div className="max-w-6xl mx-auto px-6 pt-24 pb-12">
+      <div className="max-w-6xl mx-auto px-6 pt-24 pb-12" ref={ref}>
         {/* Main CTA */}
-        <ScrollReveal>
-          <div className="text-center mb-20">
-            <h2 className="font-serif text-2xl md:text-3xl text-white">
-              Let&apos;s Build An
-            </h2>
-            <h2 className="font-serif text-6xl md:text-8xl text-white font-semibold mt-1">
-              Experience
-            </h2>
+        <div className="text-center mb-20">
+          <h2 className="font-serif text-2xl md:text-3xl" style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "0 0.35em" }}>
+            {footerWords.map((word, i) => (
+              <FooterRevealWord key={i} word={word.text} index={i} progress={revealProgress} />
+            ))}
+          </h2>
+          <h2 className="font-serif text-6xl md:text-8xl font-semibold mt-1">
+            <ExperienceReveal progress={revealProgress} />
+          </h2>
 
-            {/* CTA */}
-            <div className="mt-12">
-              <div className="inline-block rounded-full p-1.5" style={{ background: "rgba(255,255,255,0.10)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.16)" }}>
-                <Link
-                  href="/contact"
-                  className="bg-primary text-primary-foreground rounded-full px-8 py-3.5 text-sm font-sans font-medium hover:bg-[#5dcbf1] transition-colors inline-block"
-                  data-cursor="pointer"
-                >
-                  Build With Me
-                </Link>
-              </div>
+          {/* CTA */}
+          <div className="mt-12">
+            <div className="inline-block rounded-full p-1.5" style={{ background: "rgba(255,255,255,0.10)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.16)" }}>
+              <Link
+                href="/contact"
+                className="bg-primary text-primary-foreground rounded-full px-8 py-3.5 text-sm font-sans font-medium hover:bg-[#5dcbf1] transition-colors inline-block"
+                data-cursor="pointer"
+              >
+                Build With Me
+              </Link>
             </div>
           </div>
-        </ScrollReveal>
+        </div>
 
         {/* Social + Links — single row */}
         <ScrollReveal delay={0.2}>
@@ -87,7 +134,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="border-t border-white/10 pt-8 text-center">
           <p className="text-white/30 text-xs font-sans">
-            &copy; Once Upon a Techie, 2026
+            &copy; Essy Udeme, 2026
           </p>
         </div>
       </div>
