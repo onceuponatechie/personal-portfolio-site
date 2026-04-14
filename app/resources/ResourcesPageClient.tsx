@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Download, ExternalLink } from "lucide-react";
-import ScrollReveal from "@/components/shared/ScrollReveal";
+import { Download, ArrowUpRight } from "lucide-react";
+import PageHeader from "@/components/shared/PageHeader";
+import HeadingAccent from "@/components/shared/HeadingAccent";
+import FilterPills from "@/components/shared/FilterPills";
 
 interface Resource {
   title: string;
@@ -22,82 +24,80 @@ export default function ResourcesPageClient({ resources }: { resources: Resource
   return (
     <section className="pt-32 pb-24">
       <div className="max-w-6xl mx-auto px-6">
-        <ScrollReveal>
-          <div className="text-center mb-12">
-            <p className="font-sans text-xs uppercase tracking-widest text-muted-foreground mb-3">Resources</p>
-            <h1 className="font-serif text-4xl md:text-5xl text-foreground">
-              The Creative <span className="font-display italic">Vault</span>
-            </h1>
-            <p className="font-sans text-base text-muted-foreground mt-4 max-w-lg mx-auto">
-              Templates, tools, and freebies to help you build faster and better.
-            </p>
-          </div>
-        </ScrollReveal>
+        <PageHeader
+          label="The Vault"
+          description="A hand-picked collection of templates, tools, and freebies — the same ones I reach for when building my own work."
+        >
+          The Creative <HeadingAccent variant="singleCurve" color="hsl(155,40%,30%)">Toolkit</HeadingAccent>
+        </PageHeader>
 
-        <ScrollReveal delay={0.1}>
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActive(cat)}
-                data-cursor="pointer"
-                className={`rounded-full px-5 py-2 text-xs font-sans font-medium transition-all ${
-                  active === cat ? "bg-primary text-primary-foreground" : "bg-white/50 backdrop-blur-md border border-gray-300/50 text-foreground hover:bg-white/70"
-                }`}
+        <FilterPills options={categories} active={active} onChange={setActive} />
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+          {filtered.map((resource: Resource, i: number) => {
+            const isFree = resource.price === "Free";
+            return (
+              <motion.div
+                key={resource.title}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, margin: "-60px" }}
+                transition={{ delay: i * 0.05, duration: 0.5 }}
+                className="group rounded-2xl overflow-hidden"
+                style={{ backgroundColor: "#fdfcfa" }}
               >
-                {cat}
-              </button>
-            ))}
-          </div>
-        </ScrollReveal>
-
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-          {filtered.map((resource: Resource, i: number) => (
-            <motion.div
-              key={resource.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.05 }}
-              className="break-inside-avoid rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
-              style={{ backgroundColor: "#fdfcfa" }}
-            >
-              <div className="aspect-[4/3] overflow-hidden">
-                <img src={resource.image} alt={resource.title} className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="p-5">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="font-sans text-[10px] uppercase tracking-wider text-muted-foreground">{resource.category}</span>
-                  <span className={`font-sans text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                    resource.price === "Free" ? "bg-brand-green/10 text-brand-green" : "bg-brand-orange/10 text-brand-orange"
-                  }`}>
-                    {resource.price}
-                  </span>
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl m-2.5">
+                  <img
+                    src={resource.image}
+                    alt={resource.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-3 left-3">
+                    <span
+                      className={`font-sans text-[10px] uppercase tracking-wider font-semibold px-2.5 py-1 rounded-full ${
+                        isFree
+                          ? "bg-[hsl(155,40%,30%)] text-white"
+                          : "bg-[hsl(18,78%,57%)] text-white"
+                      }`}
+                    >
+                      {resource.price}
+                    </span>
+                  </div>
                 </div>
-                <h3 className="font-serif text-base text-foreground mb-2">{resource.title}</h3>
-                <p className="font-sans text-xs text-muted-foreground leading-relaxed mb-4">{resource.description}</p>
-                {resource.price === "Free" ? (
-                  <button
-                    data-cursor="pointer"
-                    className="inline-flex items-center gap-2 bg-primary text-primary-foreground rounded-full px-4 py-2 text-xs font-sans font-medium hover:opacity-90 transition-opacity"
-                  >
-                    <Download className="w-3 h-3" />
-                    Download Free
-                  </button>
-                ) : (
-                  <a
-                    href="https://gumroad.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-cursor="pointer"
-                    className="inline-flex items-center gap-2 bg-primary text-primary-foreground rounded-full px-4 py-2 text-xs font-sans font-medium hover:opacity-90 transition-opacity"
-                  >
-                    <ExternalLink className="w-3 h-3" />
-                    Get on Gumroad
-                  </a>
-                )}
-              </div>
-            </motion.div>
-          ))}
+                <div className="px-4 pb-5 pt-1">
+                  <p className="font-sans text-[11px] uppercase tracking-wider text-muted-foreground mb-1">
+                    {resource.category}
+                  </p>
+                  <h3 className="font-serif text-lg text-foreground mb-2 leading-snug">
+                    {resource.title}
+                  </h3>
+                  <p className="font-sans text-xs text-muted-foreground leading-relaxed mb-4">
+                    {resource.description}
+                  </p>
+                  {isFree ? (
+                    <button
+                      data-cursor="pointer"
+                      className="inline-flex items-center gap-1.5 bg-[#1A1A1A] text-white rounded-full px-4 py-2 text-xs font-sans font-medium hover:bg-primary transition-colors"
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                      Download
+                    </button>
+                  ) : (
+                    <a
+                      href="https://gumroad.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-cursor="pointer"
+                      className="inline-flex items-center gap-1.5 bg-[#1A1A1A] text-white rounded-full px-4 py-2 text-xs font-sans font-medium hover:bg-primary transition-colors"
+                    >
+                      Get it <ArrowUpRight className="w-3.5 h-3.5" />
+                    </a>
+                  )}
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

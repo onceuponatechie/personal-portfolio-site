@@ -1,13 +1,96 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import ScrollReveal from "@/components/shared/ScrollReveal";
+import { ArrowUpRight } from "lucide-react";
+import PageHeader from "@/components/shared/PageHeader";
+import HeadingAccent from "@/components/shared/HeadingAccent";
+import FilterPills from "@/components/shared/FilterPills";
 import type { ProjectFrontmatter } from "@/lib/content";
 
 const filters = ["All", "Web App", "Mobile", "E-Commerce"];
+
+const ProjectCard = ({ project, index }: { project: ProjectFrontmatter; index: number }) => {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, margin: "-60px" }}
+      transition={{ delay: index * 0.06, duration: 0.5 }}
+    >
+      <Link
+        href={`/projects/${project.slug}`}
+        className="block rounded-3xl overflow-hidden group"
+        data-cursor="pointer"
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        style={{ backgroundColor: "#fdfcfa" }}
+      >
+        <div className="relative aspect-[4/3] overflow-hidden rounded-2xl m-2.5">
+          <img
+            src={project.coverImage}
+            alt={project.title}
+            className="w-full h-full object-cover transition-transform duration-500"
+            style={{ transform: hovered ? "scale(1.05)" : "scale(1)" }}
+            loading="lazy"
+          />
+          <AnimatePresence>
+            {hovered && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.25 }}
+                className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex items-end p-5"
+              >
+                <p className="font-sans text-sm text-white/90 leading-relaxed">
+                  {project.description}
+                </p>
+              </motion.div>
+            )}
+          </AnimatePresence>
+          <div className="absolute top-4 left-4">
+            <span className="glassmorphism-dark rounded-full px-3 py-1 text-[11px] font-sans text-white/90 uppercase tracking-wider">
+              {project.category}
+            </span>
+          </div>
+        </div>
+
+        <div className="px-4 pb-5 pt-1">
+          <div className="flex items-start justify-between gap-3 mb-3">
+            <h3 className="font-serif text-lg md:text-xl text-foreground leading-snug">
+              {project.title}
+            </h3>
+            <div
+              className="shrink-0 w-9 h-9 rounded-full flex items-center justify-center mt-0.5 transition-colors"
+              style={{ backgroundColor: hovered ? "hsl(18,78%,57%)" : "#1A1A1A" }}
+            >
+              <ArrowUpRight className="w-4 h-4 text-white" />
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-1.5">
+            {project.tools.slice(0, 3).map((t) => (
+              <span
+                key={t}
+                className="bg-white/70 border border-black/5 rounded-full px-2.5 py-0.5 text-[10px] font-sans text-foreground/70"
+              >
+                {t}
+              </span>
+            ))}
+            {project.tools.length > 3 && (
+              <span className="font-sans text-[10px] text-muted-foreground self-center">
+                +{project.tools.length - 3}
+              </span>
+            )}
+          </div>
+        </div>
+      </Link>
+    </motion.div>
+  );
+};
 
 export default function ProjectsPageClient({ projects }: { projects: ProjectFrontmatter[] }) {
   const [active, setActive] = useState("All");
@@ -16,64 +99,18 @@ export default function ProjectsPageClient({ projects }: { projects: ProjectFron
   return (
     <section className="pt-32 pb-24">
       <div className="max-w-6xl mx-auto px-6">
-        <ScrollReveal>
-          <div className="text-center mb-12">
-            <p className="font-sans text-xs uppercase tracking-widest text-muted-foreground mb-3">Portfolio</p>
-            <h1 className="font-serif text-4xl md:text-5xl text-foreground">
-              Ship <span className="font-display italic">Log</span>
-            </h1>
-          </div>
-        </ScrollReveal>
+        <PageHeader
+          label="Featured Work"
+          description="A living archive of the things I've designed, built, and shipped — each one a small experiment in what technology can feel like."
+        >
+          The <HeadingAccent variant="circle">Projects</HeadingAccent>
+        </PageHeader>
 
-        <ScrollReveal delay={0.1}>
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {filters.map((f) => (
-              <button
-                key={f}
-                onClick={() => setActive(f)}
-                data-cursor="pointer"
-                className={`rounded-full px-5 py-2 text-xs font-sans font-medium transition-all ${
-                  active === f ? "bg-primary text-primary-foreground" : "bg-white/50 backdrop-blur-md border border-gray-300/50 text-foreground hover:bg-white/70"
-                }`}
-              >
-                {f}
-              </button>
-            ))}
-          </div>
-        </ScrollReveal>
+        <FilterPills options={filters} active={active} onChange={setActive} />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {filtered.map((project, i) => (
-            <motion.div
-              key={project.slug}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.05 }}
-            >
-              <Link
-                href={`/projects/${project.slug}`}
-                className="block rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 transition-all group"
-                style={{ backgroundColor: "#fdfcfa" }}
-                data-cursor="pointer"
-              >
-                <div className="aspect-[3/2] overflow-hidden">
-                  <img src={project.coverImage} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-                </div>
-                <div className="p-5">
-                  <span className="font-sans text-[10px] uppercase tracking-wider text-muted-foreground">{project.category}</span>
-                  <h3 className="font-serif text-lg text-foreground mt-1 mb-2">{project.title}</h3>
-                  <p className="font-sans text-xs text-muted-foreground leading-relaxed mb-3">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    {project.tools.map((t) => (
-                      <span key={t} className="bg-white/50 backdrop-blur-md border border-gray-300/50 rounded-full px-3 py-1 text-[10px] font-sans text-foreground">{t}</span>
-                    ))}
-                  </div>
-                  <span className="inline-flex items-center gap-1 font-sans text-xs font-medium text-primary">
-                    View Case Study <ArrowRight className="w-3 h-3" />
-                  </span>
-                </div>
-              </Link>
-            </motion.div>
+            <ProjectCard key={project.slug} project={project} index={i} />
           ))}
         </div>
       </div>
