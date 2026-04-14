@@ -135,7 +135,7 @@ const BlogPreview = () => {
               The Stories
             </p>
             <h2 className="font-serif text-[34px] md:text-[44px] text-foreground">
-              From The <span className="relative inline-block font-display italic">Desk<svg viewBox="0 0 200 14" fill="none" className="absolute -bottom-1 left-0 w-full" style={{ overflow: "visible" }} preserveAspectRatio="none"><path d="M0 10 C50 0, 100 0, 100 7 C100 14, 150 14, 200 4" stroke="hsl(44,88%,67%)" strokeWidth="5.5" strokeLinecap="round" fill="none" /></svg></span>
+              From The <span className="relative inline-block font-display italic">Desk<svg viewBox="0 0 200 22" fill="none" className="absolute -bottom-3 left-0 w-full" style={{ overflow: "visible" }} preserveAspectRatio="none"><path d="M0 6 C50 -4, 100 -4, 100 3 C100 10, 150 10, 200 0" stroke="#5dcbf1" strokeWidth="5.5" strokeLinecap="round" fill="none" /><path d="M0 16 C50 6, 100 6, 100 13 C100 20, 150 20, 200 10" stroke="#5dcbf1" strokeWidth="5.5" strokeLinecap="round" fill="none" /></svg></span>
             </h2>
           </div>
         </ScrollReveal>
@@ -150,10 +150,11 @@ const BlogPreview = () => {
           <div className="flex justify-center mt-12">
             <Link
               href="/blog"
-              className="font-serif text-sm font-medium text-primary underline underline-offset-4 decoration-1 hover:decoration-2 transition-all"
+              className="inline-flex items-center gap-2 bg-[#1A1A1A] text-white rounded-full px-6 py-3 font-sans text-sm font-medium hover:bg-primary transition-colors"
               data-cursor="pointer"
             >
-              Read All Stories &rarr;
+              Read All Stories
+              <ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>
         </ScrollReveal>

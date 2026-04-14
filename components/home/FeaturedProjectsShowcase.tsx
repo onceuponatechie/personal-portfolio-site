@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { Maximize2, ExternalLink } from "lucide-react";
+import { Maximize2 } from "lucide-react";
 import Link from "next/link";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
@@ -60,7 +60,7 @@ const FeaturedProjectsShowcase = () => {
               Featured Work
             </p>
             <h2 className="font-serif text-[34px] md:text-[44px] text-foreground">
-              The <span className="relative inline-block font-display italic">Projects<svg viewBox="0 0 200 14" fill="none" className="absolute -bottom-1 left-0 w-full" style={{ overflow: "visible" }} preserveAspectRatio="none"><path d="M0 10 C50 0, 100 0, 100 7 C100 14, 150 14, 200 4" stroke="hsl(44,88%,67%)" strokeWidth="5.5" strokeLinecap="round" fill="none" /></svg></span>
+              The <span className="relative inline-block font-display italic" style={{ padding: "0 0.15em" }}>Projects<svg viewBox="0 0 200 100" fill="none" className="absolute" style={{ top: "-20%", left: "-8%", width: "116%", height: "140%", overflow: "visible" }} preserveAspectRatio="none"><ellipse cx="100" cy="50" rx="95" ry="42" stroke="#5dcbf1" strokeWidth="5.5" strokeLinecap="round" fill="none" transform="rotate(-3 100 50)" style={{ strokeDasharray: "4 0" }} /></svg></span>
             </h2>
           </div>
         </ScrollReveal>
@@ -110,16 +110,6 @@ const FeaturedProjectsShowcase = () => {
                         {tool}
                       </span>
                     ))}
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      data-cursor="pointer"
-                      className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur rounded-full px-4 py-1.5 text-[11px] font-sans font-medium text-white hover:bg-white/30 transition-colors"
-                    >
-                      <ExternalLink className="w-3 h-3" />
-                      Live Demo
-                    </a>
                     <Link
                       href={`/projects/${project.slug}`}
                       data-cursor="pointer"
