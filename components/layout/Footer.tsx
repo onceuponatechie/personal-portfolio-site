@@ -40,7 +40,7 @@ const Footer = () => {
               <div className="inline-block rounded-full p-1.5" style={{ background: "rgba(255,255,255,0.10)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.16)" }}>
                 <Link
                   href="/contact"
-                  className="bg-primary text-primary-foreground rounded-full px-8 py-3.5 text-sm font-sans font-medium hover:bg-[#e9d5ff] hover:text-foreground transition-colors inline-block"
+                  className="bg-primary text-primary-foreground rounded-full px-8 py-3.5 text-sm font-sans font-medium hover:bg-[#5dcbf1] transition-colors inline-block"
                   data-cursor="pointer"
                 >
                   Build With Me
