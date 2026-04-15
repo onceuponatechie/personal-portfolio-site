@@ -64,7 +64,7 @@ const ScrollColumn = ({ cards, speed, reverse = false }: { cards: typeof column1
 
 const CreativeVaultStrip = () => {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-100px" });
+  const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <section className="py-0">
