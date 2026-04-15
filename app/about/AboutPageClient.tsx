@@ -96,7 +96,7 @@ export default function AboutPageClient() {
                 key={item.label}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, margin: "-60px" }}
+                viewport={{ once: true, margin: "-60px" }}
                 transition={{ delay: i * 0.04 }}
                 className="rounded-2xl p-5 text-center hover:-translate-y-1 transition-transform"
                 style={{ backgroundColor: "#fdfcfa" }}
@@ -126,7 +126,7 @@ export default function AboutPageClient() {
                 key={item.label}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, margin: "-60px" }}
+                viewport={{ once: true, margin: "-60px" }}
                 transition={{ delay: i * 0.08 }}
                 className="relative rounded-3xl p-6 overflow-hidden"
                 style={{ backgroundColor: "#fdfcfa" }}

@@ -186,7 +186,7 @@ export default function BlogPostClient({ frontmatter, content, related }: BlogPo
                   key={r.slug}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false, margin: "-60px" }}
+                  viewport={{ once: true, margin: "-60px" }}
                   transition={{ delay: i * 0.06 }}
                 >
                   <Link

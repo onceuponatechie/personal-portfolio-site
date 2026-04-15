@@ -116,7 +116,7 @@ export default function ProjectDetailClient({ frontmatter, content, prev, next }
                   key={i}
                   initial={{ opacity: 0, x: 30 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: false, margin: "-60px" }}
+                  viewport={{ once: true, margin: "-60px" }}
                   transition={{ delay: i * 0.08 }}
                   className="snap-start flex-shrink-0 w-[80vw] md:w-[520px] aspect-[4/3] rounded-3xl overflow-hidden"
                   style={{ backgroundColor: "#fdfcfa" }}

@@ -105,7 +105,7 @@ function ScrollRevealWord({ word, index, green, progress }: { word: string; inde
 
 const AboutParagraph = () => {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-100px" });
+  const inView = useInView(ref, { once: true, margin: "-100px" });
 
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start 0.85", "center center"] });
   const revealProgress = useTransform(scrollYProgress, [0, 1], [0, words.length]);

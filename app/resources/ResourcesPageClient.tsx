@@ -41,7 +41,7 @@ export default function ResourcesPageClient({ resources }: { resources: Resource
                 key={resource.title}
                 initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, margin: "-60px" }}
+                viewport={{ once: true, margin: "-60px" }}
                 transition={{ delay: i * 0.05, duration: 0.5 }}
                 className="group rounded-2xl overflow-hidden"
                 style={{ backgroundColor: "#fdfcfa" }}
