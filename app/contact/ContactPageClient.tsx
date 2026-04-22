@@ -99,7 +99,7 @@ export default function ContactPageClient() {
                         <p className="font-sans text-[11px] uppercase tracking-wider text-muted-foreground">
                           {p.label}
                         </p>
-                        <p className="font-serif text-base text-foreground mt-0.5">{p.value}</p>
+                        <p className="font-sans text-base text-foreground mt-0.5">{p.value}</p>
                       </div>
                     </div>
                   ))}
