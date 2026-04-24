@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { Maximize2 } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
 const projects = [
@@ -43,6 +44,7 @@ const FeaturedProjectsShowcase = () => {
   const [active, setActive] = useState(0);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const router = useRouter();
 
   useEffect(() => {
     const timer = setInterval(() => setActive((i) => (i + 1) % projects.length), 5000);
@@ -50,6 +52,7 @@ const FeaturedProjectsShowcase = () => {
   }, []);
 
   const project = projects[active];
+  const goToProject = () => router.push(`/projects/${project.slug}`);
 
   return (
     <section className="py-24" ref={ref}>
@@ -66,7 +69,21 @@ const FeaturedProjectsShowcase = () => {
         </ScrollReveal>
 
         <div className="gradient-border rounded-3xl overflow-hidden">
-          <div className="bg-dark-bg rounded-3xl overflow-hidden relative" style={{ height: "clamp(400px, 60vh, 600px)" }}>
+          <div
+            className="bg-dark-bg rounded-3xl overflow-hidden relative cursor-pointer"
+            style={{ height: "clamp(400px, 60vh, 600px)" }}
+            onClick={goToProject}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                goToProject();
+              }
+            }}
+            role="link"
+            tabIndex={0}
+            aria-label={`View case study: ${project.title}`}
+            data-cursor="pointer"
+          >
             <AnimatePresence mode="wait">
               <motion.img
                 key={active}
@@ -125,7 +142,10 @@ const FeaturedProjectsShowcase = () => {
                 {projects.map((p, i) => (
                   <button
                     key={i}
-                    onClick={() => setActive(i)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActive(i);
+                    }}
                     data-cursor="pointer"
                     className={`w-[120px] h-[80px] rounded-xl overflow-hidden border-2 transition-all ${
                       i === active ? "border-white/60 scale-105" : "border-white/20 opacity-60 hover:opacity-80"
@@ -139,6 +159,7 @@ const FeaturedProjectsShowcase = () => {
 
             <Link
               href="/projects"
+              onClick={(e) => e.stopPropagation()}
               className="absolute top-6 right-6 glassmorphism-dark rounded-full w-10 h-10 flex items-center justify-center text-white/70 hover:text-white transition-colors"
               data-cursor="pointer"
             >
