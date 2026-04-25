@@ -1,20 +1,24 @@
 interface PhoneMockupProps {
   src: string;
+  alt: string;
   caption?: string;
 }
 
-const PhoneMockup = ({ src, caption }: PhoneMockupProps) => {
+const PhoneMockup = ({ src, alt, caption }: PhoneMockupProps) => {
   return (
     <figure className="my-8 flex flex-col items-center">
-      <div className="relative w-[280px] rounded-[2.5rem] border-[8px] border-[#1A1A1A] bg-[#1A1A1A] shadow-2xl overflow-hidden">
-        {/* Notch */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[28px] bg-[#1A1A1A] rounded-b-2xl z-10" />
-        <div className="rounded-[2rem] overflow-hidden">
-          <img src={src} alt={caption || ""} className="w-full h-auto" />
+      <div className="relative w-[220px] sm:w-[260px] md:w-[280px] rounded-[2.5rem] bg-slate-900 p-[10px] shadow-2xl ring-1 ring-black/40">
+        <div className="relative aspect-[9/19.5] w-full overflow-hidden rounded-[2rem] bg-black">
+          <div className="pointer-events-none absolute top-0 left-1/2 z-10 h-6 w-[45%] -translate-x-1/2 rounded-b-2xl bg-slate-900" />
+          <img
+            src={src}
+            alt={alt}
+            className="h-full w-full object-cover"
+          />
         </div>
       </div>
       {caption && (
-        <figcaption className="mt-4 font-sans text-sm text-muted-foreground text-center">
+        <figcaption className="mt-4 max-w-xs text-center font-sans text-sm italic text-muted-foreground">
           {caption}
         </figcaption>
       )}

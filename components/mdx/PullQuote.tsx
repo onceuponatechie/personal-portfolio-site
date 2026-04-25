@@ -4,8 +4,8 @@ interface PullQuoteProps {
 
 const PullQuote = ({ children }: PullQuoteProps) => {
   return (
-    <blockquote className="my-10 border-l-4 border-primary pl-6 py-2">
-      <p className="font-display text-2xl md:text-3xl text-foreground leading-relaxed italic">
+    <blockquote className="my-8 border-l-4 border-primary pl-6 sm:pl-8">
+      <p className="font-serif text-2xl md:text-3xl italic leading-relaxed text-foreground">
         {children}
       </p>
     </blockquote>
