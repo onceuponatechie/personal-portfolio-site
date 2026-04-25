@@ -1,0 +1,399 @@
+---
+title: "Cowrywise Product Onboarding"
+slug: "cowrywise-onboarding"
+category: "Brand"
+description: "A screen-by-screen teardown of Nigeria's most disciplined wealth management app. What works, what creates friction, and where Cowrywise's identity gets tested."
+coverImage: "/images/projects/cowrywise/01-cover.png"
+date: "2026-04-25"
+publishedAt: "2026-04-25"
+tags: ["Product Teardown", "Fintech", "UX Analysis"]
+tools: ["Product Strategy", "Notion", "Canva"]
+featured: true
+---
+
+## The Setup
+
+Before you even create an account on Cowrywise, the app has already made you feel like you're late, and I'd share how.
+
+I went through the full new-user onboarding, documented every screen, and then switched to my existing account to explore the core experience with fresh eyes. What I found was a product that has a very clear identity, but a few cracks in how it communicates that identity across different parts of the app.
+
+This case study walks through what I observed, what works, what creates friction, and where I think there's room to push the product further.
+
+**A note on methodology:** The user feedback referenced in this study comes from app store reviews and social media conversations, not formal user research. Where I share user sentiment, I'm drawing from patterns I noticed across these public sources, combined with my own experience as both a user and a campus ambassador.
+
+---
+
+## Part 01 — The Onboarding Flow
+
+### The Welcome Screen
+
+<PhoneMockup
+  src="/images/projects/cowrywise/02-welcome-screen.png"
+  alt="Cowrywise welcome screen with the headline Build wealth the smart way"
+  caption="Welcome screen"
+/>
+
+The first thing a new user sees is a bold blue screen with Cowrywise's logo and a simple message: **"Build wealth the smart way."** Below that: _"Save and invest with Cowrywise, the only wealth management app you really need."_
+
+<Callout type="insight">
+  Establishing identity in one breath. You're not looking at a banking app or a
+  budgeting tool. This is a *wealth management* app. That word choice is
+  deliberate, it's aspirational. It tells you what you could become, not just
+  what you can do.
+</Callout>
+
+The two CTAs at the bottom, SIGN UP and LOG IN, are clean. No clutter. But the most interesting element is the small button: **"✦ See what you missed >"**. It's doing more heavy lifting than it looks like.
+
+### The Savings Calculator
+
+<PhoneMockup
+  src="/images/projects/cowrywise/03-savings-calculator.png"
+  alt="Savings calculator showing a projected balance of 4.3 million naira"
+  caption="The guilt trip, visualized"
+/>
+
+Tapping "See what you missed" opens a savings calculator that shows what you _could have had_ if you'd started earlier. The default: ₦100,000 saved monthly, starting 3 years ago. The result: **₦4,367,631 today.**
+
+<PullQuote>
+  This is guilt wrapped in motivation. Before you've created an account,
+  Cowrywise is showing you the cost of inaction.
+</PullQuote>
+
+It's not telling you what the app does, it's showing you what you've already lost by not using it. The CTA, "Get started today" hits different after you've just seen how much money you've been leaving on the table.
+
+<Callout type="suggestion">
+  The default of ₦100,000/month, and with it as the minimum when the edit button
+  is clicked, might feel out of reach for some users, especially students or
+  early-career earners who are arguably Cowrywise's core audience. Offering a
+  toggle to see what ₦20,000 or ₦50,000/month would grow to might make this hit
+  closer to home for more people.
+</Callout>
+
+### "Start Your Investment Journey"
+
+<PhoneMockup
+  src="/images/projects/cowrywise/04-investment-journey.png"
+  alt="Sign up screen with the heading Start your investment journey and three sign up options"
+  caption="The language switch"
+/>
+
+The screen that follows the savings calculator says **"Start your investment journey"** with three sign-up options: Apple, Google, or email.
+
+<Callout type="friction">
+  You, most likely, just came from a screen entirely about *saving*. The
+  calculator showed how much your *savings* would have grown. Then you land on a
+  screen about an "investment journey." For the first-time user Cowrywise is
+  also clearly targeting, this switch in language can feel like the app changed
+  the subject. A lot of people aren't ready to "invest" yet, they just want to
+  stop being broke and messy with money.
+</Callout>
+
+<Callout type="suggestion">
+  Keeping the language consistent. Something like "Start building wealth today"
+  would bridge both concepts without confusing a new user about what they're
+  signing up for. Or more action-driven like "Put your money to work today."
+</Callout>
+
+### PIN Creation & Error State
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+  <PhoneMockup
+    src="/images/projects/cowrywise/05-pin-creation.png"
+    alt="Clean PIN creation screen with lock icon and two PIN input fields"
+    caption="PIN creation screen"
+  />
+  <PhoneMockup
+    src="/images/projects/cowrywise/06-pin-error.png"
+    alt="Modal showing PIN Error message after mismatched PIN entries"
+    caption="PIN error modal"
+  />
+</div>
+
+After signing up, you create a 4-digit PIN. The screen is clean. The lock icon, clear heading, two input fields, a DONE button. No distractions. Cowrywise does this well: keeping the security step simple and fast.
+
+I deliberately entered a wrong pin to see what happens. When the PINs don't match, a modal appears: **"PIN Error — Your entered PIN did not match. Please try again."** Clear and responsive. Although minor, in the latter sentence, a slight change in tone, "Give it another go," would convey the same information but stays in the brand's voice.
+
+### BVN Verification
+
+<PhoneMockup
+  src="/images/projects/cowrywise/07-bvn-verification.png"
+  alt="BVN verification screen with help links below the input field"
+  caption="The trust point"
+/>
+
+This is where users often get extra cautious. Asking for someone's Bank Verification Number is asking for a lot of trust, especially from a first-time user of a brand.
+
+<Callout type="insight">
+  Two things. The **"Why do we need your BVN?"** link right below the input
+  field; a trust-building move that meets users where their concerns are. And
+  the **"Got issues adding your BVN?"** link at the bottom, providing a safety
+  net.
+</Callout>
+
+Having reached this point, it was time to return to my existing account as my BVN is already in their database.
+
+The onboarding flow does three things well: it establishes the product's identity quickly, it uses emotional motivation before asking for commitment, and it handles the sensitive BVN step with care.
+
+The main gap is the language inconsistency between "savings" and "investment" in the early screens. This is small on its own, but onboarding is where first impressions are either won or lost, and for an app selling trust and discipline, every word matters.
+
+---
+
+## Part 02 — The Core Experience
+
+Once you're past onboarding, the app opens into a home screen that's doing a lot of things, of which are mostly right.
+
+### The Home Screen
+
+<PhoneMockup
+  src="/images/projects/cowrywise/08-home-screen.png"
+  alt="Home screen with three top tabs labelled Home, Save, Invest"
+  caption="Three tabs. Three words."
+/>
+
+The top of the screen splits the app into three tabs: **Home, Save, Invest.** That's the core of the product. Below, a portfolio chart, a rotating banner carousel (stocks, mutual funds, savings circles), and quick-deposit buttons: ₦20K, ₦50K, ₦100K, $100, $200.
+
+<Callout type="insight">
+  Reducing decisions. If someone opens the app thinking "I want to save money
+  but I don't know how much," those preset amounts eliminate blank-field
+  anxiety. You don't have to decide; just tap. The dollar options also signal
+  this isn't just a naira app without making a big deal of it.
+</Callout>
+
+The bottom navigation — Overview, Learn, and Stash — with clear labels and icons was carefully designed. It keeps the homepage simple and easy to navigate.
+
+### The Save Tab
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+  <PhoneMockup
+    src="/images/projects/cowrywise/09-save-tab-plans.png"
+    alt="Savings plans displayed as visual cards with icons"
+    caption="Named plans with visual identity"
+  />
+  <PhoneMockup
+    src="/images/projects/cowrywise/10-save-tab-engine.png"
+    alt="Inside a savings plan showing balance, interest rate, and action buttons"
+    caption="The discipline engine underneath"
+  />
+  <PhoneMockup
+    src="/images/projects/cowrywise/11-save-tab-presets.png"
+    alt="Target setting screen with preset amounts"
+    caption="Presets that think for you"
+  />
+</div>
+
+This is where Cowrywise starts to feel different from a regular banking app. Savings plans are shown as visual cards with icons. An umbrella for Emergency, books for Study, a car for Car.
+
+Two sections: **"Save by myself"** and **"Save with others"** (group savings). The group feature, Circles, taps into something culturally familiar in Nigeria: the _ajo_ tradition of communal saving. Cowrywise didn't invent this behaviour; it digitised it.
+
+Inside a savings plan, you find the engine: balance, interest rate (11.99% p.a.), and action buttons for Automation, Triggers, and Customize. The target-setting screen offers presets for both the goal and the monthly amount, plus a "Recommended plan" option.
+
+<PullQuote>
+  A lot of people don't fail at saving because they don't want to, they fail
+  because they don't know how much or how often. Cowrywise removes that decision
+  paralysis entirely.
+</PullQuote>
+
+This is where you start to see the thesis behind the whole product: **Cowrywise is building discipline into the system so the user doesn't have to supply it themselves.**
+
+### The Invest Tab
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+  <PhoneMockup
+    src="/images/projects/cowrywise/12-invest-stocks.png"
+    alt="Invest tab showing stocks browsable interface"
+    caption="Stocks made browsable"
+  />
+  <PhoneMockup
+    src="/images/projects/cowrywise/13-invest-ngx-sectors.png"
+    alt="NGX stocks organised by sector"
+    caption="NGX stocks by sector"
+  />
+</div>
+
+The Invest tab shows existing investments and options to explore: Naira Mutual Funds, Dollar Mutual Funds, Nigerian Stocks. Tapping into stocks opens a market view with real-time prices, organised by sectors: My Watchlist, NGX30, Indices, Agriculture, ICT, Consumer Goods.
+
+<Callout type="insight">
+  Making the stock market feel like something you can just browse. The design
+  doesn't overwhelm with charts and technical analysis. It shows company names
+  and prices. So, for someone who's never bought a stock before, that simplicity
+  is the whole point.
+</Callout>
+
+### The Stash & the Emergency Savings
+
+<PhoneMockup
+  src="/images/projects/cowrywise/14-stash.png"
+  alt="Stash screen showing idle money waiting to be allocated"
+  caption="Idle money, waiting to be allocated"
+/>
+
+The Stash serves as a holding area, a place for "idle money" before you move it into a savings plan or investment. In theory, this makes sense: money arrives, sits in Stash, gets moved into a plan where it earns returns.
+
+<Callout type="friction">
+From app store reviews and social media, there's a recurring frustration around withdrawal timelines. Users wait approximately 24 hours to withdraw from Emergency savings. The complaint: *"If it's called Emergency savings, why can't I access my money in an actual emergency?"*
+
+The problem isn't necessarily the 24-hour window itself. It could be operational, regulatory, or a deliberate discipline decision. **The problem is that Cowrywise doesn't clearly explain _why_ it exists.** Users are filling the silence with frustration, and some, holding them to their words, are leaving.
+
+And the Stash makes things more confusing: if Stash is the flexible, freely accessible pool, should it _also_ have the same withdrawal delay? If yes, what's the difference from the user's perspective? If no, why isn't that distinction clearer?
+
+</Callout>
+
+<Callout type="suggestion">
+Three things. First, add a visible statement on the Emergency plan screen about why the withdrawal window exists; transparency reduces frustration.
+
+Second, make the distinction between Stash and Emergency savings unmistakable. Different access speeds, different purposes, clearly communicated.
+
+Third, consider whether the 24-hour window on Emergency savings is serving the product's goals. If the core promise of an "emergency" fund is that it's there when you need it, the extensive delay may be working against the trust it's supposed to build.
+
+</Callout>
+
+---
+
+## Part 03 — The Retention Layer
+
+A savings & investment app only works if people keep using it. Cowrywise knows this, and it's built multiple systems to keep users engaged beyond the act of just saving. Some work brilliantly. A few need tuning.
+
+### Gamification
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+  <PhoneMockup
+    src="/images/projects/cowrywise/15-financial-fitness.png"
+    alt="Financial Fitness section showing progress out of 100 and badges unlocked"
+    caption="Financial Fitness as a progress game"
+  />
+  <PhoneMockup
+    src="/images/projects/cowrywise/16-account-tier-seed.png"
+    alt="Account tier screen showing the Seed tier with room to grow"
+    caption="Seed tier, room to grow"
+  />
+</div>
+
+The Money Health section tracks Financial Fitness (out of 100) and Badges Unlocked (out of 11). Badge names — Rising Star, Steady Shark, Pack Leader, are aspirational without being preachy. "Steady Shark" implies longevity. "Pack Leader" may imply community.
+
+<Callout type="insight">
+  Making wealth-building feel like a game you're progressing through, not a
+  chore. Seeing "12/100 Financial Fitness" doesn't feel like I'm being judged;
+  it feels like an invite. *You're not bad with money, you're just getting
+  started.*
+</Callout>
+
+The Account Level system adds a second progression layer. Accounts start at "Seed" and progress upward to Bud and Bloom, unlocking new capabilities. You're not just earning achievements, you're _growing_ your account status.
+
+**Nest** there, is the kiddies investment account. Cowrywise isn't just your wealth management choice for today, it's for the future too. This, I'd consider, a brilliant retention strategy.
+
+### Portfolio Insights
+
+<PhoneMockup
+  src="/images/projects/cowrywise/17-portfolio-bug.png"
+  alt="Portfolio insights page displaying a raw template variable instead of a value"
+  caption="Portfolio insights page with bug"
+/>
+
+The Spirit Animal feature, assigning a personality to your financial behaviour, is a fun, shareable idea. But if you weren't active enough, it says: _"You didn't have enough footprints in 2025. Let's try again in 2026!"_ For inactive users, like I had been for a while, that's a dead-end, not a nudge. Better: _"You're 3 saves away from meeting your spirit animal!"_ It's more outcome-oriented, and study shows more people act when numbers are involved.
+
+<Callout type="friction">
+  The Growth section displays: **"Your portfolio balance has decreased by
+  &#123;change_str&#125; year to date."** That's a raw template variable showing
+  to users. On the page meant to make you feel informed and in control of your
+  money, this may undermine trust. If the app can't display your portfolio
+  changes correctly, how confident should you feel about the numbers everywhere
+  else? It may seem trivial but these little things compound.
+</Callout>
+
+### The Learn Tab
+
+<PhoneMockup
+  src="/images/projects/cowrywise/18-learn-tab.png"
+  alt="Learn tab split into Learn in 60 seconds videos and Have a quick read articles"
+  caption="Gentle education"
+/>
+
+One of Cowrywise's strongest, most underrated features. Split into "Learn in 60 seconds" (video) and "Have a quick read" (articles). The content is accessible, no jargon, no assumptions. Article titles like _"What Stocks Really Are, And Why You Don't Need Millions to Start"_ tell you exactly who this is for.
+
+<Callout type="suggestion">
+In today's era, a 17-minute read isn't a quick read, especially if reading an article wasn't the intended goal. Breaking them into chunks can prove more effective. The "Learn in 60 seconds" for its video section is great user thinking. Again, more people act when numbers are involved.
+
+Additionally, content appears to have slowed. Most articles date from mid-to-late 2025 or earlier. Could this suggest users don't visit enough or is it simply operational? The "Introduction to Stock Investing" video, which refers to how one could earn 4% interest on savings at a market inflation rate of 22%, implies that we are losing our money's value every year, and is the right nudge to get a user to act.
+
+A small sticky widget, to an important video, that appears when users log in, may be that nudge they need to put their money to work. Oftentimes, people don't act because they can't, but because they lack information.
+
+</Callout>
+
+### Notifications
+
+<PhoneMockup
+  src="/images/projects/cowrywise/19-notifications.png"
+  alt="Notifications screen with Activity and Updates tabs showing personalised messages"
+  caption="Every notification has a job"
+/>
+
+With Activity and Updates, notifications don't serve as just an alert; it tells you what to do next. **_"Hey Esther! You haven't saved into your Emergency Plan this month. Did you forget?"_** is what you will find on the Activity tab. And on the Update tab, **_"You can now make automated payments directly from your Guaranty Trust Bank account. No card needed."_** Personal, gentle, and clearly communicated.
+
+<Callout type="insight">
+  Using notifications as behaviour-shaping tools, not just alerts. Each one
+  reminds you to save, prompts action on idle money, or celebrates a milestone.
+  Consistent with the product's philosophy, Cowrywise doesn't just give you
+  tools; it pushes you to use them.
+</Callout>
+
+### The Referral Program
+
+<PhoneMockup
+  src="/images/projects/cowrywise/20-referral.png"
+  alt="Referral program screen with code and incentive details"
+  caption="Retention meets acquisition"
+/>
+
+And worthy of note is this feature.
+
+The referral program ties retention to acquisition: zero fees on naira investments when friends sign up and save ₦5,000+ with your code. The incentive is aligned with the product. _Keep using Cowrywise, and we'll make it cheaper for you._
+
+---
+
+## What Cowrywise Does Better Than Anyone Else
+
+**The Discipline Thesis.** Throughout this entire teardown — from the savings calculator guilt trip, to the locked savings plans, to the gamified badges, to the notification nudges — one thread keeps showing up: _Cowrywise is in the business of building discipline._
+
+Not just offering savings tools. Not just providing investment options. Building discipline.
+
+Competing apps in the Nigerian fintech space can let you break your savings early, usually for a fee. You set a lock, change your mind sometime after, pay a penalty, and get your money back.
+
+Cowrywise doesn't do this. When you lock your savings until a maturity date, that money stays locked. The lock is the lock. And the surprising part: **users love it.**
+
+Across social media and app reviews, I kept seeing the same sentiment, not complaints about strictness, but gratitude for it. Sure, some users grumble but more often than not, aren't dealbreakers. They're not choosing Cowrywise _despite_ the discipline; they're choosing it _because_ of it.
+
+<PullQuote>
+  In a market where many fintech apps compete on convenience and flexibility,
+  Cowrywise competes on the opposite: we'll make it hard for you to touch your
+  money, and that's the point.
+</PullQuote>
+
+### Where This Thesis Gets Tested
+
+This is exactly why the Stash and Emergency savings confusion matters. If Cowrywise's identity is built on discipline, every feature needs to be legible through that lens. Users need to understand: _this is flexible (Stash), this is locked (savings plans), and this is for real emergencies (Emergency plan)._ Right now, the lines are slightly blurred.
+
+---
+
+## Putting It All Together
+
+<PhoneMockup
+  src="/images/projects/cowrywise/21-app-store.png"
+  alt="Cowrywise App Store listing screenshot"
+  caption="App Store screenshot"
+/>
+
+**What is Cowrywise trying to accomplish?** It's building a generation of savers and investors who are disciplined not because they have iron willpower, but because the product does the hard part for them. It automates consistency, locks away temptation, and gamifies the journey so that building wealth feels like progress rather than sacrifice.
+
+**Who is it built for?** The Nigerian who earns money but has never been properly taught what to do with it. Someone who might not know the difference between a mutual fund and a fixed deposit, but knows they should be doing _something_ beyond spending. Someone who needs a push, not a lecture.
+
+**What is the one thing it does better than anything else?** Cowrywise enforces discipline in the fintech market. That's its edge. That's what users talk about when they recommend it. And that's the identity it needs to protect, by making sure every feature, every flow, and every touchpoint reinforces it rather than contradicting it.
+
+---
+
+## Final Note
+
+This case study was built from direct product usage (both as a new user and an existing one), app store reviews, social media conversations, and my own experience as a Cowrywise campus ambassador. It's not a formal research study but an honest, structured look at a product I use, represent, and care about.
+
+The observations here aren't prescriptive. They're meant to show how I think about products: not just what's on the screen, but _why_ it's there, _who_ it's for, and _what would make it better._ Every product has gaps. The ones worth caring about sit between what a product promises and what it actually delivers. Cowrywise promises discipline. And for the most part, it delivers.
+
+_Written by Essy Udeme — Once Upon a Techie. Products, people, and the stories that connect them._

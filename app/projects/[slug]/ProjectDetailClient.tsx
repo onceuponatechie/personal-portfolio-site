@@ -8,14 +8,12 @@ import type { ProjectFrontmatter } from "@/lib/content";
 
 interface ProjectDetailClientProps {
   frontmatter: ProjectFrontmatter;
-  content: string;
   prev: ProjectFrontmatter | null;
   next: ProjectFrontmatter | null;
+  children: React.ReactNode;
 }
 
-export default function ProjectDetailClient({ frontmatter, content, prev, next }: ProjectDetailClientProps) {
-  const paragraphs = content.trim().split("\n\n");
-
+export default function ProjectDetailClient({ frontmatter, prev, next, children }: ProjectDetailClientProps) {
   return (
     <>
       {/* Back link */}
@@ -90,13 +88,11 @@ export default function ProjectDetailClient({ frontmatter, content, prev, next }
       {/* Body */}
       <section className="pb-16">
         <div className="max-w-2xl mx-auto px-6">
-          {paragraphs.map((para, i) => (
-            <ScrollReveal key={i} delay={i * 0.04}>
-              <p className="font-sans text-[17px] text-foreground/90 leading-[1.8] mb-7">
-                {para}
-              </p>
-            </ScrollReveal>
-          ))}
+          <ScrollReveal>
+            <div className="prose-portfolio">
+              {children}
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 

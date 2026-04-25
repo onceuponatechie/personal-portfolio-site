@@ -23,6 +23,7 @@ export interface ProjectFrontmatter {
   subtitle?: string;
   description: string;
   tools: string[];
+  tags?: string[];
   coverImage: string;
   gallery?: string[];
   liveUrl?: string;
@@ -69,10 +70,11 @@ export function getAllProjects(): ProjectFrontmatter[] {
       const { data } = matter(fileContents);
       return { ...data, slug: filename.replace(".mdx", "") } as ProjectFrontmatter;
     })
-    .sort(
-      (a, b) =>
-        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-    );
+    .sort((a, b) => {
+      const featuredDelta = Number(b.featured ?? false) - Number(a.featured ?? false);
+      if (featuredDelta !== 0) return featuredDelta;
+      return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
+    });
 }
 
 export function getProjectBySlug(slug: string) {
