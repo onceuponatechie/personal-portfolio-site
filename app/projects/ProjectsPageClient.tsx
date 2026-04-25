@@ -72,7 +72,7 @@ const ProjectCard = ({ project, index }: { project: ProjectFrontmatter; index: n
             </div>
           </div>
           <div className="flex flex-wrap gap-1.5">
-            {project.tools.slice(0, 3).map((t) => (
+            {(project.tags ?? []).slice(0, 3).map((t) => (
               <span
                 key={t}
                 className="bg-white/70 border border-black/5 rounded-full px-2.5 py-0.5 text-[10px] font-sans text-foreground/70"
@@ -80,9 +80,9 @@ const ProjectCard = ({ project, index }: { project: ProjectFrontmatter; index: n
                 {t}
               </span>
             ))}
-            {project.tools.length > 3 && (
+            {(project.tags?.length ?? 0) > 3 && (
               <span className="font-sans text-[10px] text-muted-foreground self-center">
-                +{project.tools.length - 3}
+                +{(project.tags?.length ?? 0) - 3}
               </span>
             )}
           </div>

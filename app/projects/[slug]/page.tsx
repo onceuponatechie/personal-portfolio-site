@@ -1,6 +1,16 @@
 import { notFound } from "next/navigation";
+import { MDXRemote } from "next-mdx-remote/rsc";
 import { getAllProjects, getProjectBySlug } from "@/lib/content";
+import PhoneMockup from "@/components/mdx/PhoneMockup";
+import Callout from "@/components/mdx/Callout";
+import PullQuote from "@/components/mdx/PullQuote";
 import ProjectDetailClient from "./ProjectDetailClient";
+
+const mdxComponents = {
+  PhoneMockup,
+  Callout,
+  PullQuote,
+};
 
 export async function generateStaticParams() {
   const projects = getAllProjects();
@@ -28,9 +38,10 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
   return (
     <ProjectDetailClient
       frontmatter={project.frontmatter}
-      content={project.content}
       prev={prev}
       next={next}
-    />
+    >
+      <MDXRemote source={project.content} components={mdxComponents} />
+    </ProjectDetailClient>
   );
 }
