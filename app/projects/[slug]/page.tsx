@@ -6,10 +6,26 @@ import Callout from "@/components/mdx/Callout";
 import PullQuote from "@/components/mdx/PullQuote";
 import ProjectDetailClient from "./ProjectDetailClient";
 
+const PART_PREFIX = /^(Part \d+) — (.*)$/;
+
 const mdxComponents = {
   PhoneMockup,
   Callout,
   PullQuote,
+  h2: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => {
+    if (typeof children === "string") {
+      const match = children.match(PART_PREFIX);
+      if (match) {
+        return (
+          <h2 {...props}>
+            <span className="heading-part-marker">{match[1]} —</span>
+            {match[2]}
+          </h2>
+        );
+      }
+    }
+    return <h2 {...props}>{children}</h2>;
+  },
 };
 
 export async function generateStaticParams() {
