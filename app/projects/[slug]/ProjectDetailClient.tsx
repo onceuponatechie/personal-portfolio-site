@@ -14,56 +14,41 @@ interface ProjectDetailClientProps {
 }
 
 export default function ProjectDetailClient({ frontmatter, prev, next, children }: ProjectDetailClientProps) {
+  const isCaseStudy = frontmatter.slug === "cowrywise-teardown";
+
   return (
     <>
-      {/* Back link */}
-      <div className="pt-28">
-        <div className="max-w-6xl mx-auto px-6">
+      {/* Header: back link + centered title block */}
+      <section className="pt-32">
+        <div className="max-w-5xl mx-auto px-4">
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 font-sans text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="inline-flex items-center gap-2 font-sans text-sm text-muted-foreground hover:text-foreground transition-colors mb-12"
             data-cursor="pointer"
           >
             <ArrowLeft className="w-4 h-4" /> All Projects
           </Link>
-        </div>
-      </div>
 
-      {/* Hero */}
-      <section className="pt-8 pb-16">
-        <div className="max-w-6xl mx-auto px-6">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="relative rounded-3xl overflow-hidden bg-dark-bg"
-            style={{ height: "clamp(420px, 60vh, 620px)" }}
+            transition={{ duration: 0.6 }}
+            className="text-center"
           >
-            <img
-              src={frontmatter.coverImage}
-              alt={frontmatter.title}
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
+            <h1 className="font-serif text-[34px] md:text-[48px] text-foreground leading-[1.12] max-w-2xl mx-auto">
+              {frontmatter.title}
+            </h1>
 
-            <div className="absolute top-6 left-6">
-              <span className="glassmorphism-dark rounded-full px-3 py-1 text-[11px] font-sans text-white/90 uppercase tracking-wider">
-                {frontmatter.category}
-              </span>
-            </div>
+            <p className="font-sans text-[18px] text-muted-foreground leading-relaxed mt-5 max-w-2xl mx-auto">
+              {frontmatter.description}
+            </p>
 
-            <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
-              <h1 className="font-serif text-4xl md:text-6xl text-white leading-[1.1] mb-5 max-w-3xl">
-                {frontmatter.title}
-              </h1>
-              <p className="font-sans text-base md:text-lg text-white/80 max-w-xl leading-relaxed mb-6">
-                {frontmatter.description}
-              </p>
-              <div className="flex flex-wrap gap-2 items-center">
+            {frontmatter.tools && frontmatter.tools.length > 0 && (
+              <div className="flex flex-wrap items-center justify-center gap-2 mt-7">
                 {frontmatter.tools.map((t) => (
                   <span
                     key={t}
-                    className="glassmorphism-dark rounded-full px-3 py-1 text-[11px] font-sans text-white/90"
+                    className="rounded-full px-3 py-1.5 text-[12px] font-sans text-foreground bg-[hsl(var(--surface-warm))] border border-black/5"
                   >
                     {t}
                   </span>
@@ -74,29 +59,46 @@ export default function ProjectDetailClient({ frontmatter, prev, next, children 
                     target="_blank"
                     rel="noopener noreferrer"
                     data-cursor="pointer"
-                    className="inline-flex items-center gap-1.5 bg-primary text-primary-foreground rounded-full px-4 py-1.5 text-[12px] font-sans font-medium hover:bg-[#5dcbf1] transition-colors ml-1"
+                    className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[12px] font-sans font-medium bg-foreground text-background hover:opacity-90 transition-opacity"
                   >
                     View Live <ArrowUpRight className="w-3.5 h-3.5" />
                   </a>
                 )}
               </div>
-            </div>
+            )}
           </motion.div>
         </div>
       </section>
 
-      {/* Body */}
+      {/* Cover image — matches blog cover dimensions exactly */}
+      <section className="pt-20 md:pt-24 pb-14">
+        <div className="max-w-5xl mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="rounded-3xl overflow-hidden"
+            style={{ boxShadow: "0 12px 48px rgba(0,0,0,0.08), 0 2px 12px rgba(0,0,0,0.04)" }}
+          >
+            <img
+              src={frontmatter.coverImage}
+              alt={frontmatter.title}
+              className="w-full h-auto object-cover"
+            />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Body — matches cover image max-width */}
       <section className="pb-16">
-        <div className="max-w-2xl mx-auto px-6">
+        <div className="max-w-5xl mx-auto px-4">
           <ScrollReveal>
-            <div className="prose-portfolio">
-              {children}
-            </div>
+            <div className="prose-portfolio">{children}</div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Gallery */}
+      {/* Gallery (kept for projects that ship with one) */}
       {frontmatter.gallery && frontmatter.gallery.length > 0 && (
         <section className="pb-20">
           <div className="max-w-6xl mx-auto px-6">
@@ -125,44 +127,61 @@ export default function ProjectDetailClient({ frontmatter, prev, next, children 
         </section>
       )}
 
-      {/* Prev/Next */}
-      {(prev || next) && (
+      {/* Closing — case studies get a clean back link; placeholders keep prev/next */}
+      {isCaseStudy ? (
         <section className="pb-24">
-          <div className="max-w-5xl mx-auto px-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {prev ? (
-                <Link
-                  href={`/projects/${prev.slug}`}
-                  className="group block rounded-3xl p-6 transition-colors"
-                  style={{ backgroundColor: "#fbfaf7" }}
-                  data-cursor="pointer"
-                >
-                  <div className="flex items-center gap-2 font-sans text-xs text-muted-foreground mb-3">
-                    <ArrowLeft className="w-3.5 h-3.5" /> Previous
-                  </div>
-                  <p className="font-serif text-lg md:text-xl text-foreground group-hover:text-[hsl(18,78%,57%)] transition-colors">
-                    {prev.title}
-                  </p>
-                </Link>
-              ) : <div />}
-              {next ? (
-                <Link
-                  href={`/projects/${next.slug}`}
-                  className="group block rounded-3xl p-6 transition-colors text-right"
-                  style={{ backgroundColor: "#fbfaf7" }}
-                  data-cursor="pointer"
-                >
-                  <div className="flex items-center justify-end gap-2 font-sans text-xs text-muted-foreground mb-3">
-                    Next <ArrowRight className="w-3.5 h-3.5" />
-                  </div>
-                  <p className="font-serif text-lg md:text-xl text-foreground group-hover:text-[hsl(18,78%,57%)] transition-colors">
-                    {next.title}
-                  </p>
-                </Link>
-              ) : <div />}
+          <div className="max-w-5xl mx-auto px-4">
+            <hr className="border-0 border-t border-black/10 mb-10" />
+            <div className="text-center">
+              <Link
+                href="/projects"
+                className="inline-flex items-center gap-2 font-sans text-sm text-muted-foreground hover:text-foreground transition-colors"
+                data-cursor="pointer"
+              >
+                <ArrowLeft className="w-4 h-4" /> Back to all projects
+              </Link>
             </div>
           </div>
         </section>
+      ) : (
+        (prev || next) && (
+          <section className="pb-24">
+            <div className="max-w-5xl mx-auto px-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {prev ? (
+                  <Link
+                    href={`/projects/${prev.slug}`}
+                    className="group block rounded-3xl p-6 transition-colors"
+                    style={{ backgroundColor: "#fbfaf7" }}
+                    data-cursor="pointer"
+                  >
+                    <div className="flex items-center gap-2 font-sans text-xs text-muted-foreground mb-3">
+                      <ArrowLeft className="w-3.5 h-3.5" /> Previous
+                    </div>
+                    <p className="font-serif text-lg md:text-xl text-foreground group-hover:text-[hsl(18,78%,57%)] transition-colors">
+                      {prev.title}
+                    </p>
+                  </Link>
+                ) : <div />}
+                {next ? (
+                  <Link
+                    href={`/projects/${next.slug}`}
+                    className="group block rounded-3xl p-6 transition-colors text-right"
+                    style={{ backgroundColor: "#fbfaf7" }}
+                    data-cursor="pointer"
+                  >
+                    <div className="flex items-center justify-end gap-2 font-sans text-xs text-muted-foreground mb-3">
+                      Next <ArrowRight className="w-3.5 h-3.5" />
+                    </div>
+                    <p className="font-serif text-lg md:text-xl text-foreground group-hover:text-[hsl(18,78%,57%)] transition-colors">
+                      {next.title}
+                    </p>
+                  </Link>
+                ) : <div />}
+              </div>
+            </div>
+          </section>
+        )
       )}
     </>
   );

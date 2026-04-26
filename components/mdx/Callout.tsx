@@ -1,3 +1,4 @@
+import { AlertCircle, Lightbulb, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface CalloutProps {
@@ -5,49 +6,37 @@ interface CalloutProps {
   children: React.ReactNode;
 }
 
-const variantMap: Record<
-  CalloutProps["type"],
-  { container: string; label: string; title: string }
-> = {
+const variantMap = {
   insight: {
-    container:
-      "border-blue-500 bg-blue-50/50 dark:bg-blue-950/20",
-    label: "text-blue-600 dark:text-blue-400",
-    title: "Product Insight",
+    label: "Product Insight",
+    Icon: Lightbulb,
+    container: "bg-[hsla(18,78%,57%,0.09)]",
+    accent: "text-[hsl(18,78%,47%)]",
   },
   suggestion: {
-    container:
-      "border-amber-500 bg-amber-50/50 dark:bg-amber-950/20",
-    label: "text-amber-600 dark:text-amber-400",
-    title: "What I'd Consider",
+    label: "What I'd Consider",
+    Icon: Sparkles,
+    container: "bg-[hsla(44,80%,55%,0.10)]",
+    accent: "text-[#A8841C]",
   },
   friction: {
-    container:
-      "border-red-500 bg-red-50/50 dark:bg-red-950/20",
-    label: "text-red-600 dark:text-red-400",
-    title: "Friction Point",
+    label: "Friction Point",
+    Icon: AlertCircle,
+    container: "bg-[hsla(8,55%,55%,0.08)]",
+    accent: "text-[#B85450]",
   },
-};
+} as const;
 
 const Callout = ({ type, children }: CalloutProps) => {
-  const variant = variantMap[type];
+  const { label, Icon, container, accent } = variantMap[type];
 
   return (
-    <aside
-      className={cn(
-        "my-6 border-l-4 rounded-r-md p-5 sm:p-6 font-sans text-sm sm:text-base leading-relaxed text-foreground",
-        variant.container
-      )}
-    >
-      <div
-        className={cn(
-          "mb-2 text-xs font-semibold uppercase tracking-wider",
-          variant.label
-        )}
-      >
-        {variant.title}
+    <aside className={cn("callout", container)}>
+      <div className={cn("callout__label", accent)}>
+        <Icon className="callout__icon" aria-hidden="true" />
+        <span>{label}</span>
       </div>
-      <div className="space-y-3 [&>p]:m-0">{children}</div>
+      <div className="callout__body">{children}</div>
     </aside>
   );
 };
