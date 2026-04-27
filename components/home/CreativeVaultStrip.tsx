@@ -69,9 +69,9 @@ const CreativeVaultStrip = () => {
   return (
     <section className="py-0">
       <div ref={ref} className="max-w-6xl mx-auto px-4">
-        <div className="bg-dark-bg rounded-3xl p-[2px] overflow-hidden">
-          <div className="bg-dark-bg rounded-3xl overflow-hidden relative" style={{ height: "1200px" }}>
-            <div className="absolute inset-0 flex gap-2 p-2">
+        <div className="rounded-3xl p-[2px] overflow-hidden" style={{ backgroundColor: "#fdfcfa" }}>
+          <div className="bg-dark-bg rounded-[22px] overflow-hidden relative" style={{ height: "1200px" }}>
+            <div className="absolute inset-0 flex gap-2 p-2 rounded-[22px] overflow-hidden">
               <ScrollColumn cards={column1} speed={35} />
               <ScrollColumn cards={column2} speed={28} />
               <div className="hidden md:flex flex-1">
@@ -79,7 +79,7 @@ const CreativeVaultStrip = () => {
               </div>
             </div>
 
-            <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/25 to-black/30 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/25 to-black/30 pointer-events-none rounded-[22px]" />
 
             <div className="absolute inset-0 flex items-center justify-center z-10">
               <div className="flex flex-col items-center">

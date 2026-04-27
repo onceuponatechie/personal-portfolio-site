@@ -68,10 +68,10 @@ const FeaturedProjectsShowcase = () => {
           </div>
         </ScrollReveal>
 
-        <div className="gradient-border rounded-3xl overflow-hidden">
+        <div className="rounded-3xl p-[2px] overflow-hidden" style={{ backgroundColor: "#fdfcfa" }}>
           <div
-            className="bg-dark-bg rounded-3xl overflow-hidden relative cursor-pointer"
-            style={{ height: "clamp(400px, 60vh, 600px)" }}
+            className="bg-dark-bg rounded-[22px] overflow-hidden relative cursor-pointer"
+            style={{ height: "clamp(600px, 90vh, 900px)" }}
             onClick={goToProject}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
