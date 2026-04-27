@@ -46,22 +46,22 @@ const ProjectCard = ({ project, index }: { project: ProjectFrontmatter; index: n
                 transition={{ duration: 0.25 }}
                 className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex items-end p-5"
               >
-                <p className="font-sans text-sm text-white/90 leading-relaxed">
+                <p className="font-sans text-[14px] text-white/90 leading-[1.5]">
                   {project.description}
                 </p>
               </motion.div>
             )}
           </AnimatePresence>
           <div className="absolute top-4 left-4">
-            <span className="glassmorphism-dark rounded-full px-3 py-1 text-[11px] font-sans text-white/90 uppercase tracking-wider">
+            <span className="glassmorphism-dark rounded-full px-3 py-1.5 text-[12px] font-sans font-semibold text-white/90 uppercase tracking-[0.08em] leading-none">
               {project.category}
             </span>
           </div>
         </div>
 
-        <div className="px-4 pb-5 pt-1">
+        <div className="px-4 pb-5 pt-2">
           <div className="flex items-start justify-between gap-3 mb-3">
-            <h3 className="font-serif text-lg md:text-xl text-foreground leading-snug">
+            <h3 className="font-display font-semibold text-[22px] leading-[1.3] tracking-[-0.005em] text-foreground">
               {project.title}
             </h3>
             <div
@@ -71,17 +71,17 @@ const ProjectCard = ({ project, index }: { project: ProjectFrontmatter; index: n
               <ArrowUpRight className="w-4 h-4 text-white" />
             </div>
           </div>
-          <div className="flex flex-wrap gap-1.5">
+          <div className="flex flex-wrap gap-2">
             {(project.tags ?? []).slice(0, 3).map((t) => (
               <span
                 key={t}
-                className="bg-white/70 border border-black/5 rounded-full px-2.5 py-0.5 text-[10px] font-sans text-foreground/70"
+                className="bg-white/70 border border-black/5 rounded-full px-2.5 py-1 text-[12px] font-sans font-medium text-foreground/70"
               >
                 {t}
               </span>
             ))}
             {(project.tags?.length ?? 0) > 3 && (
-              <span className="font-sans text-[10px] text-muted-foreground self-center">
+              <span className="font-sans text-[12px] text-muted-foreground self-center">
                 +{(project.tags?.length ?? 0) - 3}
               </span>
             )}
@@ -97,7 +97,7 @@ export default function ProjectsPageClient({ projects }: { projects: ProjectFron
   const filtered = active === "All" ? projects : projects.filter((b) => b.category === active);
 
   return (
-    <section className="pt-32 pb-24">
+    <section className="pt-[120px] md:pt-[160px] pb-[80px] md:pb-[120px] lg:pb-[160px]">
       <div className="max-w-6xl mx-auto px-6">
         <PageHeader
           label="Featured Work"
@@ -108,7 +108,7 @@ export default function ProjectsPageClient({ projects }: { projects: ProjectFron
 
         <FilterPills options={filters} active={active} onChange={setActive} />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {filtered.map((project, i) => (
             <ProjectCard key={project.slug} project={project} index={i} />
           ))}

@@ -59,12 +59,12 @@ const HeroSection = () => {
   const y = useTransform(scrollYProgress, [0, 1], [0, 150]);
 
   return (
-    <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section ref={ref} className="relative min-h-screen flex items-start justify-center overflow-hidden pt-[120px] md:pt-[160px] pb-[80px] md:pb-[120px]">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-background to-surface-warm" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-white/60 rounded-full blur-[120px]" />
 
-      <motion.div style={{ y }} className="relative z-10 max-w-3xl mx-auto px-6 text-center pt-6 pb-16">
+      <motion.div style={{ y }} className="relative z-10 max-w-3xl mx-auto px-6 text-center">
         {/* Smiley — icons appear first */}
         <motion.div
           initial={{ opacity: 0, scale: 0.7 }}
@@ -84,18 +84,18 @@ const HeroSection = () => {
         >
           <div className="glassmorphism rounded-full px-4 py-2 flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-brand-green animate-pulse" />
-            <span className="font-sans text-xs font-medium text-text-custom-secondary">
+            <span className="font-sans text-[12px] font-semibold uppercase tracking-[0.08em] text-text-custom-secondary">
               Open to Collaborations
             </span>
           </div>
         </motion.div>
 
         {/* Headline — media appears with icons, then each line cascades */}
-        <h1 className="font-serif text-[clamp(2.5rem,5vw,3.75rem)] leading-[1.15] text-foreground mb-6">
+        <h1 className="font-display font-bold text-[40px] md:text-[56px] lg:text-[88px] leading-[1.05] tracking-[-0.02em] text-foreground mb-6">
           {/* Line 1 */}
           <motion.span {...textReveal(0.4)}>
-            <span className="font-display italic">Products,</span>{" "}
-            <span className="font-display italic">people,</span> and the
+            <span className="font-italic-display">Products,</span>{" "}
+            <span className="font-italic-display">people,</span> and the
           </motion.span>
           <br className="hidden sm:block" />
 
@@ -104,7 +104,7 @@ const HeroSection = () => {
             <MediaBox offset={0} />
           </motion.span>
           <motion.span {...textReveal(0.62)}>
-            {" "}<span className="font-display italic">stories</span> that connect
+            {" "}<span className="font-italic-display">stories</span> that connect
           </motion.span>
           <br className="hidden sm:block" />
 
@@ -122,7 +122,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, filter: "blur(6px)" }}
           animate={{ opacity: 1, filter: "blur(0px)" }}
           transition={{ duration: 0.55, delay: 1.06, ease: EASE }}
-          className="font-sans text-base md:text-lg font-light text-text-custom-secondary tracking-wide mb-10"
+          className="font-sans text-[20px] font-normal leading-[1.6] text-text-custom-secondary mt-6 mb-12"
         >
           Creator &middot; Builder &middot; Storyteller
         </motion.p>
@@ -136,14 +136,14 @@ const HeroSection = () => {
         >
           <a
             href="/projects"
-            className="bg-primary text-primary-foreground rounded-full px-8 py-4 font-sans text-sm font-medium hover:opacity-90 transition-opacity"
+            className="bg-primary text-primary-foreground rounded-full px-8 py-4 font-sans text-[15px] font-medium leading-none hover:opacity-90 transition-opacity"
             data-cursor="pointer"
           >
             Explore My Work &rarr;
           </a>
           <a
             href="/resources"
-            className="font-sans text-sm text-text-custom-secondary hover:text-primary transition-colors underline underline-offset-4"
+            className="font-sans text-[15px] font-medium leading-none text-text-custom-secondary hover:text-primary transition-colors underline underline-offset-4"
             data-cursor="pointer"
           >
             Or grab a freebie &rarr;

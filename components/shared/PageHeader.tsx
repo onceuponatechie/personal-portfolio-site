@@ -27,13 +27,13 @@ const PageHeader = ({
 
   return (
     <ScrollReveal>
-      <div className={`${alignment} max-w-2xl mb-14 ${className}`}>
-        <p className="font-display italic text-sm text-muted-foreground mb-3">{label}</p>
-        <h1 className="font-serif text-[40px] md:text-[56px] text-foreground leading-[1.1]">
+      <div className={`${alignment} max-w-2xl mb-12 ${className}`}>
+        <p className="font-italic-display text-[20px] text-muted-foreground mb-6">{label}</p>
+        <h1 className="font-display font-semibold text-[36px] md:text-[44px] lg:text-[64px] leading-[1.1] tracking-[-0.02em] text-foreground">
           {children}
         </h1>
         {description && (
-          <p className="font-sans text-base text-muted-foreground leading-relaxed mt-6 max-w-lg mx-auto">
+          <p className="font-sans text-[20px] font-normal text-muted-foreground leading-[1.6] mt-6 max-w-lg mx-auto">
             {description}
           </p>
         )}

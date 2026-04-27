@@ -71,15 +71,15 @@ const Footer = () => {
       <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-20 bg-white/5 blur-3xl rounded-full" />
 
-      <div className="max-w-6xl mx-auto px-6 pt-24 pb-12" ref={ref}>
+      <div className="max-w-6xl mx-auto px-6 pt-[120px] md:pt-[160px] pb-12" ref={ref}>
         {/* Main CTA */}
         <div className="text-center mb-20">
-          <h2 className="font-serif text-2xl md:text-3xl" style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "0 0.35em" }}>
+          <h2 className="font-display font-semibold text-[24px] md:text-[28px] leading-[1.25] tracking-[-0.01em]" style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "0 0.35em" }}>
             {footerWords.map((word, i) => (
               <FooterRevealWord key={i} word={word.text} index={i} progress={revealProgress} />
             ))}
           </h2>
-          <h2 className="font-serif text-6xl md:text-8xl font-semibold mt-1">
+          <h2 className="font-display text-[64px] md:text-[88px] font-semibold leading-[1.05] tracking-[-0.02em] mt-2">
             <ExperienceReveal progress={revealProgress} />
           </h2>
 
@@ -88,7 +88,7 @@ const Footer = () => {
             <div className="inline-block rounded-full p-1.5" style={{ background: "rgba(255,255,255,0.10)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.16)" }}>
               <Link
                 href="/contact"
-                className="bg-primary text-primary-foreground rounded-full px-8 py-3.5 text-sm font-sans font-medium hover:bg-[#5dcbf1] transition-colors inline-block"
+                className="bg-primary text-primary-foreground rounded-full px-8 py-3.5 text-[15px] font-sans font-medium leading-none hover:bg-[#5dcbf1] transition-colors inline-block"
                 data-cursor="pointer"
               >
                 Build With Me
@@ -121,7 +121,7 @@ const Footer = () => {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-white/40 hover:text-white text-[11px] font-sans tracking-wider transition-colors"
+                  className="text-white/40 hover:text-white text-[12px] font-sans font-semibold uppercase tracking-[0.08em] leading-none transition-colors"
                   data-cursor="pointer"
                 >
                   {link.label}
@@ -133,7 +133,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="border-t border-white/10 pt-8 text-center">
-          <p className="text-white/30 text-xs font-sans">
+          <p className="text-white/30 text-[14px] font-sans leading-[1.5]">
             &copy; Essy Udeme, 2026
           </p>
         </div>

@@ -24,7 +24,7 @@ const HeadingAccent = ({
 }: HeadingAccentProps) => {
   if (variant === "circle") {
     return (
-      <span className={`relative inline-block font-display italic ${className}`} style={{ padding: "0 0.15em" }}>
+      <span className={`relative inline-block font-italic-display ${className}`} style={{ padding: "0 0.15em" }}>
         {children}
         <svg
           viewBox="0 0 200 100"
@@ -51,7 +51,7 @@ const HeadingAccent = ({
 
   if (variant === "singleCurve") {
     return (
-      <span className={`relative inline-block font-display italic ${className}`}>
+      <span className={`relative inline-block font-italic-display ${className}`}>
         {children}
         <svg
           viewBox="0 0 200 14"
@@ -73,7 +73,7 @@ const HeadingAccent = ({
 
   if (variant === "underline") {
     return (
-      <span className={`relative inline-block font-display italic ${className}`}>
+      <span className={`relative inline-block font-italic-display ${className}`}>
         {children}
         <svg
           viewBox="0 0 200 10"
@@ -95,7 +95,7 @@ const HeadingAccent = ({
 
   // doubleCurve (default)
   return (
-    <span className={`relative inline-block font-display italic ${className}`}>
+    <span className={`relative inline-block font-italic-display ${className}`}>
       {children}
       <svg
         viewBox="0 0 200 22"

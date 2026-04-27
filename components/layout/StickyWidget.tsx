@@ -46,7 +46,7 @@ const StickyWidget = () => {
             </button>
 
             <div className="flex items-center gap-1 mb-2">
-              <span className="bg-primary text-primary-foreground text-[8px] font-sans font-bold uppercase px-1.5 py-0.5 rounded-full">
+              <span className="bg-primary text-primary-foreground text-[10px] font-sans font-semibold uppercase tracking-[0.08em] leading-none px-1.5 py-1 rounded-full">
                 NEW
               </span>
             </div>
@@ -57,12 +57,12 @@ const StickyWidget = () => {
               </div>
             </div>
 
-            <p className="text-[10px] font-sans font-medium text-foreground leading-tight mb-1">
+            <p className="text-[12px] font-sans font-medium text-foreground leading-[1.3] mb-1">
               Free Resource Kit
             </p>
             <Link
               href="/resources"
-              className="text-[10px] font-sans font-medium text-primary hover:underline"
+              className="text-[12px] font-sans font-medium text-primary hover:underline"
               data-cursor="pointer"
             >
               Take a Peek &rarr;

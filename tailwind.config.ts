@@ -19,9 +19,24 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ['"Playfair Display"', 'serif'],
-        display: ['"Playfair Display"', 'serif'],
-        sans: ['"Inter"', 'sans-serif'],
+        serif: ['var(--font-fraunces)', 'serif'],
+        display: ['var(--font-fraunces)', 'serif'],
+        "italic-display": ['var(--font-fraunces)', 'serif'],
+        sans: ['var(--font-inter)', 'sans-serif'],
+      },
+      spacing: {
+        "space-1": "var(--space-1)",
+        "space-2": "var(--space-2)",
+        "space-3": "var(--space-3)",
+        "space-4": "var(--space-4)",
+        "space-5": "var(--space-5)",
+        "space-6": "var(--space-6)",
+        "space-8": "var(--space-8)",
+        "space-10": "var(--space-10)",
+        "space-12": "var(--space-12)",
+        "space-16": "var(--space-16)",
+        "space-20": "var(--space-20)",
+        "space-24": "var(--space-24)",
       },
       colors: {
         border: "hsl(var(--border))",

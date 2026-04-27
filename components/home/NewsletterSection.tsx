@@ -8,28 +8,28 @@ const NewsletterSection = () => {
   const [email, setEmail] = useState("");
 
   return (
-    <section className="py-24">
+    <section className="py-[80px] md:py-[120px] lg:py-[160px]">
       <div className="max-w-6xl mx-auto px-4">
         <ScrollReveal>
           <div className="rounded-3xl p-10 md:p-14" style={{ backgroundColor: "#fbfaf7" }}>
             <div className="flex justify-start mb-10">
-              <span className="inline-block bg-brand-lavender/20 text-brand-lavender text-xs font-sans font-semibold uppercase tracking-widest rounded-full px-4 py-1.5">
+              <span className="inline-block bg-brand-lavender/20 text-brand-lavender text-[12px] font-sans font-semibold uppercase tracking-[0.08em] leading-none rounded-full px-4 py-2">
                 Join the Community
               </span>
             </div>
 
             <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
               <div className="flex-1">
-                <h2 className="font-serif text-4xl md:text-5xl lg:text-[3.4rem] text-foreground leading-[1.15] mb-6">
+                <h2 className="font-display font-semibold text-[32px] md:text-[40px] leading-[1.15] tracking-[-0.015em] text-foreground mb-8">
                   Subscribe to
                   <br />
-                  <span className="font-display italic text-muted-foreground">QuietNotes</span>
+                  <span className="font-italic-display text-muted-foreground">QuietNotes</span>
                 </h2>
-                <p className="font-sans text-base text-muted-foreground leading-relaxed max-w-lg">
+                <p className="font-sans text-[20px] font-normal leading-[1.6] text-muted-foreground max-w-lg">
                   Just a quiet corner of the internet for builders. Biweekly notes on products, tech, ambition, and the invisible systems that run them. It&apos;s free forever.
                 </p>
 
-                <div className="mt-10 flex items-center gap-4">
+                <div className="mt-12 flex items-center gap-4">
                   <div className="flex -space-x-2.5">
                     <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&h=80&fit=crop&crop=face" alt="" className="w-9 h-9 rounded-full border-2 border-white object-cover" />
                     <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face" alt="" className="w-9 h-9 rounded-full border-2 border-white object-cover" />
@@ -41,7 +41,7 @@ const NewsletterSection = () => {
                         <Star key={i} className="w-3.5 h-3.5 text-brand-orange fill-brand-orange" />
                       ))}
                     </div>
-                    <p className="font-sans text-sm font-medium text-foreground">My fave brands</p>
+                    <p className="font-sans text-[14px] font-medium text-foreground">My fave brands</p>
                   </div>
                 </div>
               </div>
@@ -54,18 +54,18 @@ const NewsletterSection = () => {
                       placeholder="Your email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full rounded-full border-0 px-6 py-4 text-sm font-sans text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                      className="w-full rounded-full border-0 px-6 py-4 text-[15px] font-sans font-normal text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/30"
                       style={{ backgroundColor: "#fbf9f5" }}
                     />
                   </div>
                   <button
-                    className="w-full bg-primary text-primary-foreground rounded-full px-6 py-4 text-sm font-sans font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+                    className="w-full bg-primary text-primary-foreground rounded-full px-6 py-4 text-[15px] font-sans font-medium leading-none hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
                     data-cursor="pointer"
                   >
                     Subscribe
                     <Send className="w-4 h-4" />
                   </button>
-                  <p className="text-center text-xs text-muted-foreground/60 font-sans mt-5 leading-relaxed">
+                  <p className="text-center text-[14px] text-muted-foreground/60 font-sans mt-5 leading-[1.5]">
                     By submitting this form, you&apos;ll be signed up to my free newsletter. No spam, just value.
                   </p>
                 </div>

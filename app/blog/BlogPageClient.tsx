@@ -62,7 +62,7 @@ const BlogCard = ({ post, index }: { post: PostFrontmatter; index: number }) => 
                 transition={{ duration: 0.25 }}
                 className="absolute inset-0 bg-black/50 flex items-end p-5"
               >
-                <p className="font-sans text-xs sm:text-sm text-white/90 leading-relaxed">
+                <p className="font-sans text-[14px] text-white/90 leading-[1.5]">
                   {post.excerpt}
                 </p>
               </motion.div>
@@ -70,9 +70,9 @@ const BlogCard = ({ post, index }: { post: PostFrontmatter; index: number }) => 
           </AnimatePresence>
         </div>
 
-        <div className="px-3 sm:px-4 pt-2 pb-4">
-          <div className="flex items-start justify-between gap-2 mb-1.5">
-            <h3 className="font-serif text-base md:text-lg text-foreground leading-snug">
+        <div className="px-3 sm:px-4 pt-3 pb-4">
+          <div className="flex items-start justify-between gap-2 mb-2">
+            <h3 className="font-display font-semibold text-[22px] leading-[1.3] tracking-[-0.005em] text-foreground">
               {post.title}
             </h3>
             <div
@@ -83,20 +83,20 @@ const BlogCard = ({ post, index }: { post: PostFrontmatter; index: number }) => 
             </div>
           </div>
 
-          <div className="flex items-center flex-wrap gap-1.5">
-            <span className={`font-sans text-[11px] ${categoryColors[post.category] || "text-muted-foreground"}`}>
+          <div className="flex items-center flex-wrap gap-2">
+            <span className={`font-sans text-[12px] font-medium ${categoryColors[post.category] || "text-muted-foreground"}`}>
               {post.category}
             </span>
             {post.publishedAt && (
               <>
-                <span className="text-muted-foreground/40 text-[10px]">&bull;</span>
-                <span className="font-sans text-[11px] text-muted-foreground">
+                <span className="text-muted-foreground/40 text-[12px]">&bull;</span>
+                <span className="font-sans text-[12px] text-muted-foreground">
                   {formatDate(post.publishedAt)}
                 </span>
               </>
             )}
-            <span className="text-muted-foreground/40 text-[10px]">&bull;</span>
-            <span className="font-sans text-[11px] text-muted-foreground">
+            <span className="text-muted-foreground/40 text-[12px]">&bull;</span>
+            <span className="font-sans text-[12px] text-muted-foreground">
               {post.readTime}
             </span>
           </div>
@@ -113,7 +113,7 @@ export default function BlogPageClient({ posts }: { posts: PostFrontmatter[] }) 
   const rest = filtered.filter((p) => !p.featured);
 
   return (
-    <section className="pt-32 pb-24">
+    <section className="pt-[120px] md:pt-[160px] pb-[80px] md:pb-[120px] lg:pb-[160px]">
       <div className="max-w-6xl mx-auto px-6">
         <PageHeader label="Stories" description="Field notes from building products, shipping in public, and staying curious — written in my own voice, no corporate filter.">
           The Build <HeadingAccent variant="doubleCurve">Chapters</HeadingAccent>
@@ -136,19 +136,19 @@ export default function BlogPageClient({ posts }: { posts: PostFrontmatter[] }) 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
               <div className="absolute top-5 left-5">
-                <span className="glassmorphism-dark rounded-full px-3 py-1 text-[11px] font-sans text-white/90 uppercase tracking-wider">
+                <span className="glassmorphism-dark rounded-full px-3 py-1.5 text-[12px] font-sans font-semibold text-white/90 uppercase tracking-[0.08em] leading-none">
                   Featured
                 </span>
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 flex items-end justify-between gap-6">
                 <div className="max-w-xl">
-                  <span className={`font-sans text-xs uppercase tracking-wider ${categoryColors[featured.category] || "text-white/70"}`}>
+                  <span className={`font-sans text-[12px] font-semibold uppercase tracking-[0.08em] leading-none ${categoryColors[featured.category] || "text-white/70"}`}>
                     {featured.category}
                   </span>
-                  <h2 className="font-serif text-2xl md:text-4xl text-white mt-2 mb-3 leading-tight">
+                  <h2 className="font-display font-semibold text-[28px] md:text-[40px] text-white mt-3 mb-3 leading-[1.15] tracking-[-0.015em]">
                     {featured.title}
                   </h2>
-                  <p className="font-sans text-sm text-white/70 leading-relaxed">
+                  <p className="font-sans text-[14px] text-white/70 leading-[1.5]">
                     {featured.excerpt}
                   </p>
                 </div>
@@ -160,7 +160,7 @@ export default function BlogPageClient({ posts }: { posts: PostFrontmatter[] }) 
           </ScrollReveal>
         )}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {rest.map((post, i) => (
             <BlogCard key={post.slug} post={post} index={i} />
           ))}

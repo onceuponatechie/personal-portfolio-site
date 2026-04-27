@@ -19,13 +19,13 @@ const FAQAccordion = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-24">
+    <section className="py-[80px] md:py-[120px] lg:py-[160px]">
       <div className="max-w-2xl mx-auto px-6">
         <ScrollReveal>
           <div className="text-center mb-12">
-            <p className="font-display italic text-sm text-muted-foreground mb-3">FAQ</p>
-            <h2 className="font-serif text-3xl md:text-4xl text-foreground">
-              Your questions, <span className="font-display italic">answered</span>
+            <p className="font-italic-display text-[20px] text-muted-foreground mb-3">FAQ</p>
+            <h2 className="font-display font-semibold text-[32px] md:text-[40px] leading-[1.15] tracking-[-0.015em] text-foreground">
+              Your questions, <span className="font-italic-display">answered</span>
             </h2>
           </div>
         </ScrollReveal>
@@ -45,7 +45,7 @@ const FAQAccordion = () => {
                   className="w-full flex items-center justify-between px-6 py-4 text-left"
                   data-cursor="pointer"
                 >
-                  <span className="font-sans text-sm font-medium text-foreground pr-4">{faq.q}</span>
+                  <span className="font-sans text-[15px] font-medium text-foreground pr-4">{faq.q}</span>
                   <motion.div
                     animate={{ rotate: openIndex === i ? 45 : 0 }}
                     transition={{ duration: 0.2 }}
@@ -69,7 +69,7 @@ const FAQAccordion = () => {
                       transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
                       className="overflow-hidden"
                     >
-                      <p className="px-6 pb-5 font-sans text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
+                      <p className="px-6 pb-5 font-sans text-[14px] text-muted-foreground leading-[1.5]">{faq.a}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -80,11 +80,11 @@ const FAQAccordion = () => {
 
         <ScrollReveal delay={0.3}>
           <div className="mt-12 bg-dark-bg rounded-2xl p-8 text-center">
-            <p className="font-serif text-lg text-white mb-2">Still have questions?</p>
-            <p className="font-sans text-sm text-white/60 mb-6">I&apos;d love to hear from you. Let&apos;s chat!</p>
+            <p className="font-display font-semibold text-[22px] leading-[1.3] tracking-[-0.005em] text-white mb-2">Still have questions?</p>
+            <p className="font-sans text-[14px] leading-[1.5] text-white/60 mb-6">I&apos;d love to hear from you. Let&apos;s chat!</p>
             <Link
               href="/contact"
-              className="inline-block bg-primary text-primary-foreground rounded-full px-6 py-3 font-sans text-sm font-medium hover:opacity-90 transition-opacity"
+              className="inline-block bg-primary text-primary-foreground rounded-full px-6 py-3 font-sans text-[15px] font-medium leading-none hover:opacity-90 transition-opacity"
               data-cursor="pointer"
             >
               Get in Touch

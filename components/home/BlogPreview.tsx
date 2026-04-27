@@ -90,7 +90,7 @@ const BlogCard = ({ post, index }: { post: (typeof posts)[0]; index: number }) =
                 transition={{ duration: 0.25 }}
                 className="absolute inset-0 bg-black/50 flex items-end p-4 sm:p-5"
               >
-                <p className="font-sans text-xs sm:text-sm text-white/90 leading-relaxed">
+                <p className="font-sans text-[14px] leading-[1.5] text-white/90">
                   {post.excerpt}
                 </p>
               </motion.div>
@@ -99,9 +99,9 @@ const BlogCard = ({ post, index }: { post: (typeof posts)[0]; index: number }) =
         </div>
 
         {/* Text content */}
-        <div className="px-3 sm:px-4 pt-2 pb-3 sm:pb-4">
-          <div className="flex items-start justify-between gap-2 mb-1.5">
-            <h3 className="font-serif text-sm sm:text-base md:text-lg text-foreground leading-snug">
+        <div className="px-3 sm:px-4 pt-3 pb-4">
+          <div className="flex items-start justify-between gap-2 mb-2">
+            <h3 className="font-display font-semibold text-[18px] sm:text-[20px] md:text-[22px] leading-[1.3] tracking-[-0.005em] text-foreground">
               {post.title}
             </h3>
             <div
@@ -114,16 +114,16 @@ const BlogCard = ({ post, index }: { post: (typeof posts)[0]; index: number }) =
             </div>
           </div>
 
-          <div className="flex items-center gap-1.5 sm:gap-2">
-            <span className={`font-sans text-[10px] sm:text-[11px] ${categoryColors[post.category] || "text-muted-foreground"}`}>
+          <div className="flex items-center gap-2">
+            <span className={`font-sans text-[12px] font-medium ${categoryColors[post.category] || "text-muted-foreground"}`}>
               {post.category}
             </span>
-            <span className="text-muted-foreground/40 text-[10px]">&bull;</span>
-            <span className="font-sans text-[10px] sm:text-[11px] text-muted-foreground">
+            <span className="text-muted-foreground/40 text-[12px]">&bull;</span>
+            <span className="font-sans text-[12px] text-muted-foreground">
               {post.date}
             </span>
-            <span className="text-muted-foreground/40 text-[10px]">&bull;</span>
-            <span className="font-sans text-[10px] sm:text-[11px] text-muted-foreground">
+            <span className="text-muted-foreground/40 text-[12px]">&bull;</span>
+            <span className="font-sans text-[12px] text-muted-foreground">
               {post.readTime}
             </span>
           </div>
@@ -135,20 +135,20 @@ const BlogCard = ({ post, index }: { post: (typeof posts)[0]; index: number }) =
 
 const BlogPreview = () => {
   return (
-    <section className="py-24">
+    <section className="py-[80px] md:py-[120px] lg:py-[160px]">
       <div className="max-w-5xl mx-auto px-6">
         <ScrollReveal>
           <div className="text-center mb-12">
-            <p className="font-display italic text-sm text-muted-foreground mb-3">
+            <p className="font-italic-display text-[20px] text-muted-foreground mb-3">
               Stories
             </p>
-            <h2 className="font-serif text-[34px] md:text-[44px] text-foreground">
-              The Build <span className="relative inline-block font-display italic">Chapters<svg viewBox="0 0 200 22" fill="none" className="absolute -bottom-3 left-0 w-full" style={{ overflow: "visible" }}><path d="M0 6 C50 -4, 100 -4, 100 3 C100 10, 150 10, 200 0" stroke="#5dcbf1" strokeWidth="5.5" strokeLinecap="round" fill="none" /><path d="M0 16 C50 6, 100 6, 100 13 C100 20, 150 20, 200 10" stroke="#5dcbf1" strokeWidth="5.5" strokeLinecap="round" fill="none" /></svg></span>
+            <h2 className="font-display font-semibold text-[32px] md:text-[40px] leading-[1.15] tracking-[-0.015em] text-foreground">
+              The Build <span className="relative inline-block font-italic-display">Chapters<svg viewBox="0 0 200 22" fill="none" className="absolute -bottom-3 left-0 w-full" style={{ overflow: "visible" }}><path d="M0 6 C50 -4, 100 -4, 100 3 C100 10, 150 10, 200 0" stroke="#5dcbf1" strokeWidth="5.5" strokeLinecap="round" fill="none" /><path d="M0 16 C50 6, 100 6, 100 13 C100 20, 150 20, 200 10" stroke="#5dcbf1" strokeWidth="5.5" strokeLinecap="round" fill="none" /></svg></span>
             </h2>
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
           {posts.map((post, i) => (
             <BlogCard key={post.slug} post={post} index={i} />
           ))}
@@ -158,7 +158,7 @@ const BlogPreview = () => {
           <div className="flex justify-center mt-12">
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 bg-[#1A1A1A] text-white rounded-full px-6 py-3 font-sans text-sm font-medium hover:bg-primary transition-colors"
+              className="inline-flex items-center gap-2 bg-[#1A1A1A] text-white rounded-full px-6 py-3 font-sans text-[15px] font-medium leading-none hover:bg-primary transition-colors"
               data-cursor="pointer"
             >
               Read All Stories

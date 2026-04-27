@@ -140,10 +140,10 @@ function AdventureCard({ card, inView, delay }: { card: CardData; inView: boolea
           {card.icon}
         </motion.div>
       )}
-      <h3 className={`font-serif text-[#1A1A1A] leading-[1.2] ${card.half ? "text-[22px] md:text-[24px] mb-2" : "text-[28px] md:text-[32px] mb-4"}`}>
+      <h3 className={`font-display font-semibold text-[#1A1A1A] ${card.half ? "text-[22px] leading-[1.3] tracking-[-0.005em] mb-3" : "text-[24px] md:text-[28px] leading-[1.25] tracking-[-0.01em] mb-4"}`}>
         {card.heading}
       </h3>
-      <p className={`font-sans text-[15px] text-[#1A1A1A]/70 leading-[1.7] ${card.half ? "mb-3" : "mb-6"}`}>
+      <p className={`font-sans text-[18px] font-normal text-[#1A1A1A]/70 leading-[1.7] ${card.half ? "mb-3" : "mb-6"}`}>
         {card.body}
       </p>
       <Link href={card.link} className="mt-auto self-end">
@@ -165,7 +165,7 @@ const ChooseYourAdventure = () => {
   const rightCards = cards.filter((c) => c.column === "right");
 
   return (
-    <section className="py-24">
+    <section className="py-[80px] md:py-[120px] lg:py-[160px]">
       <div className="max-w-6xl mx-auto px-6" ref={ref}>
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -173,10 +173,10 @@ const ChooseYourAdventure = () => {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="mb-12 lg:mb-10 text-center"
         >
-          <p className="font-display italic text-sm text-muted-foreground mb-6">Can I Help?</p>
-          <h2 className="font-serif text-[34px] md:text-[44px] text-[#1A1A1A] leading-[1.1]">
+          <p className="font-italic-display text-[20px] text-muted-foreground mb-6">Can I Help?</p>
+          <h2 className="font-display font-semibold text-[32px] md:text-[40px] leading-[1.15] tracking-[-0.015em] text-[#1A1A1A]">
             Choose Your{" "}
-            <span className="relative inline-block font-display italic">
+            <span className="relative inline-block font-italic-display">
               Adventure
               <AdventureCurve animate={inView} />
             </span>

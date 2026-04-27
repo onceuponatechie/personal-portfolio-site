@@ -40,7 +40,7 @@ const Navbar = () => {
           {/* Brand */}
           <Link
             href="/"
-            className="font-serif text-base font-semibold text-foreground hover:opacity-80 transition-opacity whitespace-nowrap"
+            className="font-display text-[16px] font-semibold text-foreground hover:opacity-80 transition-opacity whitespace-nowrap"
           >
             Once Upon a Techie
           </Link>
@@ -52,7 +52,7 @@ const Navbar = () => {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="relative font-sans text-[13px] text-text-custom-secondary hover:text-brand-lavender transition-colors"
+                  className="relative font-sans text-[15px] font-medium leading-none text-text-custom-secondary hover:text-brand-lavender transition-colors"
                   data-cursor="pointer"
                 >
                   {link.label}
@@ -69,7 +69,7 @@ const Navbar = () => {
 
             <Link
               href="/contact"
-              className="bg-primary text-primary-foreground rounded-full px-6 py-2.5 font-sans text-[13px] font-medium hover:bg-[#5dcbf1] transition-colors"
+              className="bg-primary text-primary-foreground rounded-full px-6 py-2.5 font-sans text-[15px] font-medium leading-none hover:bg-[#5dcbf1] transition-colors"
               data-cursor="pointer"
             >
               Build With Me
@@ -99,7 +99,7 @@ const Navbar = () => {
           >
             {/* Top bar — brand + close */}
             <div className="flex items-center justify-between px-6 pt-6">
-              <span className="font-serif text-base font-semibold text-foreground">
+              <span className="font-display text-[16px] font-semibold text-foreground">
                 Once Upon a Techie
               </span>
               <button
@@ -124,10 +124,10 @@ const Navbar = () => {
                     onClick={() => setMobileOpen(false)}
                     className="group flex items-center justify-between py-4 border-b border-foreground/8"
                   >
-                    <span className="font-serif text-2xl text-foreground group-hover:text-brand-lavender transition-colors">
+                    <span className="font-display font-semibold text-[24px] leading-[1.25] tracking-[-0.01em] text-foreground group-hover:text-brand-lavender transition-colors">
                       {link.label}
                     </span>
-                    <span className="font-sans text-xs text-muted-foreground/50 uppercase tracking-wider">
+                    <span className="font-sans text-[12px] font-semibold text-muted-foreground/50 uppercase tracking-[0.08em] leading-none">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                   </Link>
@@ -145,11 +145,11 @@ const Navbar = () => {
               <Link
                 href="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="block w-full bg-primary text-primary-foreground rounded-full px-8 py-4 font-sans text-sm font-semibold text-center hover:bg-[#5dcbf1] transition-colors"
+                className="block w-full bg-primary text-primary-foreground rounded-full px-8 py-4 font-sans text-[15px] font-medium leading-none text-center hover:bg-[#5dcbf1] transition-colors"
               >
                 Build With Me
               </Link>
-              <p className="text-center text-xs text-muted-foreground/40 font-sans mt-4">
+              <p className="text-center text-[14px] text-muted-foreground/40 font-sans mt-4">
                 &copy; Essy Udeme, 2026
               </p>
             </motion.div>

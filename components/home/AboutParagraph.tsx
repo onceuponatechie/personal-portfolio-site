@@ -97,7 +97,7 @@ function ScrollRevealWord({ word, index, green, progress }: { word: string; inde
   });
 
   return (
-    <motion.span className={green ? "font-display" : undefined} style={{ color, fontWeight: green ? 500 : undefined, fontStyle: green ? "italic" : undefined }}>
+    <motion.span className={green ? "font-italic-display" : undefined} style={{ color, fontWeight: green ? 600 : undefined }}>
       {word}
     </motion.span>
   );
@@ -111,7 +111,7 @@ const AboutParagraph = () => {
   const revealProgress = useTransform(scrollYProgress, [0, 1], [0, words.length]);
 
   return (
-    <section className="py-24">
+    <section className="py-[80px] md:py-[120px] lg:py-[160px]">
       <div className="max-w-6xl mx-auto px-6" ref={ref}>
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           <div className="flex-1">
@@ -119,13 +119,13 @@ const AboutParagraph = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1, duration: 0.4 }}
-              className="font-display italic text-sm text-muted-foreground mb-6"
+              className="font-italic-display text-[20px] text-muted-foreground mb-6"
             >
               Who I Am
             </motion.p>
 
             <motion.p
-              className="font-serif text-xl md:text-[28px] leading-relaxed font-light"
+              className="font-display text-[24px] md:text-[28px] leading-[1.4] font-normal"
               style={{ display: "flex", flexWrap: "wrap", gap: "0 0.35em" }}
             >
               {words.map((word, i) => (
@@ -137,11 +137,11 @@ const AboutParagraph = () => {
               initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.6, duration: 0.5 }}
-              className="mt-10"
+              className="mt-12"
             >
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 bg-primary text-primary-foreground rounded-full px-7 py-3.5 font-sans text-sm font-medium hover:opacity-90 transition-opacity"
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground rounded-full px-7 py-3.5 font-sans text-[15px] font-medium leading-none hover:opacity-90 transition-opacity"
                 data-cursor="pointer"
               >
                 Learn More

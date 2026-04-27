@@ -19,11 +19,11 @@ export default function ProjectDetailClient({ frontmatter, prev, next, children 
   return (
     <>
       {/* Header: back link + centered title block */}
-      <section className="pt-32">
+      <section className="pt-[120px] md:pt-[160px]">
         <div className="max-w-5xl mx-auto px-4">
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 font-sans text-sm text-muted-foreground hover:text-foreground transition-colors mb-12"
+            className="inline-flex items-center gap-2 font-sans text-[14px] text-muted-foreground hover:text-foreground transition-colors mb-12"
             data-cursor="pointer"
           >
             <ArrowLeft className="w-4 h-4" /> All Projects
@@ -35,20 +35,20 @@ export default function ProjectDetailClient({ frontmatter, prev, next, children 
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <h1 className="font-serif text-[34px] md:text-[48px] text-foreground leading-[1.12] max-w-2xl mx-auto">
+            <h1 className="font-display font-semibold text-[36px] md:text-[44px] lg:text-[64px] text-foreground leading-[1.1] tracking-[-0.02em] max-w-2xl mx-auto">
               {frontmatter.title}
             </h1>
 
-            <p className="font-sans text-[18px] text-muted-foreground leading-relaxed mt-5 max-w-2xl mx-auto">
+            <p className="font-sans text-[20px] font-normal text-muted-foreground leading-[1.6] mt-6 max-w-2xl mx-auto">
               {frontmatter.description}
             </p>
 
             {frontmatter.tools && frontmatter.tools.length > 0 && (
-              <div className="flex flex-wrap items-center justify-center gap-2 mt-7">
+              <div className="flex flex-wrap items-center justify-center gap-2 mt-12">
                 {frontmatter.tools.map((t) => (
                   <span
                     key={t}
-                    className="rounded-full px-3 py-1.5 text-[12px] font-sans text-foreground bg-[hsl(var(--surface-warm))] border border-black/5"
+                    className="rounded-full px-3 py-1.5 text-[12px] font-sans font-medium text-foreground bg-[hsl(var(--surface-warm))] border border-black/5"
                   >
                     {t}
                   </span>
@@ -71,7 +71,7 @@ export default function ProjectDetailClient({ frontmatter, prev, next, children 
       </section>
 
       {/* Cover image — matches blog cover dimensions exactly */}
-      <section className="pt-20 md:pt-24 pb-14">
+      <section className="pt-[80px] md:pt-[120px] pb-[48px]">
         <div className="max-w-5xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
@@ -90,7 +90,7 @@ export default function ProjectDetailClient({ frontmatter, prev, next, children 
       </section>
 
       {/* Body — matches cover image max-width */}
-      <section className="pb-16">
+      <section className="pb-[80px] md:pb-[120px]">
         <div className="max-w-5xl mx-auto px-4">
           <ScrollReveal>
             <div className="prose-portfolio">{children}</div>
@@ -100,12 +100,12 @@ export default function ProjectDetailClient({ frontmatter, prev, next, children 
 
       {/* Gallery (kept for projects that ship with one) */}
       {frontmatter.gallery && frontmatter.gallery.length > 0 && (
-        <section className="pb-20">
+        <section className="pb-[80px] md:pb-[120px]">
           <div className="max-w-6xl mx-auto px-6">
             <ScrollReveal>
               <div className="mb-8">
-                <p className="font-display italic text-sm text-muted-foreground mb-1">Snapshots</p>
-                <h3 className="font-serif text-2xl md:text-3xl text-foreground">The gallery</h3>
+                <p className="font-italic-display text-[20px] text-muted-foreground mb-3">Snapshots</p>
+                <h3 className="font-display font-semibold text-[24px] md:text-[28px] leading-[1.25] tracking-[-0.01em] text-foreground">The gallery</h3>
               </div>
             </ScrollReveal>
             <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide -mx-6 px-6">
@@ -129,13 +129,13 @@ export default function ProjectDetailClient({ frontmatter, prev, next, children 
 
       {/* Closing — case studies get a clean back link; placeholders keep prev/next */}
       {isCaseStudy ? (
-        <section className="pb-24">
+        <section className="pb-[80px] md:pb-[160px]">
           <div className="max-w-5xl mx-auto px-4">
-            <hr className="border-0 border-t border-black/10 mb-10" />
+            <hr className="border-0 border-t border-black/10 mb-12" />
             <div className="text-center">
               <Link
                 href="/projects"
-                className="inline-flex items-center gap-2 font-sans text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className="inline-flex items-center gap-2 font-sans text-[14px] text-muted-foreground hover:text-foreground transition-colors"
                 data-cursor="pointer"
               >
                 <ArrowLeft className="w-4 h-4" /> Back to all projects
@@ -145,20 +145,20 @@ export default function ProjectDetailClient({ frontmatter, prev, next, children 
         </section>
       ) : (
         (prev || next) && (
-          <section className="pb-24">
+          <section className="pb-[80px] md:pb-[160px]">
             <div className="max-w-5xl mx-auto px-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                 {prev ? (
                   <Link
                     href={`/projects/${prev.slug}`}
-                    className="group block rounded-3xl p-6 transition-colors"
+                    className="group block rounded-3xl p-8 transition-colors"
                     style={{ backgroundColor: "#fbfaf7" }}
                     data-cursor="pointer"
                   >
-                    <div className="flex items-center gap-2 font-sans text-xs text-muted-foreground mb-3">
+                    <div className="flex items-center gap-2 font-sans text-[12px] font-semibold uppercase tracking-[0.08em] leading-none text-muted-foreground mb-4">
                       <ArrowLeft className="w-3.5 h-3.5" /> Previous
                     </div>
-                    <p className="font-serif text-lg md:text-xl text-foreground group-hover:text-[hsl(18,78%,57%)] transition-colors">
+                    <p className="font-display font-semibold text-[22px] leading-[1.3] tracking-[-0.005em] text-foreground group-hover:text-[hsl(18,78%,57%)] transition-colors">
                       {prev.title}
                     </p>
                   </Link>
@@ -166,14 +166,14 @@ export default function ProjectDetailClient({ frontmatter, prev, next, children 
                 {next ? (
                   <Link
                     href={`/projects/${next.slug}`}
-                    className="group block rounded-3xl p-6 transition-colors text-right"
+                    className="group block rounded-3xl p-8 transition-colors text-right"
                     style={{ backgroundColor: "#fbfaf7" }}
                     data-cursor="pointer"
                   >
-                    <div className="flex items-center justify-end gap-2 font-sans text-xs text-muted-foreground mb-3">
+                    <div className="flex items-center justify-end gap-2 font-sans text-[12px] font-semibold uppercase tracking-[0.08em] leading-none text-muted-foreground mb-4">
                       Next <ArrowRight className="w-3.5 h-3.5" />
                     </div>
-                    <p className="font-serif text-lg md:text-xl text-foreground group-hover:text-[hsl(18,78%,57%)] transition-colors">
+                    <p className="font-display font-semibold text-[22px] leading-[1.3] tracking-[-0.005em] text-foreground group-hover:text-[hsl(18,78%,57%)] transition-colors">
                       {next.title}
                     </p>
                   </Link>

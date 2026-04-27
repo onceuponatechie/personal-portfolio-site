@@ -40,7 +40,7 @@ function ScrollRevealWord({ word, index, green, progress }: { word: string; inde
   });
 
   return (
-    <motion.span className={green ? "font-display" : undefined} style={{ color, fontWeight: green ? 500 : undefined, fontStyle: green ? "italic" : undefined }}>
+    <motion.span className={green ? "font-italic-display" : undefined} style={{ color, fontWeight: green ? 600 : undefined }}>
       {word}
     </motion.span>
   );
@@ -56,13 +56,13 @@ const SkillsPillGrid = () => {
   const revealProgress = useTransform(scrollYProgress, [0, 1], [0, words.length]);
 
   return (
-    <section className="py-24">
+    <section className="py-[80px] md:py-[120px] lg:py-[160px]">
       <div className="max-w-6xl mx-auto px-6" ref={ref}>
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.1, duration: 0.4 }}
-          className="font-display italic text-sm text-muted-foreground mb-6 text-center"
+          className="font-italic-display text-[20px] text-muted-foreground mb-8 text-center"
         >
           What I Do
         </motion.p>
@@ -79,14 +79,14 @@ const SkillsPillGrid = () => {
                 style={{ marginTop: skill.yOffset, boxShadow: "0 4px 16px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04)" }}
               >
                 {skill.icon}
-                <span className="font-sans text-xs font-medium text-foreground whitespace-nowrap">{skill.label}</span>
+                <span className="font-sans text-[12px] font-semibold uppercase tracking-[0.08em] leading-none text-foreground whitespace-nowrap">{skill.label}</span>
               </motion.div>
             ))}
           </div>
 
           <div className="text-center max-w-lg">
             <motion.p
-              className="font-serif text-xl md:text-[28px] leading-relaxed font-light"
+              className="font-display text-[24px] md:text-[28px] leading-[1.4] font-normal"
               style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "0 0.35em" }}
             >
               {words.map((word, i) => (
@@ -106,13 +106,13 @@ const SkillsPillGrid = () => {
                 style={{ marginTop: skill.yOffset, boxShadow: "0 4px 16px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04)" }}
               >
                 {skill.icon}
-                <span className="font-sans text-xs font-medium text-foreground whitespace-nowrap">{skill.label}</span>
+                <span className="font-sans text-[12px] font-semibold uppercase tracking-[0.08em] leading-none text-foreground whitespace-nowrap">{skill.label}</span>
               </motion.div>
             ))}
           </div>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-3 mt-10 lg:hidden">
+        <div className="flex flex-wrap justify-center gap-3 mt-12 lg:hidden">
           {skills.map((skill, i) => (
             <motion.div
               key={skill.label}
@@ -123,7 +123,7 @@ const SkillsPillGrid = () => {
               style={{ boxShadow: "0 4px 16px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04)" }}
             >
               {skill.icon}
-              <span className="font-sans text-[11px] font-medium text-foreground">{skill.label}</span>
+              <span className="font-sans text-[12px] font-semibold uppercase tracking-[0.08em] leading-none text-foreground">{skill.label}</span>
             </motion.div>
           ))}
         </div>

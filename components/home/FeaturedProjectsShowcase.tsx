@@ -55,15 +55,15 @@ const FeaturedProjectsShowcase = () => {
   const goToProject = () => router.push(`/projects/${project.slug}`);
 
   return (
-    <section className="py-24" ref={ref}>
+    <section className="py-[80px] md:py-[120px] lg:py-[160px]" ref={ref}>
       <div className="max-w-6xl mx-auto px-4">
         <ScrollReveal>
           <div className="text-center mb-12">
-            <p className="font-display italic text-sm text-muted-foreground mb-3">
+            <p className="font-italic-display text-[20px] text-muted-foreground mb-3">
               Featured Work
             </p>
-            <h2 className="font-serif text-[34px] md:text-[44px] text-foreground">
-              The <span className="relative inline-block font-display italic" style={{ padding: "0 0.15em" }}>Projects<svg viewBox="0 0 200 100" fill="none" className="absolute" style={{ top: "-20%", left: "-8%", width: "116%", height: "140%", overflow: "visible" }} preserveAspectRatio="none"><ellipse cx="100" cy="50" rx="95" ry="42" stroke="#5dcbf1" strokeWidth="5.5" strokeLinecap="round" fill="none" transform="rotate(-3 100 50)" style={{ strokeDasharray: "4 0" }} /></svg></span>
+            <h2 className="font-display font-semibold text-[32px] md:text-[40px] leading-[1.15] tracking-[-0.015em] text-foreground">
+              The <span className="relative inline-block font-italic-display" style={{ padding: "0 0.15em" }}>Projects<svg viewBox="0 0 200 100" fill="none" className="absolute" style={{ top: "-20%", left: "-8%", width: "116%", height: "140%", overflow: "visible" }} preserveAspectRatio="none"><ellipse cx="100" cy="50" rx="95" ry="42" stroke="#5dcbf1" strokeWidth="5.5" strokeLinecap="round" fill="none" transform="rotate(-3 100 50)" style={{ strokeDasharray: "4 0" }} /></svg></span>
             </h2>
           </div>
         </ScrollReveal>
@@ -109,20 +109,20 @@ const FeaturedProjectsShowcase = () => {
                   transition={{ duration: 0.5 }}
                   className="max-w-md"
                 >
-                  <span className="font-sans text-xs text-white/60 uppercase tracking-wider">
+                  <span className="font-sans text-[12px] font-semibold text-white/60 uppercase tracking-[0.08em] leading-none">
                     {project.category}
                   </span>
-                  <h3 className="font-serif text-3xl md:text-4xl text-white mt-2 mb-3">
+                  <h3 className="font-display font-semibold text-[24px] md:text-[28px] leading-[1.25] tracking-[-0.01em] text-white mt-3 mb-3">
                     {project.title}
                   </h3>
-                  <p className="font-sans text-sm text-white/70 mb-4">
+                  <p className="font-sans text-[14px] leading-[1.5] text-white/70 mb-4">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2 items-center">
                     {project.tools.map((tool) => (
                       <span
                         key={tool}
-                        className="glassmorphism-dark rounded-full px-3 py-1 text-[11px] font-sans text-white/80"
+                        className="glassmorphism-dark rounded-full px-3 py-1 text-[12px] font-sans font-medium text-white/80"
                       >
                         {tool}
                       </span>
@@ -130,7 +130,7 @@ const FeaturedProjectsShowcase = () => {
                     <Link
                       href={`/projects/${project.slug}`}
                       data-cursor="pointer"
-                      className="inline-flex items-center gap-1.5 bg-foreground text-white rounded-full px-4 py-1.5 text-[11px] font-sans font-medium hover:bg-brand-blue transition-colors"
+                      className="inline-flex items-center gap-1.5 bg-foreground text-white rounded-full px-4 py-1.5 text-[12px] font-sans font-medium hover:bg-brand-blue transition-colors"
                     >
                       View Case Study
                     </Link>
@@ -167,7 +167,7 @@ const FeaturedProjectsShowcase = () => {
             </Link>
 
             <div className="absolute bottom-8 right-8 md:hidden">
-              <span className="font-sans text-xs text-white/60">
+              <span className="font-sans text-[14px] text-white/60">
                 {active + 1} / {projects.length}
               </span>
             </div>

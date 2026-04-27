@@ -72,6 +72,20 @@
     --sidebar-accent-foreground: 0 0% 100%;
     --sidebar-border: 40 15% 89%;
     --sidebar-ring: 213 60% 57%;
+
+    /* Spacing scale */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+    --space-8: 48px;
+    --space-10: 64px;
+    --space-12: 80px;
+    --space-16: 120px;
+    --space-20: 160px;
+    --space-24: 200px;
   }
 
   .dark {
@@ -112,7 +126,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
   }
 
   html {
@@ -127,17 +141,33 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 400;
+    font-family: var(--font-fraunces), serif;
+    font-weight: 600;
+    font-variation-settings: "opsz" 144;
   }
 }
 
 @layer utilities {
   .font-serif {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-fraunces), serif;
+  }
+  .font-display {
+    font-family: var(--font-fraunces), serif;
+    font-variation-settings: "opsz" 144;
+  }
+  .font-italic-display {
+    font-family: var(--font-fraunces), serif;
+    font-style: italic;
+    font-variation-settings: "opsz" 9, "SOFT" 100;
+  }
+  /* When font-display italic is applied together (legacy usage in components),
+     activate the soft italic optical setting so accents read elegantly. */
+  .font-display.italic,
+  .italic.font-display {
+    font-variation-settings: "opsz" 9, "SOFT" 100;
   }
   .font-sans {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
   }
   .glassmorphism {
     @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-sm;
@@ -160,13 +190,15 @@
 
 /* Case Study / MDX editorial styles */
 .prose-portfolio {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), 'Inter', sans-serif;
   color: hsl(var(--foreground));
   max-width: none;
 }
 .prose-portfolio :where(p) {
+  font-family: var(--font-inter), 'Inter', sans-serif;
   font-size: 18px;
   line-height: 1.7;
+  font-weight: 400;
   margin-bottom: 24px;
   color: hsl(var(--foreground));
 }
@@ -186,24 +218,28 @@
   text-decoration: underline;
 }
 .prose-portfolio :where(h2) {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-fraunces), serif;
   font-weight: 600;
-  font-size: 36px;
+  font-variation-settings: "opsz" 144;
+  font-size: 32px;
   line-height: 1.15;
+  letter-spacing: -0.015em;
   margin-top: 96px;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
   color: hsl(var(--foreground));
 }
 @media (min-width: 768px) {
   .prose-portfolio :where(h2) { font-size: 40px; }
 }
 .prose-portfolio :where(h3) {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-fraunces), serif;
   font-weight: 600;
-  font-size: 26px;
-  line-height: 1.2;
+  font-variation-settings: "opsz" 144;
+  font-size: 24px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
   margin-top: 56px;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   color: hsl(var(--foreground));
 }
 @media (min-width: 768px) {
@@ -277,8 +313,9 @@
   display: block;
 }
 .phone-mockup__caption {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), 'Inter', sans-serif;
   font-size: 14px;
+  line-height: 1.5;
   font-style: italic;
   color: hsl(var(--foreground) / 0.6);
   text-align: center;
@@ -310,17 +347,19 @@
 .callout {
   border-radius: 16px;
   padding: 24px;
-  margin: 32px 0;
-  font-family: 'Inter', sans-serif;
+  margin: 48px 0;
+  font-family: var(--font-inter), 'Inter', sans-serif;
   color: hsl(var(--foreground));
 }
 .callout__label {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  font-family: var(--font-inter), 'Inter', sans-serif;
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.05em;
+  line-height: 1;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 12px;
 }
@@ -336,7 +375,7 @@
   margin: 0;
 }
 .callout__body > p + p {
-  margin-top: 16px;
+  margin-top: 24px;
 }
 .callout__body strong {
   font-weight: 600;
@@ -354,7 +393,7 @@
   margin: 48px 0;
 }
 .pull-quote__text {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), 'Inter', sans-serif;
   font-size: 20px;
   line-height: 1.6;
   font-style: normal;

@@ -53,7 +53,7 @@ const ScrollColumn = ({ cards, speed, reverse = false }: { cards: typeof column1
             <img src={card.image} alt={card.title} className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-3">
-              <p className="font-sans text-[10px] font-medium text-white/80">{card.title}</p>
+              <p className="font-sans text-[12px] font-medium text-white/80">{card.title}</p>
             </div>
           </div>
         </div>
@@ -87,7 +87,7 @@ const CreativeVaultStrip = () => {
                   initial={{ opacity: 0, y: 10 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.3 }}
-                  className="bg-dark-bg text-white rounded-full px-4 py-2 text-sm font-sans mb-4 whitespace-nowrap"
+                  className="bg-dark-bg text-white rounded-full px-4 py-2 text-[15px] font-sans font-medium leading-none mb-4 whitespace-nowrap"
                 >
                   The Creative Vault
                 </motion.div>

@@ -55,7 +55,7 @@ export default function ContactPageClient() {
   };
 
   return (
-    <section className="pt-32 pb-24">
+    <section className="pt-[120px] md:pt-[160px] pb-[80px] md:pb-[120px] lg:pb-[160px]">
       <div className="max-w-6xl mx-auto px-6">
         <PageHeader
           label="Say Hi"
@@ -72,13 +72,13 @@ export default function ContactPageClient() {
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-10 lg:gap-14 items-start">
               {/* Left — info column */}
               <div>
-                <span className="inline-block bg-brand-lavender/20 text-brand-lavender text-xs font-sans font-semibold uppercase tracking-widest rounded-full px-4 py-1.5 mb-6">
+                <span className="inline-block bg-brand-lavender/20 text-brand-lavender text-[12px] font-sans font-semibold uppercase tracking-[0.08em] leading-none rounded-full px-4 py-2 mb-6">
                   The Details
                 </span>
-                <h2 className="font-serif text-3xl md:text-4xl text-foreground leading-[1.15] mb-5">
-                  Tell me about your <span className="font-display italic text-muted-foreground">idea</span>
+                <h2 className="font-display font-semibold text-[32px] md:text-[40px] text-foreground leading-[1.15] tracking-[-0.015em] mb-8">
+                  Tell me about your <span className="font-italic-display text-muted-foreground">idea</span>
                 </h2>
-                <p className="font-sans text-base text-muted-foreground leading-relaxed mb-8">
+                <p className="font-sans text-[20px] font-normal text-muted-foreground leading-[1.6] mb-12">
                   Whether it&apos;s a product, a brand, or a quiet experiment, I&apos;d love to hear what you&apos;re working on. Share a few details and I&apos;ll follow up with thoughts, questions, or a plan.
                 </p>
 
@@ -96,17 +96,17 @@ export default function ContactPageClient() {
                         <p.icon className="w-4 h-4" style={{ color: p.color }} />
                       </div>
                       <div>
-                        <p className="font-sans text-[11px] uppercase tracking-wider text-muted-foreground">
+                        <p className="font-sans text-[12px] font-semibold uppercase tracking-[0.08em] leading-none text-muted-foreground">
                           {p.label}
                         </p>
-                        <p className="font-sans text-base text-foreground mt-0.5">{p.value}</p>
+                        <p className="font-sans text-[18px] text-foreground mt-2 leading-[1.5]">{p.value}</p>
                       </div>
                     </div>
                   ))}
                 </div>
 
                 <div className="mt-8 flex items-center gap-3">
-                  <span className="font-sans text-xs text-muted-foreground mr-1">Elsewhere</span>
+                  <span className="font-sans text-[12px] font-semibold uppercase tracking-[0.08em] leading-none text-muted-foreground mr-1">Elsewhere</span>
                   {socials.map((s) => (
                     <a
                       key={s.label}
@@ -128,40 +128,40 @@ export default function ContactPageClient() {
               >
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
-                    <label className="font-sans text-[11px] uppercase tracking-wider font-medium text-muted-foreground mb-2 block">
+                    <label className="font-sans text-[12px] uppercase tracking-[0.08em] leading-none font-semibold text-muted-foreground mb-3 block">
                       Name
                     </label>
                     <input
                       type="text"
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      className="w-full rounded-2xl border-0 px-5 py-4 text-sm font-sans text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                      className="w-full rounded-2xl border-0 px-5 py-4 text-[15px] font-sans font-normal text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/30"
                       style={{ backgroundColor: "#fbf9f5" }}
                       placeholder="Your name"
                     />
                   </div>
                   <div>
-                    <label className="font-sans text-[11px] uppercase tracking-wider font-medium text-muted-foreground mb-2 block">
+                    <label className="font-sans text-[12px] uppercase tracking-[0.08em] leading-none font-semibold text-muted-foreground mb-3 block">
                       Email
                     </label>
                     <input
                       type="email"
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className="w-full rounded-2xl border-0 px-5 py-4 text-sm font-sans text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                      className="w-full rounded-2xl border-0 px-5 py-4 text-[15px] font-sans font-normal text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/30"
                       style={{ backgroundColor: "#fbf9f5" }}
                       placeholder="you@example.com"
                     />
                   </div>
                   <div>
-                    <label className="font-sans text-[11px] uppercase tracking-wider font-medium text-muted-foreground mb-2 block">
+                    <label className="font-sans text-[12px] uppercase tracking-[0.08em] leading-none font-semibold text-muted-foreground mb-3 block">
                       Message
                     </label>
                     <textarea
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
                       rows={6}
-                      className="w-full rounded-2xl border-0 px-5 py-4 text-sm font-sans text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none"
+                      className="w-full rounded-2xl border-0 px-5 py-4 text-[15px] font-sans font-normal text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none"
                       style={{ backgroundColor: "#fbf9f5" }}
                       placeholder="Tell me about your project, timeline, or whatever's on your mind…"
                     />
@@ -171,7 +171,7 @@ export default function ContactPageClient() {
                     disabled={sending}
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.99 }}
-                    className="w-full bg-primary text-primary-foreground rounded-full py-4 font-sans text-sm font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-60"
+                    className="w-full bg-primary text-primary-foreground rounded-full py-4 font-sans text-[15px] font-medium leading-none flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-60"
                     data-cursor="pointer"
                   >
                     {sending ? "Sending..." : (
@@ -180,7 +180,7 @@ export default function ContactPageClient() {
                       </>
                     )}
                   </motion.button>
-                  <p className="text-center text-xs text-muted-foreground/60 font-sans mt-4 leading-relaxed">
+                  <p className="text-center text-[14px] text-muted-foreground/60 font-sans mt-4 leading-[1.5]">
                     Your details stay private. No lists, no spam, just a real reply.
                   </p>
                 </form>

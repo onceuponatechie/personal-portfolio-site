@@ -34,7 +34,7 @@ export default function AboutPageClient() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-16">
+      <section className="pt-[120px] md:pt-[160px] pb-[80px] md:pb-[120px]">
         <div className="max-w-5xl mx-auto px-6">
           <ScrollReveal>
             <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-10 md:gap-14 items-center">
@@ -55,11 +55,11 @@ export default function AboutPageClient() {
               </motion.div>
 
               <div>
-                <p className="font-display italic text-sm text-muted-foreground mb-3">About Me</p>
-                <h1 className="font-serif text-[40px] md:text-[56px] text-foreground leading-[1.1] mb-5">
+                <p className="font-italic-display text-[20px] text-muted-foreground mb-6">About Me</p>
+                <h1 className="font-display font-semibold text-[36px] md:text-[44px] lg:text-[64px] text-foreground leading-[1.1] tracking-[-0.02em] mb-6">
                   Hey, I&apos;m <HeadingAccent variant="circle" color="hsl(255,35%,64%)">Essy</HeadingAccent>
                 </h1>
-                <p className="font-sans text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
+                <p className="font-sans text-[20px] font-normal text-muted-foreground leading-[1.6] max-w-xl">
                   A product storyteller and creative builder turning ideas into experiences people love — through design, automation, and a whole lot of curiosity.
                 </p>
               </div>
@@ -69,28 +69,28 @@ export default function AboutPageClient() {
       </section>
 
       {/* Story */}
-      <section className="pb-20">
+      <section className="pb-[80px] md:pb-[120px]">
         <div className="max-w-2xl mx-auto px-6">
           {paragraphs.map((para, i) => (
             <ScrollReveal key={i} delay={i * 0.08}>
-              <p className="font-sans text-[17px] text-foreground/90 leading-[1.8] mb-7">{para}</p>
+              <p className="font-sans text-[18px] font-normal text-foreground/90 leading-[1.7] mb-6">{para}</p>
             </ScrollReveal>
           ))}
         </div>
       </section>
 
       {/* Obsessed With */}
-      <section className="pb-20">
+      <section className="pb-[80px] md:pb-[120px]">
         <div className="max-w-5xl mx-auto px-6">
           <ScrollReveal>
-            <div className="text-center mb-10">
-              <p className="font-display italic text-sm text-muted-foreground mb-3">Favorites</p>
-              <h2 className="font-serif text-[34px] md:text-[44px] text-foreground leading-tight">
+            <div className="text-center mb-12">
+              <p className="font-italic-display text-[20px] text-muted-foreground mb-3">Favorites</p>
+              <h2 className="font-display font-semibold text-[32px] md:text-[40px] text-foreground leading-[1.15] tracking-[-0.015em]">
                 Currently <HeadingAccent variant="doubleCurve" color="hsl(18,78%,57%)">obsessed</HeadingAccent> with
               </h2>
             </div>
           </ScrollReveal>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {obsessions.map((item, i) => (
               <motion.div
                 key={item.label}
@@ -102,7 +102,7 @@ export default function AboutPageClient() {
                 style={{ backgroundColor: "#fdfcfa" }}
               >
                 <span className="text-3xl mb-2 block">{item.emoji}</span>
-                <span className="font-sans text-xs font-medium text-foreground">{item.label}</span>
+                <span className="font-sans text-[14px] font-medium text-foreground">{item.label}</span>
               </motion.div>
             ))}
           </div>
@@ -110,17 +110,17 @@ export default function AboutPageClient() {
       </section>
 
       {/* Currently */}
-      <section className="pb-20">
+      <section className="pb-[80px] md:pb-[120px]">
         <div className="max-w-5xl mx-auto px-6">
           <ScrollReveal>
             <div className="mb-8">
-              <p className="font-display italic text-sm text-muted-foreground mb-2">In the air</p>
-              <h2 className="font-serif text-[32px] md:text-[40px] text-foreground">
-                Right <span className="font-display italic text-muted-foreground">now</span>
+              <p className="font-italic-display text-[20px] text-muted-foreground mb-3">In the air</p>
+              <h2 className="font-display font-semibold text-[32px] md:text-[40px] text-foreground leading-[1.15] tracking-[-0.015em]">
+                Right <span className="font-italic-display text-muted-foreground">now</span>
               </h2>
             </div>
           </ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {currently.map((item, i) => (
               <motion.div
                 key={item.label}
@@ -128,7 +128,7 @@ export default function AboutPageClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ delay: i * 0.08 }}
-                className="relative rounded-3xl p-6 overflow-hidden"
+                className="relative rounded-3xl p-8 overflow-hidden"
                 style={{ backgroundColor: "#fdfcfa" }}
               >
                 <div
@@ -141,10 +141,10 @@ export default function AboutPageClient() {
                 >
                   <item.icon className="w-4 h-4" style={{ color: item.color }} />
                 </div>
-                <p className="font-sans text-[11px] uppercase tracking-wider text-muted-foreground mb-1">
+                <p className="font-sans text-[12px] font-semibold uppercase tracking-[0.08em] leading-none text-muted-foreground mb-2">
                   {item.label}
                 </p>
-                <p className="font-serif text-lg text-foreground leading-snug">{item.value}</p>
+                <p className="font-display font-semibold text-[22px] leading-[1.3] tracking-[-0.005em] text-foreground">{item.value}</p>
               </motion.div>
             ))}
           </div>
@@ -152,7 +152,7 @@ export default function AboutPageClient() {
       </section>
 
       {/* CTA */}
-      <section className="pb-24">
+      <section className="pb-[80px] md:pb-[160px]">
         <div className="max-w-5xl mx-auto px-6">
           <ScrollReveal>
             <div
@@ -160,17 +160,17 @@ export default function AboutPageClient() {
               style={{ backgroundColor: "#fbfaf7" }}
             >
               <div>
-                <p className="font-display italic text-sm text-muted-foreground mb-2">Your turn</p>
-                <h2 className="font-serif text-3xl md:text-4xl text-foreground leading-tight">
-                  Want to build <span className="font-display italic">something together?</span>
+                <p className="font-italic-display text-[20px] text-muted-foreground mb-3">Your turn</p>
+                <h2 className="font-display font-semibold text-[32px] md:text-[40px] text-foreground leading-[1.15] tracking-[-0.015em]">
+                  Want to build <span className="font-italic-display">something together?</span>
                 </h2>
-                <p className="font-sans text-sm text-muted-foreground mt-3 max-w-md">
+                <p className="font-sans text-[14px] text-muted-foreground mt-4 max-w-md leading-[1.5]">
                   I&apos;m always open to collaborations, freelance projects, and quiet experiments.
                 </p>
               </div>
               <Link
                 href="/contact"
-                className="shrink-0 inline-flex items-center gap-2 bg-[#1A1A1A] text-white rounded-full px-6 py-3.5 font-sans text-sm font-medium hover:bg-primary transition-colors"
+                className="shrink-0 inline-flex items-center gap-2 bg-[#1A1A1A] text-white rounded-full px-6 py-3.5 font-sans text-[15px] font-medium leading-none hover:bg-primary transition-colors"
                 data-cursor="pointer"
               >
                 Get in touch <ArrowUpRight className="w-4 h-4" />
