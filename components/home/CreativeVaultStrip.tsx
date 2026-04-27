@@ -68,7 +68,7 @@ const CreativeVaultStrip = () => {
 
   return (
     <section className="py-0">
-      <div ref={ref} className="max-w-6xl mx-auto px-4">
+      <div ref={ref} className="max-w-5xl mx-auto px-6">
         <div className="bg-dark-bg rounded-3xl p-[2px] overflow-hidden">
           <div className="bg-dark-bg rounded-3xl overflow-hidden relative" style={{ height: "1200px" }}>
             <div className="absolute inset-0 flex gap-2 p-2">

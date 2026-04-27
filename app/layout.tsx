@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@500;600;700&display=swap"
           rel="stylesheet"
         />
       </head>
@@ -32,7 +32,7 @@ export default function RootLayout({
           <Toaster />
           <Sonner />
           <CustomCursor />
-          <div className="min-h-screen bg-gradient-to-br from-background to-surface-warm">
+          <div className="min-h-screen bg-white">
             <Navbar />
             <main>{children}</main>
             <Footer />

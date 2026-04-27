@@ -9,7 +9,7 @@ const NewsletterSection = () => {
 
   return (
     <section className="py-24">
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-5xl mx-auto px-6">
         <ScrollReveal>
           <div className="rounded-3xl p-10 md:p-14" style={{ backgroundColor: "#fbfaf7" }}>
             <div className="flex justify-start mb-10">

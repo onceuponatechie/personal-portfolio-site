@@ -56,7 +56,7 @@ const FeaturedProjectsShowcase = () => {
 
   return (
     <section className="py-24" ref={ref}>
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-5xl mx-auto px-6">
         <ScrollReveal>
           <div className="text-center mb-12">
             <p className="font-display italic text-sm text-muted-foreground mb-3">
