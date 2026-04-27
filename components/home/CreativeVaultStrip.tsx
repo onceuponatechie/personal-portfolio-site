@@ -71,7 +71,7 @@ const CreativeVaultStrip = () => {
       <div ref={ref} className="max-w-6xl mx-auto px-4">
         <div className="bg-dark-bg rounded-3xl p-[2px] overflow-hidden">
           <div className="bg-dark-bg rounded-3xl overflow-hidden relative" style={{ height: "1200px" }}>
-            <div className="absolute inset-0 flex gap-2 p-2">
+            <div className="absolute inset-0 flex gap-2 py-2 px-6">
               <ScrollColumn cards={column1} speed={35} />
               <ScrollColumn cards={column2} speed={28} />
               <div className="hidden md:flex flex-1">

@@ -71,7 +71,7 @@ const FeaturedProjectsShowcase = () => {
         <div className="gradient-border rounded-3xl overflow-hidden">
           <div
             className="bg-dark-bg rounded-3xl overflow-hidden relative cursor-pointer"
-            style={{ height: "clamp(400px, 60vh, 600px)" }}
+            style={{ height: "clamp(500px, 75vh, 750px)" }}
             onClick={goToProject}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
@@ -130,7 +130,8 @@ const FeaturedProjectsShowcase = () => {
                     <Link
                       href={`/projects/${project.slug}`}
                       data-cursor="pointer"
-                      className="inline-flex items-center gap-1.5 bg-foreground text-white rounded-full px-4 py-1.5 text-[11px] font-sans font-medium hover:bg-brand-blue transition-colors"
+                      className="inline-flex items-center gap-1.5 text-[#1A1A1A] rounded-full px-4 py-1.5 text-[11px] font-sans font-medium hover:bg-brand-blue hover:text-white transition-colors"
+                      style={{ backgroundColor: "#fdfcfa" }}
                     >
                       View Case Study
                     </Link>
@@ -160,7 +161,8 @@ const FeaturedProjectsShowcase = () => {
             <Link
               href="/projects"
               onClick={(e) => e.stopPropagation()}
-              className="absolute top-6 right-6 glassmorphism-dark rounded-full w-10 h-10 flex items-center justify-center text-white/70 hover:text-white transition-colors"
+              className="absolute top-6 right-6 rounded-full w-10 h-10 flex items-center justify-center text-[#1A1A1A] hover:opacity-90 transition-opacity"
+              style={{ backgroundColor: "#fdfcfa" }}
               data-cursor="pointer"
             >
               <Maximize2 className="w-4 h-4" />
