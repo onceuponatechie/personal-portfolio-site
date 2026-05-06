@@ -19,7 +19,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ['"Playfair Display"', 'serif'],
+        serif: ['"Nunito"', 'sans-serif'],
         display: ['"Playfair Display"', 'serif'],
         sans: ['"Inter"', 'sans-serif'],
       },

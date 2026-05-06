@@ -127,14 +127,17 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Nunito', sans-serif;
     font-weight: 400;
   }
 }
 
 @layer utilities {
   .font-serif {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Nunito', sans-serif;
+  }
+  .font-display {
+    letter-spacing: -0.02em;
   }
   .font-sans {
     font-family: 'Inter', sans-serif;
@@ -186,7 +189,7 @@
   text-decoration: underline;
 }
 .prose-portfolio :where(h2) {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 600;
   font-size: 36px;
   line-height: 1.15;
@@ -198,7 +201,7 @@
   .prose-portfolio :where(h2) { font-size: 40px; }
 }
 .prose-portfolio :where(h3) {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 600;
   font-size: 26px;
   line-height: 1.2;

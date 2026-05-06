@@ -128,7 +128,7 @@ export default function BlogPostClient({ frontmatter, content, related }: BlogPo
               style={{ backgroundColor: "#fbfaf7" }}
             >
               <div>
-                <p className="font-serif italic text-base text-foreground">
+                <p className="font-display italic text-base text-foreground">
                   Enjoyed this piece?
                 </p>
                 <p className="font-sans text-xs text-muted-foreground mt-0.5">
