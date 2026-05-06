@@ -128,7 +128,7 @@ export default function BlogPostClient({ frontmatter, content, related }: BlogPo
               style={{ backgroundColor: "#fbfaf7" }}
             >
               <div>
-                <p className="font-serif italic text-base text-foreground">
+                <p className="font-display italic text-lg text-foreground">
                   Enjoyed this piece?
                 </p>
                 <p className="font-sans text-xs text-muted-foreground mt-0.5">
@@ -167,7 +167,7 @@ export default function BlogPostClient({ frontmatter, content, related }: BlogPo
             <ScrollReveal>
               <div className="flex items-end justify-between gap-4 mb-8">
                 <div>
-                  <p className="font-display italic text-sm text-muted-foreground mb-1">More to read</p>
+                  <p className="section-label mb-1">More to read</p>
                   <h3 className="font-serif text-2xl md:text-3xl text-foreground">Keep exploring</h3>
                 </div>
                 <Link

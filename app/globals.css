@@ -127,17 +127,55 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  h1 {
+    letter-spacing: -0.035em;
+  }
+
+  /* Editorial italic — applied wherever an italic serif accent appears */
+  i, em,
+  .font-display,
+  [class*="italic"] .font-display,
+  .font-display.italic {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
     font-weight: 400;
+    letter-spacing: 0;
   }
 }
 
 @layer utilities {
   .font-serif {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.03em;
   }
   .font-sans {
     font-family: 'Inter', sans-serif;
+  }
+  .font-display {
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  /* Section label — pill chip with italicized editorial type */
+  .section-label {
+    display: inline-block;
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 0.95rem;
+    line-height: 1;
+    letter-spacing: 0;
+    color: hsl(var(--foreground) / 0.78);
+    background: hsl(var(--surface-muted));
+    padding: 0.5rem 0.95rem;
+    border-radius: 9999px;
   }
   .glassmorphism {
     @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-sm;
@@ -186,10 +224,11 @@
   text-decoration: underline;
 }
 .prose-portfolio :where(h2) {
-  font-family: 'Playfair Display', serif;
-  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
   font-size: 36px;
-  line-height: 1.15;
+  line-height: 1.1;
   margin-top: 96px;
   margin-bottom: 24px;
   color: hsl(var(--foreground));
@@ -198,13 +237,21 @@
   .prose-portfolio :where(h2) { font-size: 40px; }
 }
 .prose-portfolio :where(h3) {
-  font-family: 'Playfair Display', serif;
-  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
   font-size: 26px;
-  line-height: 1.2;
+  line-height: 1.15;
   margin-top: 56px;
   margin-bottom: 16px;
   color: hsl(var(--foreground));
+}
+.prose-portfolio :where(em),
+.prose-portfolio :where(i) {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
 }
 @media (min-width: 768px) {
   .prose-portfolio :where(h3) { font-size: 28px; }
@@ -277,9 +324,10 @@
   display: block;
 }
 .phone-mockup__caption {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
+  font-family: 'Instrument Serif', serif;
+  font-size: 16px;
   font-style: italic;
+  letter-spacing: 0;
   color: hsl(var(--foreground) / 0.6);
   text-align: center;
   margin-top: 16px;

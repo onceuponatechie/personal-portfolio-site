@@ -55,7 +55,7 @@ export default function AboutPageClient() {
               </motion.div>
 
               <div>
-                <p className="font-display italic text-sm text-muted-foreground mb-3">About Me</p>
+                <p className="section-label mb-3">About Me</p>
                 <h1 className="font-serif text-[40px] md:text-[56px] text-foreground leading-[1.1] mb-5">
                   Hey, I&apos;m <HeadingAccent variant="circle" color="hsl(255,35%,64%)">Essy</HeadingAccent>
                 </h1>
@@ -84,7 +84,7 @@ export default function AboutPageClient() {
         <div className="max-w-5xl mx-auto px-6">
           <ScrollReveal>
             <div className="text-center mb-10">
-              <p className="font-display italic text-sm text-muted-foreground mb-3">Favorites</p>
+              <p className="section-label mb-3">Favorites</p>
               <h2 className="font-serif text-[34px] md:text-[44px] text-foreground leading-tight">
                 Currently <HeadingAccent variant="doubleCurve" color="hsl(18,78%,57%)">obsessed</HeadingAccent> with
               </h2>
@@ -114,7 +114,7 @@ export default function AboutPageClient() {
         <div className="max-w-5xl mx-auto px-6">
           <ScrollReveal>
             <div className="mb-8">
-              <p className="font-display italic text-sm text-muted-foreground mb-2">In the air</p>
+              <p className="section-label mb-2">In the air</p>
               <h2 className="font-serif text-[32px] md:text-[40px] text-foreground">
                 Right <span className="font-display italic text-muted-foreground">now</span>
               </h2>
@@ -160,7 +160,7 @@ export default function AboutPageClient() {
               style={{ backgroundColor: "#fbfaf7" }}
             >
               <div>
-                <p className="font-display italic text-sm text-muted-foreground mb-2">Your turn</p>
+                <p className="section-label mb-2">Your turn</p>
                 <h2 className="font-serif text-3xl md:text-4xl text-foreground leading-tight">
                   Want to build <span className="font-display italic">something together?</span>
                 </h2>

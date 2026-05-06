@@ -104,7 +104,7 @@ export default function ProjectDetailClient({ frontmatter, prev, next, children 
           <div className="max-w-6xl mx-auto px-6">
             <ScrollReveal>
               <div className="mb-8">
-                <p className="font-display italic text-sm text-muted-foreground mb-1">Snapshots</p>
+                <p className="section-label mb-1">Snapshots</p>
                 <h3 className="font-serif text-2xl md:text-3xl text-foreground">The gallery</h3>
               </div>
             </ScrollReveal>

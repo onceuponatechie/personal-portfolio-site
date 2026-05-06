@@ -119,7 +119,7 @@ const AboutParagraph = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1, duration: 0.4 }}
-              className="font-display italic text-sm text-muted-foreground mb-6"
+              className="section-label mb-6"
             >
               Who I Am
             </motion.p>

@@ -139,7 +139,7 @@ const BlogPreview = () => {
       <div className="max-w-5xl mx-auto px-6">
         <ScrollReveal>
           <div className="text-center mb-12">
-            <p className="font-display italic text-sm text-muted-foreground mb-3">
+            <p className="section-label mb-3">
               Stories
             </p>
             <h2 className="font-serif text-[34px] md:text-[44px] text-foreground">

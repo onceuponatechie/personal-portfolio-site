@@ -28,7 +28,7 @@ const PageHeader = ({
   return (
     <ScrollReveal>
       <div className={`${alignment} max-w-2xl mb-14 ${className}`}>
-        <p className="font-display italic text-sm text-muted-foreground mb-3">{label}</p>
+        <p className="section-label mb-3">{label}</p>
         <h1 className="font-serif text-[40px] md:text-[56px] text-foreground leading-[1.1]">
           {children}
         </h1>
