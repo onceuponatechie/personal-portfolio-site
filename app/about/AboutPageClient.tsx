@@ -5,6 +5,7 @@ import Link from "next/link";
 import { BookOpen, Headphones, Hammer, ArrowUpRight } from "lucide-react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import HeadingAccent from "@/components/shared/HeadingAccent";
+import SectionLabel from "@/components/shared/SectionLabel";
 
 const obsessions = [
   { label: "Figma", emoji: "🎨" },
@@ -55,8 +56,10 @@ export default function AboutPageClient() {
               </motion.div>
 
               <div>
-                <p className="font-display italic text-sm text-muted-foreground mb-3">About Me</p>
-                <h1 className="font-serif text-[40px] md:text-[56px] text-foreground leading-[1.1] mb-5">
+                <div className="mb-5">
+                  <SectionLabel>About Me</SectionLabel>
+                </div>
+                <h1 className="font-sans font-semibold text-4xl md:text-6xl lg:text-7xl text-foreground leading-[1.05] tracking-tight text-balance max-w-4xl mb-5">
                   Hey, I&apos;m <HeadingAccent variant="circle" color="hsl(255,35%,64%)">Essy</HeadingAccent>
                 </h1>
                 <p className="font-sans text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
@@ -84,8 +87,10 @@ export default function AboutPageClient() {
         <div className="max-w-5xl mx-auto px-6">
           <ScrollReveal>
             <div className="text-center mb-10">
-              <p className="font-display italic text-sm text-muted-foreground mb-3">Favorites</p>
-              <h2 className="font-serif text-[34px] md:text-[44px] text-foreground leading-tight">
+              <div className="mb-5">
+                <SectionLabel>Favorites</SectionLabel>
+              </div>
+              <h2 className="font-sans font-semibold text-4xl md:text-6xl lg:text-7xl text-foreground leading-[1.05] tracking-tight text-balance max-w-4xl mx-auto">
                 Currently <HeadingAccent variant="doubleCurve" color="hsl(18,78%,57%)">obsessed</HeadingAccent> with
               </h2>
             </div>
@@ -114,8 +119,10 @@ export default function AboutPageClient() {
         <div className="max-w-5xl mx-auto px-6">
           <ScrollReveal>
             <div className="mb-8">
-              <p className="font-display italic text-sm text-muted-foreground mb-2">In the air</p>
-              <h2 className="font-serif text-[32px] md:text-[40px] text-foreground">
+              <div className="mb-4">
+                <SectionLabel>In the air</SectionLabel>
+              </div>
+              <h2 className="font-sans font-semibold text-4xl md:text-6xl lg:text-7xl text-foreground leading-[1.05] tracking-tight text-balance max-w-4xl">
                 Right <span className="font-display italic text-muted-foreground">now</span>
               </h2>
             </div>
@@ -160,8 +167,10 @@ export default function AboutPageClient() {
               style={{ backgroundColor: "#fbfaf7" }}
             >
               <div>
-                <p className="font-display italic text-sm text-muted-foreground mb-2">Your turn</p>
-                <h2 className="font-serif text-3xl md:text-4xl text-foreground leading-tight">
+                <div className="mb-4">
+                  <SectionLabel>Your turn</SectionLabel>
+                </div>
+                <h2 className="font-sans font-semibold text-4xl md:text-6xl lg:text-7xl text-foreground leading-[1.05] tracking-tight text-balance max-w-4xl">
                   Want to build <span className="font-display italic">something together?</span>
                 </h2>
                 <p className="font-sans text-sm text-muted-foreground mt-3 max-w-md">

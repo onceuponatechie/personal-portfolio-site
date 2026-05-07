@@ -6,6 +6,7 @@ import { Maximize2 } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import ScrollReveal from "@/components/shared/ScrollReveal";
+import SectionLabel from "@/components/shared/SectionLabel";
 
 const projects = [
   {
@@ -59,10 +60,10 @@ const FeaturedProjectsShowcase = () => {
       <div className="max-w-6xl mx-auto px-4">
         <ScrollReveal>
           <div className="text-center mb-12">
-            <p className="font-display italic text-sm text-muted-foreground mb-3">
-              Featured Work
-            </p>
-            <h2 className="font-serif text-[34px] md:text-[44px] text-foreground">
+            <div className="mb-5">
+              <SectionLabel>Featured Work</SectionLabel>
+            </div>
+            <h2 className="font-sans font-semibold text-4xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-balance text-foreground max-w-4xl mx-auto">
               The <span className="relative inline-block font-display italic" style={{ padding: "0 0.15em" }}>Projects<svg viewBox="0 0 200 100" fill="none" className="absolute" style={{ top: "-20%", left: "-8%", width: "116%", height: "140%", overflow: "visible" }} preserveAspectRatio="none"><ellipse cx="100" cy="50" rx="95" ry="42" stroke="#5dcbf1" strokeWidth="5.5" strokeLinecap="round" fill="none" transform="rotate(-3 100 50)" style={{ strokeDasharray: "4 0" }} /></svg></span>
             </h2>
           </div>

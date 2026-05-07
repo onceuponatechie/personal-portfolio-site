@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
+import SectionLabel from "@/components/shared/SectionLabel";
 
 const posts = [
   {
@@ -139,10 +140,10 @@ const BlogPreview = () => {
       <div className="max-w-5xl mx-auto px-6">
         <ScrollReveal>
           <div className="text-center mb-12">
-            <p className="font-display italic text-sm text-muted-foreground mb-3">
-              Stories
-            </p>
-            <h2 className="font-serif text-[34px] md:text-[44px] text-foreground">
+            <div className="mb-5">
+              <SectionLabel>Stories</SectionLabel>
+            </div>
+            <h2 className="font-sans font-semibold text-4xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-balance text-foreground max-w-4xl mx-auto">
               The Build <span className="relative inline-block font-display italic">Chapters<svg viewBox="0 0 200 22" fill="none" className="absolute -bottom-3 left-0 w-full" style={{ overflow: "visible" }}><path d="M0 6 C50 -4, 100 -4, 100 3 C100 10, 150 10, 200 0" stroke="#5dcbf1" strokeWidth="5.5" strokeLinecap="round" fill="none" /><path d="M0 16 C50 6, 100 6, 100 13 C100 20, 150 20, 200 10" stroke="#5dcbf1" strokeWidth="5.5" strokeLinecap="round" fill="none" /></svg></span>
             </h2>
           </div>

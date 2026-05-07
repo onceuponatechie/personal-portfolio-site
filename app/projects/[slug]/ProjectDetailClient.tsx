@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import ScrollReveal from "@/components/shared/ScrollReveal";
+import SectionLabel from "@/components/shared/SectionLabel";
 import type { ProjectFrontmatter } from "@/lib/content";
 
 interface ProjectDetailClientProps {
@@ -35,7 +36,7 @@ export default function ProjectDetailClient({ frontmatter, prev, next, children 
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <h1 className="font-serif text-[34px] md:text-[48px] text-foreground leading-[1.12] max-w-2xl mx-auto">
+            <h1 className="font-sans font-semibold text-4xl md:text-6xl lg:text-7xl text-foreground leading-[1.05] tracking-tight text-balance max-w-4xl mx-auto">
               {frontmatter.title}
             </h1>
 
@@ -104,8 +105,10 @@ export default function ProjectDetailClient({ frontmatter, prev, next, children 
           <div className="max-w-6xl mx-auto px-6">
             <ScrollReveal>
               <div className="mb-8">
-                <p className="font-display italic text-sm text-muted-foreground mb-1">Snapshots</p>
-                <h3 className="font-serif text-2xl md:text-3xl text-foreground">The gallery</h3>
+                <div className="mb-3">
+                  <SectionLabel>Snapshots</SectionLabel>
+                </div>
+                <h3 className="font-sans font-semibold text-3xl md:text-5xl text-foreground leading-[1.05] tracking-tight text-balance">The gallery</h3>
               </div>
             </ScrollReveal>
             <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide -mx-6 px-6">

@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
+import SectionLabel from "@/components/shared/SectionLabel";
 
 interface PageHeaderProps {
   label: string;
@@ -11,11 +12,6 @@ interface PageHeaderProps {
   className?: string;
 }
 
-/**
- * Consistent page hero used across all inner pages.
- * Italic tag ("label") sits above a big serif heading, optionally followed by a description.
- * Matches the pattern established by home-page section headings.
- */
 const PageHeader = ({
   label,
   children,
@@ -27,9 +23,11 @@ const PageHeader = ({
 
   return (
     <ScrollReveal>
-      <div className={`${alignment} max-w-2xl mb-14 ${className}`}>
-        <p className="font-display italic text-sm text-muted-foreground mb-3">{label}</p>
-        <h1 className="font-serif text-[40px] md:text-[56px] text-foreground leading-[1.1]">
+      <div className={`${alignment} max-w-4xl mb-14 ${className}`}>
+        <div className="mb-5">
+          <SectionLabel>{label}</SectionLabel>
+        </div>
+        <h1 className="font-sans font-semibold text-4xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-balance text-foreground">
           {children}
         </h1>
         {description && (

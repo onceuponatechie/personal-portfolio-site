@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import SectionLabel from "@/components/shared/SectionLabel";
 
 const words = [
   { text: "I", green: false }, { text: "build", green: false }, { text: "products,", green: false },
@@ -115,14 +116,14 @@ const AboutParagraph = () => {
       <div className="max-w-6xl mx-auto px-6" ref={ref}>
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           <div className="flex-1">
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1, duration: 0.4 }}
-              className="font-display italic text-sm text-muted-foreground mb-6"
+              className="mb-6"
             >
-              Who I Am
-            </motion.p>
+              <SectionLabel>Who I Am</SectionLabel>
+            </motion.div>
 
             <motion.p
               className="font-serif text-xl md:text-[28px] leading-relaxed font-light"

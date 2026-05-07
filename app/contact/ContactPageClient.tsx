@@ -75,7 +75,7 @@ export default function ContactPageClient() {
                 <span className="inline-block bg-brand-lavender/20 text-brand-lavender text-xs font-sans font-semibold uppercase tracking-widest rounded-full px-4 py-1.5 mb-6">
                   The Details
                 </span>
-                <h2 className="font-serif text-3xl md:text-4xl text-foreground leading-[1.15] mb-5">
+                <h2 className="font-sans font-semibold text-4xl md:text-6xl lg:text-7xl text-foreground leading-[1.05] tracking-tight text-balance max-w-4xl mb-5">
                   Tell me about your <span className="font-display italic text-muted-foreground">idea</span>
                 </h2>
                 <p className="font-sans text-base text-muted-foreground leading-relaxed mb-8">

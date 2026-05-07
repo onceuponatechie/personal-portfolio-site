@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowLeft, Link2, Twitter, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import ScrollReveal from "@/components/shared/ScrollReveal";
+import SectionLabel from "@/components/shared/SectionLabel";
 import { toast } from "@/hooks/use-toast";
 import type { PostFrontmatter } from "@/lib/content";
 
@@ -84,7 +85,7 @@ export default function BlogPostClient({ frontmatter, content, related }: BlogPo
                 {frontmatter.readTime} read
               </span>
             </div>
-            <h1 className="font-serif text-[34px] md:text-[48px] text-foreground leading-[1.12] max-w-2xl mx-auto">
+            <h1 className="font-sans font-semibold text-4xl md:text-6xl lg:text-7xl text-foreground leading-[1.05] tracking-tight text-balance max-w-4xl mx-auto">
               {frontmatter.title}
             </h1>
           </motion.div>
@@ -167,8 +168,10 @@ export default function BlogPostClient({ frontmatter, content, related }: BlogPo
             <ScrollReveal>
               <div className="flex items-end justify-between gap-4 mb-8">
                 <div>
-                  <p className="font-display italic text-sm text-muted-foreground mb-1">More to read</p>
-                  <h3 className="font-serif text-2xl md:text-3xl text-foreground">Keep exploring</h3>
+                  <div className="mb-3">
+                    <SectionLabel>More to read</SectionLabel>
+                  </div>
+                  <h3 className="font-sans font-semibold text-3xl md:text-5xl text-foreground leading-[1.05] tracking-tight text-balance">Keep exploring</h3>
                 </div>
                 <Link
                   href="/blog"

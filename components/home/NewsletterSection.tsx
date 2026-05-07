@@ -20,7 +20,7 @@ const NewsletterSection = () => {
 
             <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
               <div className="flex-1">
-                <h2 className="font-serif text-4xl md:text-5xl lg:text-[3.4rem] text-foreground leading-[1.15] mb-6">
+                <h2 className="font-sans font-semibold text-4xl md:text-6xl lg:text-7xl text-foreground leading-[1.05] tracking-tight text-balance max-w-4xl mb-6">
                   Subscribe to
                   <br />
                   <span className="font-display italic text-muted-foreground">QuietNotes</span>

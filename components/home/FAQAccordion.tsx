@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Plus } from "lucide-react";
 import Link from "next/link";
 import ScrollReveal from "@/components/shared/ScrollReveal";
+import SectionLabel from "@/components/shared/SectionLabel";
 
 const faqs = [
   { q: "What kind of work do you do?", a: "I build digital products, design brand experiences, create automation workflows, and write about the intersection of creativity and technology." },
@@ -23,8 +24,10 @@ const FAQAccordion = () => {
       <div className="max-w-2xl mx-auto px-6">
         <ScrollReveal>
           <div className="text-center mb-12">
-            <p className="font-display italic text-sm text-muted-foreground mb-3">FAQ</p>
-            <h2 className="font-serif text-3xl md:text-4xl text-foreground">
+            <div className="mb-5">
+              <SectionLabel>FAQ</SectionLabel>
+            </div>
+            <h2 className="font-sans font-semibold text-4xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-balance text-foreground max-w-4xl mx-auto">
               Your questions, <span className="font-display italic">answered</span>
             </h2>
           </div>

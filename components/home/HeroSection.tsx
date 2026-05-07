@@ -91,7 +91,7 @@ const HeroSection = () => {
         </motion.div>
 
         {/* Headline — media appears with icons, then each line cascades */}
-        <h1 className="font-serif text-[clamp(2.5rem,5vw,3.75rem)] leading-[1.15] text-foreground mb-6">
+        <h1 className="font-sans font-semibold text-4xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-balance text-foreground mb-6 max-w-4xl mx-auto">
           {/* Line 1 */}
           <motion.span {...textReveal(0.4)}>
             <span className="font-display italic">Products,</span>{" "}

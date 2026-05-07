@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import SectionLabel from "@/components/shared/SectionLabel";
 
 const BookQuillIcon = () => (
   <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -173,8 +174,10 @@ const ChooseYourAdventure = () => {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="mb-12 lg:mb-10 text-center"
         >
-          <p className="font-display italic text-sm text-muted-foreground mb-6">Can I Help?</p>
-          <h2 className="font-serif text-[34px] md:text-[44px] text-[#1A1A1A] leading-[1.1]">
+          <div className="mb-6">
+            <SectionLabel>Can I Help?</SectionLabel>
+          </div>
+          <h2 className="font-sans font-semibold text-4xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-balance text-[#1A1A1A] max-w-4xl mx-auto">
             Choose Your{" "}
             <span className="relative inline-block font-display italic">
               Adventure

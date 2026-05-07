@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import SectionLabel from "@/components/shared/SectionLabel";
 
 const skills = [
   { label: "Product Building", side: "left" as const, yOffset: -20, rotation: -4, icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><defs><linearGradient id="sp-cube" x1="0" y1="0" x2="1" y2="1"><stop stopColor="hsl(18 78% 57%)" /><stop offset="1" stopColor="hsl(18 78% 72%)" /></linearGradient></defs><path d="M12 2L3 7v10l9 5 9-5V7l-9-5z" fill="url(#sp-cube)" opacity="0.9" /><path d="M12 22V12M3 7l9 5 9-5" stroke="white" strokeWidth="1" opacity="0.5" /></svg>) },
@@ -58,14 +59,14 @@ const SkillsPillGrid = () => {
   return (
     <section className="py-24">
       <div className="max-w-6xl mx-auto px-6" ref={ref}>
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.1, duration: 0.4 }}
-          className="font-display italic text-sm text-muted-foreground mb-6 text-center"
+          className="mb-6 text-center"
         >
-          What I Do
-        </motion.p>
+          <SectionLabel>What I Do</SectionLabel>
+        </motion.div>
 
         <div className="relative flex items-center justify-center gap-12 lg:gap-16">
           <div className="hidden lg:flex flex-col gap-3 items-end" style={{ width: 180 }}>
