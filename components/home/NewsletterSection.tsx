@@ -1,18 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { Send, Star } from "lucide-react";
+import { PaperPlane, BrandStar } from "@/components/icons/BrandIcons";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
 const NewsletterSection = () => {
   const [email, setEmail] = useState("");
 
   return (
-    <section className="py-24">
+    <section className="py-32 md:py-40">
       <div className="max-w-6xl mx-auto px-4">
         <ScrollReveal>
-          <div className="rounded-3xl p-10 md:p-14" style={{ backgroundColor: "#fbfaf7" }}>
-            <div className="flex justify-start mb-10">
+          <div className="rounded-3xl p-12 md:p-16" style={{ backgroundColor: "#fbfaf7" }}>
+            <div className="flex justify-start mb-12">
               <span className="inline-block bg-brand-lavender/20 text-brand-lavender text-xs font-sans font-semibold uppercase tracking-widest rounded-full px-4 py-1.5">
                 Join the Community
               </span>
@@ -20,12 +20,12 @@ const NewsletterSection = () => {
 
             <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
               <div className="flex-1">
-                <h2 className="font-serif text-4xl md:text-5xl lg:text-[3.4rem] text-foreground leading-[1.15] mb-6">
+                <h2 className="font-serif text-display-lg text-foreground mb-8">
                   Subscribe to
                   <br />
                   <span className="font-display italic text-muted-foreground">QuietNotes</span>
                 </h2>
-                <p className="font-sans text-base text-muted-foreground leading-relaxed max-w-lg">
+                <p className="font-sans text-body-lg text-muted-foreground leading-relaxed max-w-lg">
                   Just a quiet corner of the internet for builders. Biweekly notes on products, tech, ambition, and the invisible systems that run them. It&apos;s free forever.
                 </p>
 
@@ -38,7 +38,7 @@ const NewsletterSection = () => {
                   <div>
                     <div className="flex gap-0.5 mb-0.5">
                       {Array.from({ length: 5 }).map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 text-brand-orange fill-brand-orange" />
+                        <BrandStar key={i} size={14} />
                       ))}
                     </div>
                     <p className="font-sans text-sm font-medium text-foreground">My fave brands</p>
@@ -47,7 +47,7 @@ const NewsletterSection = () => {
               </div>
 
               <div className="w-full lg:w-[420px] shrink-0">
-                <div className="rounded-3xl bg-white p-8 md:p-10" style={{ boxShadow: "0 8px 40px rgba(0,0,0,0.06), 0 2px 12px rgba(0,0,0,0.03)" }}>
+                <div className="rounded-3xl bg-white p-10 md:p-14" style={{ boxShadow: "0 8px 40px rgba(0,0,0,0.06), 0 2px 12px rgba(0,0,0,0.03)" }}>
                   <div className="mb-5">
                     <input
                       type="email"
@@ -63,7 +63,7 @@ const NewsletterSection = () => {
                     data-cursor="pointer"
                   >
                     Subscribe
-                    <Send className="w-4 h-4" />
+                    <PaperPlane size={16} />
                   </button>
                   <p className="text-center text-xs text-muted-foreground/60 font-sans mt-5 leading-relaxed">
                     By submitting this form, you&apos;ll be signed up to my free newsletter. No spam, just value.

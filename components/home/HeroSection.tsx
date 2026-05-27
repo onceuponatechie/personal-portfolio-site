@@ -64,7 +64,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-background to-surface-warm" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-white/60 rounded-full blur-[120px]" />
 
-      <motion.div style={{ y }} className="relative z-10 max-w-3xl mx-auto px-6 text-center pt-6 pb-16">
+      <motion.div style={{ y }} className="relative z-10 max-w-3xl mx-auto px-6 text-center pt-6 pb-24">
         {/* Smiley — icons appear first */}
         <motion.div
           initial={{ opacity: 0, scale: 0.7 }}
@@ -91,7 +91,7 @@ const HeroSection = () => {
         </motion.div>
 
         {/* Headline — media appears with icons, then each line cascades */}
-        <h1 className="font-serif text-[clamp(2.5rem,5vw,3.75rem)] leading-[1.15] text-foreground mb-6">
+        <h1 className="font-serif text-display-xl text-foreground mb-8">
           {/* Line 1 */}
           <motion.span {...textReveal(0.4)}>
             <span className="font-display italic">Products,</span>{" "}
@@ -122,7 +122,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, filter: "blur(6px)" }}
           animate={{ opacity: 1, filter: "blur(0px)" }}
           transition={{ duration: 0.55, delay: 1.06, ease: EASE }}
-          className="font-sans text-base md:text-lg font-light text-text-custom-secondary tracking-wide mb-10"
+          className="font-sans text-lg md:text-xl font-light text-text-custom-secondary tracking-wide mb-12"
         >
           Creator &middot; Builder &middot; Storyteller
         </motion.p>

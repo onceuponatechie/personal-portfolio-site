@@ -19,9 +19,20 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ['"Playfair Display"', 'serif'],
-        display: ['"Playfair Display"', 'serif'],
-        sans: ['"Inter"', 'sans-serif'],
+        serif: ['var(--font-playfair)', '"Playfair Display"', 'serif'],
+        display: ['var(--font-playfair)', '"Playfair Display"', 'serif'],
+        sans: ['var(--font-inter)', '"Inter"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-xl': ['clamp(3.5rem, 6vw, 5rem)', { lineHeight: '1.05', letterSpacing: '-0.02em' }],
+        'display-lg': ['clamp(2.75rem, 5vw, 4rem)', { lineHeight: '1.08', letterSpacing: '-0.015em' }],
+        'display-md': ['clamp(2rem, 3.5vw, 2.75rem)', { lineHeight: '1.12', letterSpacing: '-0.01em' }],
+        'body-lg': ['1.125rem', { lineHeight: '1.75' }],
+      },
+      boxShadow: {
+        'card': '0 1px 2px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06)',
+        'card-hover': '0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)',
+        'card-elevated': '0 16px 48px rgba(0,0,0,0.1), 0 4px 16px rgba(0,0,0,0.05)',
       },
       colors: {
         border: "hsl(var(--border))",

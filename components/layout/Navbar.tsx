@@ -52,7 +52,7 @@ const Navbar = () => {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="relative font-sans text-[13px] text-text-custom-secondary hover:text-brand-lavender transition-colors"
+                  className="relative font-sans text-sm text-text-custom-secondary hover:text-brand-lavender transition-colors"
                   data-cursor="pointer"
                 >
                   {link.label}
@@ -69,7 +69,7 @@ const Navbar = () => {
 
             <Link
               href="/contact"
-              className="bg-primary text-primary-foreground rounded-full px-6 py-2.5 font-sans text-[13px] font-medium hover:bg-[#5dcbf1] transition-colors"
+              className="bg-primary text-primary-foreground rounded-full px-7 py-3 font-sans text-sm font-medium hover:bg-[#5dcbf1] transition-colors"
               data-cursor="pointer"
             >
               Build With Me

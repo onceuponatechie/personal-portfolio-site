@@ -71,15 +71,15 @@ const Footer = () => {
       <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-20 bg-white/5 blur-3xl rounded-full" />
 
-      <div className="max-w-6xl mx-auto px-6 pt-24 pb-12" ref={ref}>
+      <div className="max-w-6xl mx-auto px-6 pt-36 pb-16" ref={ref}>
         {/* Main CTA */}
-        <div className="text-center mb-20">
-          <h2 className="font-serif text-2xl md:text-3xl" style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "0 0.35em" }}>
+        <div className="text-center mb-24">
+          <h2 className="font-serif text-3xl md:text-4xl" style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "0 0.35em" }}>
             {footerWords.map((word, i) => (
               <FooterRevealWord key={i} word={word.text} index={i} progress={revealProgress} />
             ))}
           </h2>
-          <h2 className="font-serif text-6xl md:text-8xl font-semibold mt-1">
+          <h2 className="font-serif text-7xl md:text-9xl font-semibold mt-2">
             <ExperienceReveal progress={revealProgress} />
           </h2>
 

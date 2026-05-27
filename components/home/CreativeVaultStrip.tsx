@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Folder } from "lucide-react";
+import { FolderSparkle } from "@/components/icons/BrandIcons";
 import Link from "next/link";
 
 const column1 = [
@@ -96,7 +96,7 @@ const CreativeVaultStrip = () => {
                     whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,1)" }}
                     className="w-[120px] h-[120px] rounded-full glassmorphism flex items-center justify-center transition-all"
                   >
-                    <Folder className="w-8 h-8 text-foreground" />
+                    <FolderSparkle size={32} />
                   </motion.div>
                 </Link>
               </div>

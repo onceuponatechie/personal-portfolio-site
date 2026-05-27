@@ -112,7 +112,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), 'Inter', sans-serif;
   }
 
   html {
@@ -127,17 +127,33 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair), 'Playfair Display', serif;
     font-weight: 400;
+    letter-spacing: -0.01em;
   }
 }
 
 @layer utilities {
   .font-serif {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair), 'Playfair Display', serif;
   }
   .font-sans {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), 'Inter', sans-serif;
+  }
+  .section-label {
+    @apply font-sans text-[12px] font-medium uppercase text-muted-foreground;
+    letter-spacing: 0.15em;
+  }
+  .card-premium {
+    @apply rounded-2xl bg-white/80 backdrop-blur-sm;
+    border: 1px solid rgba(0,0,0,0.04);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06);
+    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
+                box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  .card-premium:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
   }
   .glassmorphism {
     @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-sm;
@@ -160,7 +176,7 @@
 
 /* Case Study / MDX editorial styles */
 .prose-portfolio {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), 'Inter', sans-serif;
   color: hsl(var(--foreground));
   max-width: none;
 }
@@ -186,7 +202,7 @@
   text-decoration: underline;
 }
 .prose-portfolio :where(h2) {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-playfair), 'Playfair Display', serif;
   font-weight: 600;
   font-size: 36px;
   line-height: 1.15;
@@ -198,7 +214,7 @@
   .prose-portfolio :where(h2) { font-size: 40px; }
 }
 .prose-portfolio :where(h3) {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-playfair), 'Playfair Display', serif;
   font-weight: 600;
   font-size: 26px;
   line-height: 1.2;
@@ -277,7 +293,7 @@
   display: block;
 }
 .phone-mockup__caption {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), 'Inter', sans-serif;
   font-size: 14px;
   font-style: italic;
   color: hsl(var(--foreground) / 0.6);
@@ -311,7 +327,7 @@
   border-radius: 16px;
   padding: 24px;
   margin: 32px 0;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), 'Inter', sans-serif;
   color: hsl(var(--foreground));
 }
 .callout__label {
@@ -354,7 +370,7 @@
   margin: 48px 0;
 }
 .pull-quote__text {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), 'Inter', sans-serif;
   font-size: 20px;
   line-height: 1.6;
   font-style: normal;

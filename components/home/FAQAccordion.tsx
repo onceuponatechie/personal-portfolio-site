@@ -19,18 +19,18 @@ const FAQAccordion = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-24">
-      <div className="max-w-2xl mx-auto px-6">
+    <section className="py-32 md:py-40">
+      <div className="max-w-3xl mx-auto px-6">
         <ScrollReveal>
-          <div className="text-center mb-12">
-            <p className="font-display italic text-sm text-muted-foreground mb-3">FAQ</p>
-            <h2 className="font-serif text-3xl md:text-4xl text-foreground">
+          <div className="text-center mb-16">
+            <p className="section-label mb-5">FAQ</p>
+            <h2 className="font-serif text-display-md text-foreground">
               Your questions, <span className="font-display italic">answered</span>
             </h2>
           </div>
         </ScrollReveal>
 
-        <div className="space-y-3">
+        <div className="space-y-4">
           {faqs.map((faq, i) => (
             <ScrollReveal key={i} delay={i * 0.05}>
               <motion.div
@@ -45,7 +45,7 @@ const FAQAccordion = () => {
                   className="w-full flex items-center justify-between px-6 py-4 text-left"
                   data-cursor="pointer"
                 >
-                  <span className="font-sans text-sm font-medium text-foreground pr-4">{faq.q}</span>
+                  <span className="font-sans text-[15px] font-medium text-foreground pr-4">{faq.q}</span>
                   <motion.div
                     animate={{ rotate: openIndex === i ? 45 : 0 }}
                     transition={{ duration: 0.2 }}
@@ -69,7 +69,7 @@ const FAQAccordion = () => {
                       transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
                       className="overflow-hidden"
                     >
-                      <p className="px-6 pb-5 font-sans text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
+                      <p className="px-6 pb-6 font-sans text-[15px] text-muted-foreground leading-[1.7]">{faq.a}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>

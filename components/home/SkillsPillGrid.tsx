@@ -56,13 +56,13 @@ const SkillsPillGrid = () => {
   const revealProgress = useTransform(scrollYProgress, [0, 1], [0, words.length]);
 
   return (
-    <section className="py-24">
+    <section className="py-32 md:py-40">
       <div className="max-w-6xl mx-auto px-6" ref={ref}>
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.1, duration: 0.4 }}
-          className="font-display italic text-sm text-muted-foreground mb-6 text-center"
+          className="section-label mb-8 text-center"
         >
           What I Do
         </motion.p>
@@ -79,14 +79,14 @@ const SkillsPillGrid = () => {
                 style={{ marginTop: skill.yOffset, boxShadow: "0 4px 16px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04)" }}
               >
                 {skill.icon}
-                <span className="font-sans text-xs font-medium text-foreground whitespace-nowrap">{skill.label}</span>
+                <span className="font-sans text-[13px] font-medium text-foreground whitespace-nowrap">{skill.label}</span>
               </motion.div>
             ))}
           </div>
 
-          <div className="text-center max-w-lg">
+          <div className="text-center max-w-xl">
             <motion.p
-              className="font-serif text-xl md:text-[28px] leading-relaxed font-light"
+              className="font-serif text-display-md leading-relaxed font-light"
               style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "0 0.35em" }}
             >
               {words.map((word, i) => (

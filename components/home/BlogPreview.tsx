@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { BrandArrow } from "@/components/icons/BrandIcons";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
 const posts = [
@@ -99,17 +99,18 @@ const BlogCard = ({ post, index }: { post: (typeof posts)[0]; index: number }) =
         </div>
 
         {/* Text content */}
-        <div className="px-3 sm:px-4 pt-2 pb-3 sm:pb-4">
+        <div className="px-4 sm:px-5 pt-3 pb-4 sm:pb-5">
           <div className="flex items-start justify-between gap-2 mb-1.5">
-            <h3 className="font-serif text-sm sm:text-base md:text-lg text-foreground leading-snug">
+            <h3 className="font-serif text-base md:text-lg text-foreground leading-snug">
               {post.title}
             </h3>
             <div
               className="shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center mt-0.5 transition-colors"
               style={{ backgroundColor: hovered ? "hsl(18,78%,57%)" : "#1A1A1A" }}
             >
-              <ArrowUpRight
-                className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white"
+              <BrandArrow
+                size={14}
+                className="text-white"
               />
             </div>
           </div>
@@ -135,20 +136,20 @@ const BlogCard = ({ post, index }: { post: (typeof posts)[0]; index: number }) =
 
 const BlogPreview = () => {
   return (
-    <section className="py-24">
+    <section className="py-32 md:py-40">
       <div className="max-w-5xl mx-auto px-6">
         <ScrollReveal>
-          <div className="text-center mb-12">
-            <p className="font-display italic text-sm text-muted-foreground mb-3">
+          <div className="text-center mb-16 md:mb-20">
+            <p className="section-label mb-5">
               Stories
             </p>
-            <h2 className="font-serif text-[34px] md:text-[44px] text-foreground">
+            <h2 className="font-serif text-display-lg text-foreground">
               The Build <span className="relative inline-block font-display italic">Chapters<svg viewBox="0 0 200 22" fill="none" className="absolute -bottom-3 left-0 w-full" style={{ overflow: "visible" }}><path d="M0 6 C50 -4, 100 -4, 100 3 C100 10, 150 10, 200 0" stroke="#5dcbf1" strokeWidth="5.5" strokeLinecap="round" fill="none" /><path d="M0 16 C50 6, 100 6, 100 13 C100 20, 150 20, 200 10" stroke="#5dcbf1" strokeWidth="5.5" strokeLinecap="round" fill="none" /></svg></span>
             </h2>
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-8">
           {posts.map((post, i) => (
             <BlogCard key={post.slug} post={post} index={i} />
           ))}
@@ -162,7 +163,7 @@ const BlogPreview = () => {
               data-cursor="pointer"
             >
               Read All Stories
-              <ArrowUpRight className="w-4 h-4" />
+              <BrandArrow size={16} />
             </Link>
           </div>
         </ScrollReveal>
