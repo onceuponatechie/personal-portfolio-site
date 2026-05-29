@@ -6,37 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
-const projects = [
-  {
-    category: "Web App",
-    title: "Streamline Dashboard",
-    description:
-      "A real-time analytics dashboard with AI-powered insights for growing startups — turning raw data into decisions that move the needle.",
-    slug: "streamline-dashboard",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&h=1000&fit=crop",
-  },
-  {
-    category: "E-Commerce",
-    title: "Artisan Marketplace",
-    description:
-      "A curated marketplace for independent creators to sell handmade goods, built around trust, story, and beautifully tactile product pages.",
-    slug: "artisan-marketplace",
-    image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1600&h=1000&fit=crop",
-  },
-  {
-    category: "Mobile App",
-    title: "Wellness Tracker",
-    description:
-      "A mindful daily companion for habits, moods, and gratitude journaling — designed to feel calm, quiet, and genuinely human.",
-    slug: "wellness-tracker",
-    image:
-      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1600&h=1000&fit=crop",
-  },
-];
-
-interface Project {
+export interface FeaturedProject {
   category: string;
   title: string;
   description: string;
@@ -50,7 +20,7 @@ const ProjectCard = ({
   total,
   progress,
 }: {
-  project: Project;
+  project: FeaturedProject;
   index: number;
   total: number;
   progress: MotionValue<number>;
@@ -110,12 +80,18 @@ const ProjectCard = ({
   );
 };
 
-const FeaturedProjectsShowcase = () => {
+const FeaturedProjectsShowcase = ({
+  projects,
+}: {
+  projects: FeaturedProject[];
+}) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
+
+  if (projects.length === 0) return null;
 
   return (
     <section className="py-24">
