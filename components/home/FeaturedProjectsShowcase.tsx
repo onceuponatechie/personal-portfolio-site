@@ -1,180 +1,174 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence, useInView } from "framer-motion";
-import { Maximize2 } from "lucide-react";
+import { useRef } from "react";
+import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
-const projects = [
-  {
-    category: "Web App",
-    title: "Streamline Dashboard",
-    description: "A real-time analytics dashboard with AI-powered insights for growing startups.",
-    tools: ["React", "Tailwind", "Supabase"],
-    liveUrl: "https://streamline-demo.example.com",
-    slug: "streamline-dashboard",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=700&fit=crop",
-    thumb: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=240&h=340&fit=crop",
-  },
-  {
-    category: "E-Commerce",
-    title: "Artisan Marketplace",
-    description: "A curated marketplace for independent creators to sell handmade goods.",
-    tools: ["Next.js", "Stripe", "Sanity"],
-    liveUrl: "https://artisan-demo.example.com",
-    slug: "artisan-marketplace",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=700&fit=crop",
-    thumb: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=240&h=340&fit=crop",
-  },
-  {
-    category: "Mobile App",
-    title: "Wellness Tracker",
-    description: "A mindful daily tracker for habits, moods, and gratitude journaling.",
-    tools: ["React Native", "Firebase", "Figma"],
-    liveUrl: "https://wellness-demo.example.com",
-    slug: "wellness-tracker",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=700&fit=crop",
-    thumb: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=240&h=340&fit=crop",
-  },
-];
+export interface FeaturedProject {
+  category: string;
+  title: string;
+  description: string;
+  slug: string;
+  image: string;
+}
 
-const FeaturedProjectsShowcase = () => {
-  const [active, setActive] = useState(0);
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
-  const router = useRouter();
+const ProjectCard = ({
+  project,
+  index,
+  total,
+  progress,
+}: {
+  project: FeaturedProject;
+  index: number;
+  total: number;
+  progress: MotionValue<number>;
+}) => {
+  // Each card recedes as the next one scrolls up and covers it.
+  const rangeStart = index / total;
+  const targetScale = 1 - (total - index) * 0.04;
+  const scale = useTransform(progress, [rangeStart, 1], [1, targetScale]);
 
-  useEffect(() => {
-    const timer = setInterval(() => setActive((i) => (i + 1) % projects.length), 5000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const project = projects[active];
-  const goToProject = () => router.push(`/projects/${project.slug}`);
+  // Successive cards pin a little lower so the stack "peeks" at the top.
+  const stackOffset = index * 26;
 
   return (
-    <section className="py-24" ref={ref}>
-      <div className="max-w-6xl mx-auto px-4">
+    <div className="sticky top-0 flex min-h-screen items-center justify-center">
+      <motion.div
+        style={{ scale, top: stackOffset }}
+        className="gradient-border relative w-full overflow-hidden rounded-3xl"
+      >
+        <Link
+          href={`/projects/${project.slug}`}
+          aria-label={`View case study: ${project.title}`}
+          data-cursor="pointer"
+          className="group relative block overflow-hidden rounded-3xl bg-dark-bg"
+          style={{ height: "clamp(440px, 74vh, 720px)" }}
+        >
+          <img
+            src={project.image}
+            alt={project.title}
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+
+          {/* Readability wash */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/20" />
+
+          {/* Centered content block */}
+          <div className="absolute inset-0 flex flex-col items-center justify-end px-6 pb-16 text-center md:pb-20">
+            <span className="mb-5 inline-flex rounded-full bg-brand-lavender px-4 py-1.5 font-sans text-[11px] font-medium uppercase tracking-[0.12em] text-white shadow-lg shadow-black/20">
+              {project.category}
+            </span>
+
+            <h3 className="font-sans text-4xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+              {project.title}
+            </h3>
+
+            <p className="mt-5 max-w-xl font-sans text-sm leading-relaxed text-white/75 md:text-base">
+              {project.description}
+            </p>
+          </div>
+
+          {/* Circular arrow CTA pinned to the right edge */}
+          <span className="absolute right-5 top-1/2 flex h-14 w-14 -translate-y-1/2 items-center justify-center rounded-full bg-brand-lavender text-white shadow-xl shadow-black/30 transition-transform duration-300 group-hover:scale-110 md:right-8 md:h-16 md:w-16">
+            <ArrowUpRight className="h-6 w-6 transition-transform duration-300 group-hover:rotate-45" />
+          </span>
+        </Link>
+      </motion.div>
+    </div>
+  );
+};
+
+const FeaturedProjectsShowcase = ({
+  projects,
+}: {
+  projects: FeaturedProject[];
+}) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
+  if (projects.length === 0) return null;
+
+  return (
+    <section className="py-24">
+      <div className="mx-auto max-w-6xl px-4">
         <ScrollReveal>
-          <div className="text-center mb-12">
-            <p className="font-display italic text-sm text-muted-foreground mb-3">
+          <div className="mb-14 max-w-2xl">
+            <p className="mb-3 font-display text-sm italic text-muted-foreground">
               Featured Work
             </p>
-            <h2 className="font-serif text-[34px] md:text-[44px] text-foreground">
-              The <span className="relative inline-block font-display italic" style={{ padding: "0 0.15em" }}>Projects<svg viewBox="0 0 200 100" fill="none" className="absolute" style={{ top: "-20%", left: "-8%", width: "116%", height: "140%", overflow: "visible" }} preserveAspectRatio="none"><ellipse cx="100" cy="50" rx="95" ry="42" stroke="#5dcbf1" strokeWidth="5.5" strokeLinecap="round" fill="none" transform="rotate(-3 100 50)" style={{ strokeDasharray: "4 0" }} /></svg></span>
+            <h2 className="font-serif text-[34px] leading-tight text-foreground md:text-[44px]">
+              Featured{" "}
+              <span
+                className="relative inline-block font-display italic"
+                style={{ padding: "0 0.15em" }}
+              >
+                Projects
+                <svg
+                  viewBox="0 0 200 100"
+                  fill="none"
+                  className="absolute"
+                  style={{
+                    top: "-20%",
+                    left: "-8%",
+                    width: "116%",
+                    height: "140%",
+                    overflow: "visible",
+                  }}
+                  preserveAspectRatio="none"
+                >
+                  <ellipse
+                    cx="100"
+                    cy="50"
+                    rx="95"
+                    ry="42"
+                    stroke="#5dcbf1"
+                    strokeWidth="5.5"
+                    strokeLinecap="round"
+                    fill="none"
+                    transform="rotate(-3 100 50)"
+                    style={{ strokeDasharray: "4 0" }}
+                  />
+                </svg>
+              </span>
             </h2>
+            <p className="mt-5 font-sans text-base leading-relaxed text-muted-foreground">
+              These selected projects reflect my passion for blending strategy
+              with creativity — solving real problems through thoughtful design
+              and impactful storytelling.
+            </p>
           </div>
         </ScrollReveal>
 
-        <div className="gradient-border rounded-3xl overflow-hidden">
-          <div
-            className="bg-dark-bg rounded-3xl overflow-hidden relative cursor-pointer"
-            style={{ height: "clamp(500px, 75vh, 750px)" }}
-            onClick={goToProject}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                goToProject();
-              }
-            }}
-            role="link"
-            tabIndex={0}
-            aria-label={`View case study: ${project.title}`}
-            data-cursor="pointer"
-          >
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={active}
-                src={project.image}
-                alt={project.title}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.8 }}
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-            </AnimatePresence>
+        {/* Sticky-stacking scroll showcase */}
+        <div ref={containerRef} className="relative">
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={project.slug}
+              project={project}
+              index={index}
+              total={projects.length}
+              progress={scrollYProgress}
+            />
+          ))}
+        </div>
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-
-            <div className="absolute bottom-0 left-0 right-0 p-8 flex items-end justify-between">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={active}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.5 }}
-                  className="max-w-md"
-                >
-                  <span className="font-sans text-xs text-white/60 uppercase tracking-wider">
-                    {project.category}
-                  </span>
-                  <h3 className="font-serif text-3xl md:text-4xl text-white mt-2 mb-3">
-                    {project.title}
-                  </h3>
-                  <p className="font-sans text-sm text-white/70 mb-4">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 items-center">
-                    {project.tools.map((tool) => (
-                      <span
-                        key={tool}
-                        className="glassmorphism-dark rounded-full px-3 py-1 text-[11px] font-sans text-white/80"
-                      >
-                        {tool}
-                      </span>
-                    ))}
-                    <Link
-                      href={`/projects/${project.slug}`}
-                      data-cursor="pointer"
-                      className="inline-flex items-center gap-1.5 text-[#1A1A1A] rounded-full px-4 py-1.5 text-[11px] font-sans font-medium hover:bg-brand-blue hover:text-white transition-colors"
-                      style={{ backgroundColor: "#fdfcfa" }}
-                    >
-                      View Case Study
-                    </Link>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-
-              <div className="hidden md:flex flex-row gap-3 items-end">
-                {projects.map((p, i) => (
-                  <button
-                    key={i}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setActive(i);
-                    }}
-                    data-cursor="pointer"
-                    className={`w-[120px] h-[80px] rounded-xl overflow-hidden border-2 transition-all ${
-                      i === active ? "border-white/60 scale-105" : "border-white/20 opacity-60 hover:opacity-80"
-                    }`}
-                  >
-                    <img src={p.thumb} alt={p.title} className="w-full h-full object-cover" />
-                  </button>
-                ))}
-              </div>
-            </div>
-
+        <ScrollReveal>
+          <div className="mt-16 flex justify-center">
             <Link
               href="/projects"
-              onClick={(e) => e.stopPropagation()}
-              className="absolute top-6 right-6 rounded-full w-10 h-10 flex items-center justify-center text-[#1A1A1A] hover:opacity-90 transition-opacity"
-              style={{ backgroundColor: "#fdfcfa" }}
               data-cursor="pointer"
+              className="inline-flex items-center gap-2 rounded-full border border-foreground/20 px-8 py-3.5 font-sans text-sm font-medium uppercase tracking-wide text-foreground transition-colors hover:border-brand-lavender hover:text-brand-lavender"
             >
-              <Maximize2 className="w-4 h-4" />
+              Browse All Projects
+              <ArrowUpRight className="h-4 w-4" />
             </Link>
-
-            <div className="absolute bottom-8 right-8 md:hidden">
-              <span className="font-sans text-xs text-white/60">
-                {active + 1} / {projects.length}
-              </span>
-            </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
