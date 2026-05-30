@@ -61,19 +61,19 @@ const ProjectCard = ({
               {project.category}
             </span>
 
-            <h3 className="font-sans text-4xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+            <h3 className="font-serif text-[clamp(1.75rem,4vw,3.25rem)] leading-tight text-white">
               {project.title}
             </h3>
 
             <p className="mt-5 max-w-xl font-sans text-sm leading-relaxed text-white/75 md:text-base">
               {project.description}
             </p>
-          </div>
 
-          {/* Circular arrow CTA pinned to the right edge */}
-          <span className="absolute right-5 top-1/2 flex h-14 w-14 -translate-y-1/2 items-center justify-center rounded-full bg-brand-lavender text-white shadow-xl shadow-black/30 transition-transform duration-300 group-hover:scale-110 md:right-8 md:h-16 md:w-16">
-            <ArrowUpRight className="h-6 w-6 transition-transform duration-300 group-hover:rotate-45" />
-          </span>
+            {/* Circular arrow CTA, below the title and description */}
+            <span className="mt-7 flex h-14 w-14 items-center justify-center rounded-full bg-brand-lavender text-white shadow-xl shadow-black/30 transition-transform duration-300 group-hover:scale-110 md:h-16 md:w-16">
+              <ArrowUpRight className="h-6 w-6 transition-transform duration-300 group-hover:rotate-45" />
+            </span>
+          </div>
         </Link>
       </motion.div>
     </div>
@@ -97,7 +97,7 @@ const FeaturedProjectsShowcase = ({
     <section className="py-24">
       <div className="mx-auto max-w-6xl px-4">
         <ScrollReveal>
-          <div className="mb-14 max-w-2xl">
+          <div className="mb-14 text-center">
             <p className="mb-3 font-display text-sm italic text-muted-foreground">
               Featured Work
             </p>
@@ -136,11 +136,6 @@ const FeaturedProjectsShowcase = ({
                 </svg>
               </span>
             </h2>
-            <p className="mt-5 font-sans text-base leading-relaxed text-muted-foreground">
-              These selected projects reflect my passion for blending strategy
-              with creativity — solving real problems through thoughtful design
-              and impactful storytelling.
-            </p>
           </div>
         </ScrollReveal>
 
@@ -162,7 +157,7 @@ const FeaturedProjectsShowcase = ({
             <Link
               href="/projects"
               data-cursor="pointer"
-              className="inline-flex items-center gap-2 rounded-full border border-foreground/20 px-8 py-3.5 font-sans text-sm font-medium uppercase tracking-wide text-foreground transition-colors hover:border-brand-lavender hover:text-brand-lavender"
+              className="inline-flex items-center gap-2 rounded-full border border-foreground/20 px-8 py-3.5 font-sans text-sm font-light uppercase tracking-wide text-foreground transition-colors hover:border-brand-lavender hover:text-brand-lavender"
             >
               Browse All Projects
               <ArrowUpRight className="h-4 w-4" />
