@@ -4,6 +4,7 @@ import CreativeVaultStrip from "@/components/home/CreativeVaultStrip";
 import SkillsPillGrid from "@/components/home/SkillsPillGrid";
 
 import FeaturedProjectsShowcase from "@/components/home/FeaturedProjectsShowcase";
+import BlogPreview from "@/components/home/BlogPreview";
 import NewsletterSection from "@/components/home/NewsletterSection";
 import FAQAccordion from "@/components/home/FAQAccordion";
 import { getAllProjects } from "@/lib/content";
@@ -28,6 +29,7 @@ export default function HomePage() {
       <CreativeVaultStrip />
       <SkillsPillGrid />
       <FeaturedProjectsShowcase projects={showcaseProjects} />
+      <BlogPreview />
       <NewsletterSection />
       <FAQAccordion />
     </>
