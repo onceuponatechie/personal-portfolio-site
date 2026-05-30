@@ -157,7 +157,7 @@ const FeaturedProjectsShowcase = ({
             <Link
               href="/projects"
               data-cursor="pointer"
-              className="inline-flex items-center gap-2 rounded-full border border-foreground/20 px-8 py-3.5 font-sans text-sm font-light uppercase tracking-wide text-foreground transition-colors hover:border-brand-lavender hover:text-brand-lavender"
+              className="inline-flex items-center gap-2 rounded-full border border-foreground/20 px-8 py-3.5 font-sans text-sm font-light tracking-wide text-foreground transition-colors hover:border-brand-lavender hover:text-brand-lavender"
             >
               Browse All Projects
               <ArrowUpRight className="h-4 w-4" />
