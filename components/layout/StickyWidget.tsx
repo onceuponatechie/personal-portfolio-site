@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Gift } from "lucide-react";
+import { X } from "lucide-react";
 import Link from "next/link";
 
 const StickyWidget = () => {
@@ -34,38 +34,40 @@ const StickyWidget = () => {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ type: "spring", stiffness: 260, damping: 20 }}
-          className="fixed bottom-6 right-6 z-50 max-w-[140px]"
+          className="fixed bottom-6 right-6 z-50 w-[140px]"
         >
-          <div className="glassmorphism rounded-2xl shadow-xl p-3 relative">
+          <div className="relative">
+            {/* Dismiss — kept so users can remove the widget */}
             <button
               onClick={dismiss}
-              className="absolute -top-2 -right-2 w-5 h-5 bg-card rounded-full flex items-center justify-center shadow-sm border border-border"
+              aria-label="Dismiss"
+              className="absolute -top-2 -left-2 z-10 flex h-5 w-5 items-center justify-center rounded-full border border-border bg-card shadow-sm"
               data-cursor="pointer"
             >
-              <X className="w-3 h-3 text-muted-foreground" />
+              <X className="h-3 w-3 text-muted-foreground" />
             </button>
 
-            <div className="flex items-center gap-1 mb-2">
-              <span className="bg-primary text-primary-foreground text-[8px] font-sans font-bold uppercase px-1.5 py-0.5 rounded-full">
-                NEW
-              </span>
-            </div>
-
-            <div className="w-full h-16 bg-surface-light rounded-lg mb-2 overflow-hidden">
-              <div className="w-full h-full bg-gradient-to-br from-brand-lavender/20 to-brand-orange/20 flex items-center justify-center">
-                <Gift className="w-4 h-4 text-primary" />
+            {/* Screen card */}
+            <div className="rounded-2xl bg-white p-2 shadow-xl">
+              <div className="relative overflow-hidden rounded-xl">
+                <img
+                  src="/images/projects/cowrywise/01-cover.png"
+                  alt="New resource preview"
+                  className="h-[88px] w-full object-cover"
+                />
+                <span className="absolute right-1.5 top-1.5 rounded-full bg-primary px-1.5 py-0.5 font-sans text-[8px] font-bold uppercase text-primary-foreground shadow-sm">
+                  NEW
+                </span>
               </div>
             </div>
 
-            <p className="text-[10px] font-sans font-medium text-foreground leading-tight mb-1">
-              Free Resource Kit
-            </p>
+            {/* Action button */}
             <Link
               href="/resources"
-              className="text-[10px] font-sans font-medium text-primary hover:underline"
               data-cursor="pointer"
+              className="mt-2 block rounded-full bg-white px-3 py-2.5 text-center font-sans text-[11px] font-bold text-foreground shadow-lg transition-shadow hover:shadow-md"
             >
-              Take a Peek &rarr;
+              Get new resource
             </Link>
           </div>
         </motion.div>
