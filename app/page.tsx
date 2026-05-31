@@ -7,10 +7,11 @@ import FeaturedProjectsShowcase from "@/components/home/FeaturedProjectsShowcase
 import BlogPreview from "@/components/home/BlogPreview";
 import NewsletterSection from "@/components/home/NewsletterSection";
 import FAQAccordion from "@/components/home/FAQAccordion";
-import { getAllProjects } from "@/lib/content";
+import { getAllProjects, getResources } from "@/lib/content";
 
 export default function HomePage() {
   const allProjects = getAllProjects();
+  const resources = getResources();
   const featured = allProjects.filter((p) => p.featured);
   // Fall back to the most recent projects when nothing is explicitly featured.
   const showcaseProjects = (featured.length > 0 ? featured : allProjects)
@@ -26,7 +27,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <CreativeVaultStrip />
+      <CreativeVaultStrip resources={resources} />
       <SkillsPillGrid />
       <FeaturedProjectsShowcase projects={showcaseProjects} />
       <BlogPreview />
