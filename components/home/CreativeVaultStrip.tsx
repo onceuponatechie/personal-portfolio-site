@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Folder } from "lucide-react";
+import { Folder, Sparkles } from "lucide-react";
 import Link from "next/link";
 
 interface ResourceCard {
@@ -71,10 +71,10 @@ const CreativeVaultStrip = ({ resources = [] }: { resources?: ResourceCard[] }) 
   const col2 = resources.slice(4, 7);
   const col3 = resources.slice(7, 10);
 
-  // Progressive fade, weighted to the top: content dissolves into the page
-  // background as it scrolls out the top; the bottom only kisses the edge.
+  // Progressive fade at the top only: content dissolves into the page
+  // background as it scrolls out the top; the bottom edge stays clean.
   const dimMask =
-    "linear-gradient(to bottom, hsl(var(--background)) 0%, hsl(var(--background)) 5%, hsl(var(--background) / 0) 34%, hsl(var(--background) / 0) 93%, hsl(var(--background) / 0.65) 100%)";
+    "linear-gradient(to bottom, hsl(var(--background)) 0%, hsl(var(--background)) 5%, hsl(var(--background) / 0) 34%, hsl(var(--background) / 0) 100%)";
   // Blur is strongest at the very top and eases off by ~38%.
   const blurMask =
     "linear-gradient(to bottom, black 0%, black 6%, transparent 38%, transparent 100%)";
@@ -88,7 +88,7 @@ const CreativeVaultStrip = ({ resources = [] }: { resources?: ResourceCard[] }) 
           <div className="overflow-hidden rounded-[1.7rem] bg-background p-2.5 md:p-3">
             <div
               className="relative overflow-hidden rounded-[1.4rem]"
-              style={{ height: "clamp(480px, 64vh, 640px)" }}
+              style={{ height: "clamp(720px, 96vh, 960px)" }}
             >
               {/* Mosaic — two columns on mobile, three from md up */}
               <div className="absolute inset-0 flex gap-2.5 md:gap-3">
@@ -112,13 +112,21 @@ const CreativeVaultStrip = ({ resources = [] }: { resources?: ResourceCard[] }) 
               <div className="absolute inset-0 z-20 flex items-center justify-center">
                 <div className="flex flex-col items-center">
                   <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={inView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ delay: 0.3 }}
-                    className="relative mb-5 rounded-full bg-foreground px-4 py-2 font-sans text-sm text-background shadow-lg"
+                    initial={{ opacity: 0, y: 12, rotate: 0 }}
+                    animate={inView ? { opacity: 1, y: 0, rotate: -4 } : {}}
+                    transition={{ delay: 0.3, type: "spring", stiffness: 220, damping: 16 }}
+                    className="relative mb-6"
                   >
-                    The Creative Vault
-                    <span className="absolute -bottom-1 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 rounded-[2px] bg-foreground" />
+                    <motion.div
+                      animate={{ y: [0, -5, 0] }}
+                      transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
+                      className="flex items-center gap-1.5 rounded-2xl rounded-bl-md bg-foreground px-3.5 py-2 font-sans text-sm font-medium text-background shadow-[0_10px_24px_-10px_rgba(0,0,0,0.45)]"
+                    >
+                      <Sparkles className="h-3.5 w-3.5 text-brand-yellow" />
+                      The Vault
+                      {/* organic, off-centre tail */}
+                      <span className="absolute -bottom-1.5 left-5 h-3.5 w-3.5 rotate-[28deg] rounded-[3px] bg-foreground" />
+                    </motion.div>
                   </motion.div>
                   <Link href="/resources" data-cursor="pointer" aria-label="Explore the Creative Vault">
                     <motion.div
