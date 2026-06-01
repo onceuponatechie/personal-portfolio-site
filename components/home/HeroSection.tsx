@@ -56,12 +56,14 @@ const textReveal = (delay: number) => ({
 const HeroSection = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 60]);
 
   return (
     <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background to-surface-warm" />
+      {/* Warm at the top, settling into the page background by the bottom so the
+          next section blends in with no colour seam. */}
+      <div className="absolute inset-0 bg-gradient-to-b from-surface-warm via-background to-background" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-white/60 rounded-full blur-[120px]" />
 
       <motion.div style={{ y }} className="relative z-10 max-w-3xl mx-auto px-6 text-center pt-6 pb-16">
